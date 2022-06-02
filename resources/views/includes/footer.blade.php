@@ -12,7 +12,7 @@
         </div><!-- End Page -->
 			<!-- Back to top -->
 		<a href="#top" id="back-to-top"><i class="fe fe-chevrons-up"></i></a>
-
+@livewireScripts()
 		<!-- Jquery js-->
 		<script src="{{ asset('back/assets/js/jquery-3.5.1.min.js') }}"></script>
 

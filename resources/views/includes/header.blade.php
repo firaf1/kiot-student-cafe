@@ -47,7 +47,7 @@
 		<!-- Switcher css -->
 		<link rel="stylesheet" href="{{ asset('back/assets/switcher/css/switcher.css')}}">
 		<link rel="stylesheet" href="{{ asset('back/assets/switcher/demo.css')}}">
-
+@livewireStyles()
 		</head>
 
 	<body class="app sidebar-mini">
