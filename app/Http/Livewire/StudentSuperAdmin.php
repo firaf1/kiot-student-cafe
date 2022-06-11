@@ -19,6 +19,7 @@ public function StatusChangeUnapprove($id)
         $student->save();
         $this->mount();
 }
+
     public function StatusChangeApprove($id)
     {
          

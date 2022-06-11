@@ -30,7 +30,7 @@
 					</div>
 
 
-					<div class="modal fade show" id="normalmodal" tabindex="-1" role="dialog" aria-labelledby="normalmodal"  aria-modal="true">
+			<div class="modal fade show" id="normalmodal" tabindex="-1" role="dialog" aria-labelledby="normalmodal"  aria-modal="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">

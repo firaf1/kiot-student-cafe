@@ -49,10 +49,6 @@
     <link href="{{ asset('front/dependencies/SanFrasiscoPro/css/stylesheet.css') }}"
         rel="stylesheet" type="text/css">
 
-
-</head>
-
-<body id="home-version-1" class="home-version-1" data-style="default" style="overflow:hidden"  >
     <style>
         input {
             border: none;
@@ -188,254 +184,108 @@
         }
 
     </style>
+    @livewireStyles()
+</head>
+
+<body id="home-version-1" class="home-version-1" data-style="default" style="overflow:hidden">
 
     <div id="site"></div>
-    <div id="conn" class="off-canvus-menu">
-        <a href="#" class="close-offcanvus">
-            <img src="media/images/icon/cross.png" alt="">
-        </a>
-        <div class="offcanvas-box display-flex">
 
-            <div class="half-grid">
-                <img id="ownerpic" src="front/placeholder.jpg" style=" width: 400px; height: 400px;" />
-                {{-- <h2 style="font-size:40px; color: white;" id="staffName">Loading ...</h2>
-                <h3 style="font-size:40px; color: white;" id="staffId">Loading ...</h3> --}}
-            </div>
-
-            <div class="half-grid desplay-flex" style="margin-top: 7rem; ">
-                <br>
-                {{-- <h2  style="font-size:48px; color: grey;">Status: <span style="font-size:48px; color: rgb(245, 245, 245);" id="name">Loading...</span></h2> --}}
-                <h4 style=" color: rgb(255, 255, 255);">Name: <span style=" color: rgb(245, 245, 245);"
-                        id="name">Loading...</span></h4>
-                <h4 style=" color: rgb(255, 255, 255);">Id Number: <span style=" color: rgb(255, 238, 5);"
-                        id="s_n">Loading...</span></h4>
-                <div class="offcanvas-facilities-box">
-                    <h4 style=" color: rgb(255, 255, 255);">Role: <span style=" color: rgb(245, 245, 245);"
-                            id="Role">Loading...</span></h4>
-                </div>
-            </div>
-        </div>
-
-        <div class="offcanvas-footer">
-            <div class="imgs justify-between">
-                {{-- <img id="img1" src="{{ asset('front/phd.jpg') }}"
-                style="width: 280px; height: 210px;" />
-                <img id="img2" src="{{ asset('front/phd.jpg') }}"
-                    style="width: 280px; height: 210px;" />
-                <img id="img3" src="{{ asset('front/phd.jpg') }}"
-                    style="width: 280px; height: 210px;" /> --}}
-                <h1 style="color: rgb(115, 204, 115)">SUCCESSFULLY ATTENDED</h1>
-            </div>
-            <div class="">
-                <span>BGI-KOMBOLCHA</span>
-            </div>
-        </div>
-    </div>
-
-
-    <div id="conn2" class="off-canvus-menu">
-        <a href="#" class="close-offcanvus">
-            <img src="media/images/icon/cross.png" alt="">
-        </a>
-        <div class="offcanvas-box ">
-            <div>
-                <img id="ownerpic" src="idcard/den.png" />
-                {{-- <h2 style="font-size:40px; color: white;" id="staffName">Loading ...</h2>
-                <h3 style="font-size:40px; color: white;" id="staffId">Loading ...</h3> --}}
-            </div>
-            <div class="desplay-flex" style="margin-top: 7rem; ">
-                <h1 style="color: rgb(240, 48, 0)">Unsuccessfull Trial!</h1>
-
-            </div>
-
-
-        </div>
-
-        <div class="offcanvas-footer">
-
-            <div class="">
-                <h1></h1>
-                <span>BGI-KOMBOLCHA</span>
-            </div>
-        </div>
-    </div>
+   @livewire('student-enterance')
 
 
 
-    <!--=========================-->
-    <!--=      Slider Section    =-->
-    <!--=========================-->
-
-    <section class="slider-wrapper" style="width:100%; height:100%; overflow:hidden;" >
-
-        <div class="slider">
-            <div class="bounce mt-5">
-                <img src="{{ asset('front/hom.png') }} " class="fa" alt="">
-            </div>
-        </div>
-        <div class="slider-hexagon-wrapper">
-
-            <ul>
-                <li>
-                    <div class="hexagon one color-four"></div>
-                </li>
-                <li>
-                    <div class="hexagon one color-five"></div>
-                </li>
-                <li>
-                    <div class="hexagon one color-one"></div>
-                </li>
-                <li>
-                    <div class="hexagon one color-two"></div>
-                </li>
-                <li>
-                    <div class="hexagon three color-three"></div>
-                </li>
-            </ul>
-        </div>
-        <div class="slider-text">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <div class="slider-text-inner">
-                            <img src="{{ asset('front/wollo.png') }}" style="margin-top:-5rem; " width="500" />
-                            <div class="sleider-heading">
-                                <h1 onclick="openFullscreen();" style="color: darkolivegreen">Wollo<br>University <br> 
-                                <span>Student Cafe<br> CHECK
-                                        POINT</span></h1>
-                                        
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <input class="form-control" id="rec" type="text" autofocus>
-                                    {{-- <p style="color: red; font-size: 8pt">Type to check manually!</p> --}}
-                                </div>
-
-                                <div class="countdown-wrapper">
-                                    <div class="countdown" data-count-year="2019" data-count-month="1"
-                                        data-count-day="30"></div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- /.col-md-12 -->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container -->
-        </div>
-        <div class="slider-hex-right">
-            <ul>
-                <li data-aos="fade" data-aos-delay="3000" data-aos-duration="500">
-                    <div class="hexagon one color-five"></div>
-                </li>
-                <li data-aos="fade" data-aos-delay="3000" data-aos-duration="1000">
-                    <div class="hexagon one color-two"></div>
-                </li>
-                <li data-aos="fade" data-aos-delay="3000" data-aos-duration="1500">
-                    <div class="hexagon one "></div>
-                </li>
-                <li data-aos="fade" data-aos-delay="3000" data-aos-duration="2000">
-                    <div class="hexagon one color-one"></div>
-                </li>
-                <li data-aos="fade" data-aos-delay="3000" data-aos-duration="2500">
-                    <div class="hexagon three color-three"></div>
-                </li>
-            </ul>
-        </div>
-        <div class="slider-net-right">
-            <img class="svg" src="media/images/icon/net2.svg" alt="">
-        </div>
-        <!-- /.slider-hexagon-right -->
-    </section>
     </div>
     <!-- /#site -->
+    @livewireScripts()
 
-    <!-- Dependency Scripts -->
-    <script src="{{ asset('front/dependencies/popper.js/popper.min.js') }}"></script>
-    <script src="{{ asset('front/dependencies/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('front/dependencies/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('front/assets/js/app.js') }}"></script>
+        <!-- Dependency Scripts -->
+        <script src="{{ asset('front/dependencies/popper.js/popper.min.js') }}"></script>
+        <script src="{{ asset('front/dependencies/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('front/dependencies/bootstrap/js/bootstrap.min.js') }}">
+        </script>
+        <script src="{{ asset('front/assets/js/app.js') }}"></script>
 
 
-    <script type="text/javascript">
-        function myTimer() {
-            document.getElementById("rec").focus();
-        }
-        var myVar = setInterval(myTimer, 1000);
-
-        //setup before functions
-        var typingTimer; //timer identifier
-        var doneTypingInterval = 300;
-        var closeTime = 3000;
-
-        //on keyup, start the countdown
-        $('#rec').keyup(function () {
-            clearTimeout(typingTimer);
-            if ($('#rec').val()) {
-                typingTimer = setTimeout(doneTyping, doneTypingInterval);
+        <script type="text/javascript">
+            function myTimer() {
+                document.getElementById("rec").focus();
             }
-        });
+            var myVar = setInterval(myTimer, 1000);
 
-        //qr is "finished being written," do other things
-        function doneTyping() {
-            inactivityTime();
-            $('.off-canvus-menu').removeClass('open');
-            $('.mask-overlay').remove();
-            let inp = document.getElementById('rec');
-            let valueOF = inp.value;
-            //	console.log(valueOF);
-             
-            inp.value = null;
+            //setup before functions
+            var typingTimer; //timer identifier
+            var doneTypingInterval = 300;
+            var closeTime = 3000;
 
-            var mask = '<div class="mask-overlay">';
-            $('.off-canvus-menu').addClass('open');
-            $(mask).hide().appendTo('body').fadeIn('fast');
-            $('.mask-overlay, .close-offcanvus').on('click', function () {
-                inp.focus();
-                $('.off-canvus-menu').removeClass('open');
-                $('.mask-overlay').remove();
+            //on keyup, start the countdown
+            $('#rec').keyup(function () {
+                clearTimeout(typingTimer);
+                if ($('#rec').val()) {
+                    typingTimer = setTimeout(doneTyping, doneTypingInterval);
+                }
             });
 
-        }
-
-        var inactivityTime = function () {
-            var time;
-            window.onload = resetTimer;
-            // DOM Events
-            document.onload = resetTimer;
-            document.onmousemove = resetTimer;
-            document.onmousedown = resetTimer;
-            document.ontouchstart = resetTimer;
-            document.onclick = resetTimer;
-            document.onkeydown = resetTimer;
-
-            function leave() {
+            //qr is "finished being written," do other things
+            function doneTyping() {
+                inactivityTime();
                 $('.off-canvus-menu').removeClass('open');
                 $('.mask-overlay').remove();
+                let inp = document.getElementById('rec');
+                let valueOF = inp.value;
+                Livewire.emit('postAdded',valueOF )
+                console.log(valueOF);
+                inp.value = null;
+
+                var mask = '<div class="mask-overlay">';
+                $('.off-canvus-menu').addClass('open');
+                $(mask).hide().appendTo('body').fadeIn('fast');
+                $('.mask-overlay, .close-offcanvus').on('click', function () {
+                    inp.focus();
+                    $('.off-canvus-menu').removeClass('open');
+                    $('.mask-overlay').remove();
+                });
+
             }
 
-            function resetTimer() {
-                clearTimeout(time);
-                time = setTimeout(leave, 30000)
-                // 1000 milliseconds = 1 second
+            var inactivityTime = function () {
+                var time;
+                window.onload = resetTimer;
+                // DOM Events
+                document.onload = resetTimer;
+                document.onmousemove = resetTimer;
+                document.onmousedown = resetTimer;
+                document.ontouchstart = resetTimer;
+                document.onclick = resetTimer;
+                document.onkeydown = resetTimer;
+
+                function leave() {
+                    $('.off-canvus-menu').removeClass('open');
+                    $('.mask-overlay').remove();
+                }
+
+                function resetTimer() {
+                    clearTimeout(time);
+                    time = setTimeout(leave, 30000)
+                    // 1000 milliseconds = 1 second
+                }
+            };
+
+            function openFullscreen() {
+                var elem = document.documentElement;
+
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    /* IE11 */
+                    elem.msRequestFullscreen();
+                }
             }
-        };
-        function openFullscreen() {
-            var elem = document.documentElement;
-             
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) { /* Safari */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE11 */
-    elem.msRequestFullscreen();
-  }
-}
-    </script>
+
+        </script>
 </body>
 
 

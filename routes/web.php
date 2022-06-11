@@ -4,6 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Intervention\Image\ImageManagerStatic;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SuperAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::get('/', function () {
 Route::get('admin', function () {
     return view('pages.index');
 });
+Route::get('schedule', [SuperAdminController::class, 'schedule'])->name('schedule');
+
+
 Route::get('qr-generate', [StudentController::class, 'qr_generate'])->name('qr-generate');
 Route::get('qr', function () {
    /* This sets the $time variable to the current hour in the 24 hour clock format */

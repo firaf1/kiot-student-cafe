@@ -37,7 +37,9 @@
 
 		<!---Icons css-->
 		<link href="{{ asset('back/assets/css/icons.css')}}" rel="stylesheet" />
-			
+					<!-- INTERNAL Notifications  Css -->
+		<link href="{{ asset('back/assets/plugins/notify/css/jquery.growl.css')}}" rel="stylesheet" />
+		<link href="{{ asset('back/assets/plugins/notify/css/notifIt.css')}}" rel="stylesheet" />
 		<!-- Simplebar css -->
 		<link rel="stylesheet" href="{{ asset('back/assets/plugins/simplebar/css/simplebar.css')}}">
 

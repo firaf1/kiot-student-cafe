@@ -26,9 +26,6 @@ class StudentController extends Controller
                 $card = ImageManagerStatic::make('card/card.jpg')->resize(2000, 3000);
                 $pic = ImageManagerStatic::make($student->image)->resize(880, 880);
                 $card->insert($pic, '', 570, 490);
-
-
-                
                 $dns = new DNS2D;
                 $str=rand(); 
                 $result = md5($str); 

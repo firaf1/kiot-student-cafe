@@ -62,13 +62,22 @@
 <!--INTERNAL Index js-->
 <script src="{{ asset('back/assets/js/index1.js') }}"></script>
 
+<!-- INTERNAL Notifications js -->
+<script src="{{ asset('back/assets/plugins/notify/js/rainbow.js') }}"></script>
+		 
+		<script src="{{ asset('back/assets/plugins/notify/js/jquery.growl.js') }}"></script>
+		<script src="{{ asset('back/assets/plugins/notify/js/notifIt.js') }}"></script>
 		<!-- Simplebar JS -->
 		<script src="{{ asset('back/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
 		<!-- Custom js-->
 		<script src="{{ asset('back/assets/js/custom.js') }}"></script>
 
 		<!-- Switcher js-->
-		<script src="{{ asset('back/assets/switcher/js/switcher.js') }}"></script>			</body>
+		<script src="{{ asset('back/assets/switcher/js/switcher.js') }}"></script>		
+		 
+
+@include('includes.notification')
+	</body>
 
 <!-- Mirrored from laravel.spruko.com/admitro/Vertical-IconSidedar-Light/index by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 May 2021 05:54:41 GMT -->
 </html>
