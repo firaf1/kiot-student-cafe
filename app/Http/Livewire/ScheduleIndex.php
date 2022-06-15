@@ -10,7 +10,7 @@ class ScheduleIndex extends Component
     public $title, $startingDate,$schedule,$scheduleErrorMessage, $editTitle, $editEndDate,$schedule_id, $editStartDate, $endingDate, $schedules;
     protected $rules = [
 
-        'title' => 'required|unique:schedules,title|min:10',
+        'title' => 'required|unique:schedules,title',
         'startingDate' => 'required|numeric|min:1|max:24',
         'endingDate' => 'required|numeric|min:1|max:24',
         
@@ -18,6 +18,7 @@ class ScheduleIndex extends Component
     ];
     public function mount()
     {
+        
         $this->schedules = Schedule::latest()->get();
     }
 
@@ -46,13 +47,15 @@ class ScheduleIndex extends Component
         
         $this->validate();
         $time = date("H");
-        if($this->startingDate <= 22 && $this->startingDate < $this->endingDate && ($this->startingDate+2)< $this->endingDate){
+        if($this->startingDate <= 22 && $this->startingDate < $this->endingDate && ($this->startingDate+2)<= $this->endingDate){
             $schedule = new Schedule();
             $schedule->title = $this->title;
-            $schedule->type = "no";
+            $schedule->type = "inactive";
             $schedule->starting_time = $this->startingDate;
             $schedule->ending_time = $this->endingDate;
-            $schedule->status = "Approved";
+            $schedule->status = "Unapproved";
+            $this->scheduleErrorMessage = "";
+            $this->reset();
             $schedule->save();
             $this->mount();
             $this->emit('postAdded', "Schedule Successfully Added!", 'success', 'right');
@@ -60,16 +63,18 @@ class ScheduleIndex extends Component
         else if($this->startingDate > 22 && $this->startingDate > $this->endingDate && (($this->endingDate + 24) - $this->startingDate) <=2 ){
             $schedule = new Schedule();
             $schedule->title = $this->title;
-            $schedule->type = "no";
+            $schedule->type = "inactive";
             $schedule->starting_time = $this->startingDate;
             $schedule->ending_time = $this->endingDate;
-            $schedule->status = "Approved";
+            $schedule->status = "Unapproved";
+            $this->scheduleErrorMessage = "";
+            $this->reset();
             $schedule->save();
             $this->mount();
               $this->emit('postAdded', "Schedule Successfully Added!", 'success', 'right');
         }
         else{
-            dd('last Title..............');
+            $this->scheduleErrorMessage = "Invalid Schedule Check Your input";
         }
    
     }

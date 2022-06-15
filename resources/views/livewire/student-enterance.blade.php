@@ -1,38 +1,46 @@
 <div>
-<div id="conn" class="off-canvus-menu" wire:ignore.self>
+
+    <div id="conn" class="off-canvus-menu" wire:ignore.self   >
+
+
         <a href="#" class="close-offcanvus">
             <img src="media/images/icon/cross.png" alt="">
         </a>
         <div class="offcanvas-box display-flex">
-
-            <div class="half-grid">
-                @if($student)
-                <img id="ownerpic" src="{{ asset($student->image) }}" style=" width: 400px; height: 400px;" />
-                @else
-                <img id="ownerpic" src="front/placeholder.jpg" style=" width: 400px; height: 400px;" />
-                @endif
-                {{-- <h2 style="font-size:40px; color: white;" id="staffName">Loading ...</h2>
+            @if($status == 0)
+                <img src="giphy.gif" style="width:50%; margin-left:20%;   " alt="" srcset="">
+            @else
+                <div class="half-grid">
+                    @if($student)
+                        <img id="ownerpic" src="{{ asset($student->image) }}" style=" width: 400px; height: 400px;" />
+                    @else
+                        <img id="ownerpic" src="front/placeholder.jpg" style=" width: 400px; height: 400px;" />
+                    @endif
+                    {{-- <h2 style="font-size:40px; color: white;" id="staffName">Loading ...</h2>
                 <h3 style="font-size:40px; color: white;" id="staffId">Loading ...</h3> --}}
-            </div>
-
-            <div class="half-grid desplay-flex" style="margin-top: 7rem; ">
-                <br>
-               
-                <h4 style=" color: rgb(255, 255, 255);">Name: <span style=" color: rgb(245, 245, 245);"
-                        id="name">@if($student) {{ $student->name }}
-                         @else Loading... @endif</span></h4>
-                         <h4 style=" color: rgb(255, 255, 255);">Name: <span style=" color: rgb(245, 245, 245);"
-                        id="name">@if($student) {{ $student->name }}
-                         @else Loading... @endif</span></h4>
-                <h4 style=" color: rgb(255, 255, 255);">Id Number: <span style=" color: rgb(255, 238, 5);"
-                        id="s_n">@if($student) {{ $student->id_number }}
-                         @else Loading... @endif</span></h4>
-                <div class="offcanvas-facilities-box">
-                    <h4 style=" color: rgb(255, 255, 255);">Type: <span style=" color: rgb(245, 245, 245);"
-                            id="Role">@if($student) {{ $student->type }}
-                         @else Loading... @endif</span></h4>
                 </div>
-            </div>
+
+                <div class="half-grid desplay-flex" style="margin-top: 7rem; ">
+                    <br>
+
+                    <h4 style=" color: rgb(255, 255, 255);">Name: <span style=" color: rgb(245, 245, 245);"
+                            id="name">@if($student) {{ $student->name }}
+                        @else Loading... @endif</span></h4>
+                            <h4 style=" color: rgb(255, 255, 255);">Name: <span style=" color: rgb(245, 245, 245);"
+                                    id="name">@if($student) {{ $student->name }}
+                                @else Loading... @endif</span></h4>
+                                    <h4 style=" color: rgb(255, 255, 255);">Id Number: <span
+                                            style=" color: rgb(255, 238, 5);" id="s_n">@if($student)
+                                            {{ $student->id_number }}
+                                        @else Loading... @endif</span></h4>
+                                            <div class="offcanvas-facilities-box">
+                                                <h4 style=" color: rgb(255, 255, 255);">Type: <span
+                                                        style=" color: rgb(245, 245, 245);" id="Role">@if($student)
+                                                        {{ $student->type }}
+                                                    @else Loading... @endif</span></h4>
+                                            </div>
+                </div>
+            @endif
         </div>
 
         <div class="offcanvas-footer">
@@ -43,7 +51,13 @@
                     style="width: 280px; height: 210px;" />
                 <img id="img3" src="{{ asset('front/phd.jpg') }}"
                     style="width: 280px; height: 210px;" /> --}}
-                <h1 style="color: rgb(115, 204, 115)">SUCCESSFULLY ATTENDED</h1>
+                @if($status == 0)
+                    <h1 style="color: red; text-align: center; ">{{ $errorMessage }}</h1>
+                @elseif($status == 1)
+                    <h1 style="color: #ff3c3c; text-align: center;">{{ $errorMessage }}</h1>
+                @else
+                    <h1 style="color: rgb(115, 204, 115); text-align: center;">SUCCESSFULLY ATTENDED</h1>
+                @endif
             </div>
             <div class="">
                 <span>KIOT</span>
@@ -100,7 +114,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <input class="form-control" id="rec" type="text" autofocus>
+                                    <input style="opacity:0" class="form-control" id="rec" type="text" autofocus>
                                     {{-- <p style="color: red; font-size: 8pt">Type to check manually!</p> --}}
                                 </div>
 
@@ -143,7 +157,7 @@
         </div>
         <!-- /.slider-hexagon-right -->
     </section>
-   
+
 
 
 

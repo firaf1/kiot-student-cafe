@@ -24,8 +24,11 @@ Route::get('admin', function () {
     return view('pages.index');
 });
 Route::get('schedule', [SuperAdminController::class, 'schedule'])->name('schedule');
-
-
+Route::get('user-index', [SuperAdminController::class, 'user'])->name('add-user');
+Route::get('schedules', [SuperAdminController::class, 'schedules'])->name('schedules');
+Route::get('Student-Report', [SuperAdminController::class, 'TickerStudentReport'])->name('tickerReport');
+Route::get('Measurement', [SuperAdminController::class, 'measurement'])->name('measurement');
+Route::get('Materials', [SuperAdminController::class, 'materials'])->name('materials');
 Route::get('qr-generate', [StudentController::class, 'qr_generate'])->name('qr-generate');
 Route::get('qr', function () {
    /* This sets the $time variable to the current hour in the 24 hour clock format */

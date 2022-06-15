@@ -198,7 +198,15 @@
     </div>
     <!-- /#site -->
     @livewireScripts()
+    <script>
+        Livewire.on('dangerNotification111', postId => {
+       
+        var audio = new Audio('danger-alarm.mp3');
+audio.play();
 
+})
+
+</script>
         <!-- Dependency Scripts -->
         <script src="{{ asset('front/dependencies/popper.js/popper.min.js') }}"></script>
         <script src="{{ asset('front/dependencies/jquery/jquery.min.js') }}"></script>

@@ -10,4 +10,24 @@ class SuperAdminController extends Controller
     {
         return view('pages.schedule');
     }
+    public function TickerStudentReport()
+    {
+        return view('pages.tickerStudentReport');
+    }
+    public function materials()
+    {
+        return view('pages.materials');
+    }
+    public function measurement()
+    {
+        return view('pages.measurement');
+    }
+    public function schedules()
+    {
+        return view('pages.schedules');
+    }
+    public function user()
+    {
+        return view('pages.user');
+    }
 }
