@@ -96,7 +96,7 @@
 							<div class="alert alert-light-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><i class="fa fa-frown-o mr-2" aria-hidden="true"></i>Oh snap!  {{ $scheduleErrorMessage }}.</div>
                             @endif
 
-							<form action="{{ route('import-student') }} " method="post" enctype="multipart/form-data">
+							<form>
 								@csrf
                                 <label class="mt-4 ">Name</label>
 								<input type="text"  wire:model="title"placeholder=" Name... " 
@@ -118,11 +118,7 @@
 					</div>
 				</div>
 			</div>
-
-
 <!-- Edit modal -->
- 
-
             <div class="modal fade show" id="EditSchedule" tabindex="-1" wire:ignore.self role="dialog" aria-labelledby="normalmodal"  aria-modal="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
@@ -133,7 +129,7 @@
 							</button>
 						</div>
 						<div class="modal-body">
-							<form action="{{ route('import-student') }} " method="post" enctype="multipart/form-data">
+							<form>
 								@csrf
                                 <label class="mt-4 ">Title</label>
 								<input type="text"  wire:model="editTitle" placeholder=" Title " 

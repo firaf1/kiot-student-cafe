@@ -30,6 +30,14 @@ Route::get('Student-Report', [SuperAdminController::class, 'TickerStudentReport'
 Route::get('Measurement', [SuperAdminController::class, 'measurement'])->name('measurement');
 Route::get('Materials', [SuperAdminController::class, 'materials'])->name('materials');
 Route::get('qr-generate', [StudentController::class, 'qr_generate'])->name('qr-generate');
+Route::get('add-student', [StudentController::class, 'index'])->name('add-student');
+Route::post('import-student', [StudentController::class, 'importStudent'])->name('import-student');
+Route::get('store-index', [SuperAdminController::class, 'storeIndex'])->name('store-index');
+
+
+
+
+
 Route::get('qr', function () {
    /* This sets the $time variable to the current hour in the 24 hour clock format */
    $time = date("H");
@@ -52,6 +60,4 @@ Route::get('qr', function () {
        echo "Good night";
    }
 });
-Route::get('add-student', [StudentController::class, 'index'])->name('add-student');
 
-Route::post('import-student', [StudentController::class, 'importStudent'])->name('import-student');

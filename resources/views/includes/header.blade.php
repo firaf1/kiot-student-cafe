@@ -16,7 +16,7 @@
 		<title>KIOT-STUDENT-CAFE</title>
 
 		<!--Favicon -->
-		<link rel="icon" href="{{ asset('back/assets/images/brand/favicon.ico')}}" type="image/x-icon"/>
+		<link rel="icon" href="{{ asset('back/assets/images/brand/favicon.png')}}" type="image/x-icon"/>
 
 		<!--Bootstrap css -->
 		<link href="{{ asset('back/assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -49,6 +49,7 @@
 		<!-- Switcher css -->
 		<link rel="stylesheet" href="{{ asset('back/assets/switcher/css/switcher.css')}}">
 		<link rel="stylesheet" href="{{ asset('back/assets/switcher/demo.css')}}">
+		<link href="{{ asset('back/assets/plugins/select2/select2.min.css')}}" rel="stylesheet" />
 @livewireStyles()
 		</head>
 

@@ -110,7 +110,7 @@
                             <div class="" wire:loading.remove>
 
                                 <img src="{{ asset('myData/no_data.gif') }} "
-                                    style="width:50%; height:40hv; margin-left:20%;  " alt="">
+                                    style="width:38%; height:20hv; margin-left:30%;  " alt="">
                                 <h2 class="text-warning text-center">No Data found</h2>
                             </div>
                         @endif

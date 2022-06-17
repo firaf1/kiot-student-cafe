@@ -11,7 +11,7 @@ class MeasurementIndex extends Component
     public $title, $startingDate,$schedule,$scheduleErrorMessage, $editTitle, $editEndDate,$schedule_id, $editStartDate, $endingDate, $schedules;
     protected $rules = [
 
-        'title' => 'required|unique:schedules,title',
+        'title' => 'required|unique:measurements,title',
         
         
 

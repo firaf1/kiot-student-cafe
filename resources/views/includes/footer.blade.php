@@ -67,6 +67,8 @@
 		 
 		<script src="{{ asset('back/assets/plugins/notify/js/jquery.growl.js') }}"></script>
 		<script src="{{ asset('back/assets/plugins/notify/js/notifIt.js') }}"></script>
+		<script src="{{ asset('back/assets/plugins/select2/select2.full.min.js') }}"></script>
+		<script src="{{ asset('back/assets/js/select2.js') }}"></script>
 		<!-- Simplebar JS -->
 		<script src="{{ asset('back/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
 		<!-- Custom js-->
