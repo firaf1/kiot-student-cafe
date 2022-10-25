@@ -39,17 +39,17 @@
 								<span aria-hidden="true">×</span>
 							</button>
 						</div>
+						<form action="{{ route('import-student') }} " method="post" enctype="multipart/form-data">
 						<div class="modal-body">
-							<form action="{{ route('import-student') }} " method="post" enctype="multipart/form-data">
 								@csrf
 								<input type="file" name="file" id="" class="form-control">
-								<button type="submit" class="btn btn-primary">Import</button>
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Save changes</button>
-						</div>
+								 
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button  type="submit" class="btn btn-primary">Import Student</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

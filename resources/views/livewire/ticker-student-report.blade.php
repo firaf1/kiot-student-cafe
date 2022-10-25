@@ -89,7 +89,7 @@
                                                 <td class="view-message dont-show font-weight-semibold">
                                                     <img class="avatat avatar-sm brround mr-2"
                                                         src="{{ asset($user->user->image) }}" alt="img">
-                                                    {{ $user->user->name }}
+                                                    {{ $user->user->fname }}
                                                 </td>
                                                 <td class="view-message">{{ $user->user->department }}</td>
                                                 <td class="view-message"><span class="badge badge-light badge-pill">

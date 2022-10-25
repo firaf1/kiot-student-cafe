@@ -11,7 +11,7 @@ class MeasurementIndex extends Component
     public $title, $startingDate,$schedule,$scheduleErrorMessage, $editTitle, $editEndDate,$schedule_id, $editStartDate, $endingDate, $schedules;
     protected $rules = [
 
-        'title' => 'required|unique:measurements,title',
+        'title' => 'required|unique:measurements,name',
         
         
 
@@ -27,6 +27,7 @@ class MeasurementIndex extends Component
     
     public function AddSchedule()
     {
+       
         
         $this->validate();
       
@@ -34,7 +35,7 @@ class MeasurementIndex extends Component
         $measurement->name = $this->title;
         $measurement->save();
         $this->emit('postAdded', "Schedule Successfully Added!!", 'info', 'right');
-   
+   $this->mount();
     }
 
     public function deletedId($id)

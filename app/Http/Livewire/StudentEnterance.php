@@ -21,6 +21,20 @@ public function incrementPostCount($qr)
         $schedule = Schedule::where('type', 'active')->first();
         
        $this->student = Student::where('qr', $qr)->first();
+       $type = $this->student->type;
+       if($this->student->status == "Unapproved"){
+        $this->status = 0;
+        $this->errorMessage = "Account is Freezed";
+        $this->emit('dangerNotification111', "Schedule Successfully Deleted!");
+        return 0;
+       }
+       if($schedule->is_for_both != "cafe" && $type == "non-café"){
+        $this->status = 0;
+        $this->errorMessage = "Not Allowed For Non Cafe Student";
+        $this->emit('dangerNotification111', "Schedule Successfully Deleted!");
+        
+       }
+       else
        if($this->student && $schedule) {
 
            $tick = Ticke::where('student_id', $this->student->id)

@@ -23,39 +23,39 @@ class StudentController extends Controller
         $students = Student::all();
         foreach($students as $student){
             if($student->image != null){
-                $card = ImageManagerStatic::make('card/card.jpg')->resize(2000, 3000);
-                $pic = ImageManagerStatic::make($student->image)->resize(880, 880);
-                $card->insert($pic, '', 570, 490);
+                $card = ImageManagerStatic::make('card/card.jpg');
+                $pic = ImageManagerStatic::make($student->image)->resize(225, 260);
+                $card->insert($pic, '', 980, 150);
                 $dns = new DNS2D;
                 $str=rand(); 
                 $result = md5($str); 
                 $qr_data = "KIOT-".substr($result, 0, 10);
-                $barcode = Image::make(DNS1D::getBarcodePNG($qr_data, 'C39E+'))->resize(1500, 400);
-                $card->insert($barcode, '', 200, 2300);
+                $barcode = Image::make(DNS1D::getBarcodePNG($qr_data, 'C39E+'))->resize(1100, 200);
+                $card->insert($barcode, '', 60,550);
 
 
 
-                $card->text($student->name, 500, 1500, function ($font) {
+                $card->text($student->name, 350, 230, function ($font) {
                     $font->file(public_path('css/id.ttf'));
-                    $font->size(150);
+                    $font->size(40);
                     $font->color('#00235d');
                     // $font->align('center');
                     $font->valign('top');
                     $font->angle(0);
                 });
 
-                $card->text('Id: '.$student->id_number, 700, 1700, function ($font) {
+                $card->text($student->id_number, 400, 280, function ($font) {
                     $font->file(public_path('css/id.ttf'));
-                    $font->size(80);
-                    $font->color('#757592');
+                    $font->size(40);
+                    $font->color('#00235d');
                     // $font->align('center');
                     $font->valign('top');
                     $font->angle(0);
                 });
         
-                $card->text( 'department'.$student->department, 700, 2000, function ($font) {
+                $card->text($student->department,  340, 335,function ($font) {
                     $font->file(public_path('css/id.ttf'));
-                    $font->size(90);
+                    $font->size(30);
                     $font->color('#757592');
                     // $font->align('center');
                     $font->valign('top');
@@ -70,7 +70,9 @@ class StudentController extends Controller
                 $student->save();
  
             }
+
         }
+        return back();
     }
     public function importStudent(Request $request)
     {

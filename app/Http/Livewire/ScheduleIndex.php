@@ -16,10 +16,32 @@ class ScheduleIndex extends Component
         
 
     ];
+
+
     public function mount()
     {
         
         $this->schedules = Schedule::latest()->get();
+    }
+    public function Tocafe($id)
+    {
+        
+        $student = Schedule::where('id', $id)->first();
+        $student->is_for_both = "cafe";
+            $student->save();
+            $this->mount();
+            
+            $this->emit('postAdded', "Schedule Successfully Changed to cafe!!!", 'warning', 'center');
+    }
+    public function Toboth($id)
+    {
+        
+        $student = Schedule::where('id', $id)->first();
+        $student->is_for_both = "both";
+            $student->save();
+            $this->mount();
+            
+            $this->emit('postAdded', "Schedule Successfully Changed to cafe!!!", 'warning', 'center');
     }
 
     public function StatusChangeUnapprove($id)

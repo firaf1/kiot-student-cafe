@@ -1,4 +1,14 @@
 <div>
+
+<div wire:loading class="" style="width:100%; height:100%; background:#060220de;
+ 
+position:fixed; top:0px; left:0px; z-index:999999">
+<div class="card-body">
+									 <img style="position:absolute; top:50%; left:40%" src="loader2.gif" alt="">
+									</div>
+</div>
+
+
 <div class="row">
 							 
 							<div class="col-md-12 col-lg-12 col-xl-12">
@@ -19,7 +29,7 @@
 												<div class="col col-auto mb-4">
 													<div class="btn-group hidden-phone">
                                                     <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#normalmodal">
-                                        <i class="fe fe-plus"></i> Add New User
+                                        <i class="fe fe-plus"></i> Add New Schedule
                                     </a>
 												</div>
 												</div>
@@ -33,6 +43,7 @@
                                             <th>Type</th>
                                             <th>Starting time</th>
                                             <th>Ending Time</th>
+											<th>For</th>
                                             <th>Status</th>
                                             <th>Actions</th>
                                            
@@ -50,10 +61,12 @@
                                                            @else <i class="fa fa-star"></i>
                                                            @endif
                                                         </td>
+
                                                          <td class="view-message dont-show font-weight-semibold">
                                                              
                                                             {{ $sche->title }}
                                                          </td>
+
                                                          <td class="view-message">
 															@if($sche->type == "inactive")
 															<span class="badge badge-danger-light mt-2">{{ $sche->type }}</span>
@@ -61,9 +74,42 @@
 															<span class="badge badge-success-light mt-2">{{ $sche->type }}</span>
 															@endif
 															</td>
+															
                                                          <td class="view-message"><span class="badge badge-light badge-pill"> {{ $sche->starting_time }} -hour</span></td>
                                                          <td class="view-message"><span class="badge badge-light badge-pill"> {{ $sche->ending_time }} -hour</span></td>
-                                                         <td class="view-message">
+														 <td>
+																@if($sche->is_for_both == 'cafe')
+															<div class="btn-group mt-2 mb-2">
+													<button type="button" class="btn btn-primary dropdown-toggle" 
+													data-toggle="dropdown" aria-expanded="false">
+														Cafe <span class="caret"></span>
+													</button>
+													<ul class="dropdown-menu" role="menu" style="">
+														 
+														<li><a wire:click="Tocafe({{$sche->id}})" href="#">Cafe</a></li>
+														 
+														<li><a wire:click="Toboth({{$sche->id}})" href="#">Both</a></li>
+														 
+													</ul>
+												</div>
+												@else 
+												<div class="btn-group mt-2 mb-2">
+													<button type="button" class="btn btn-success dropdown-toggle" 
+													data-toggle="dropdown" aria-expanded="false">
+														Both <span class="caret"></span>
+													</button>
+													<ul class="dropdown-menu" role="menu" style="">
+														 
+														<li><a wire:click="Tocafe({{$sche->id}})" href="#">Cafe</a></li>
+														 
+														<li><a   wire:click="Toboth({{$sche->id}})" href="#">Both</a></li>
+														 
+													</ul>
+												</div>
+												@endif
+															</td>
+														 <td class="view-message">
+
                                                          @if($sche->status =='Approved')
                                                 <div class="form-group "
                                                     wire:click="StatusChangeUnapprove({{ $sche->id }})">

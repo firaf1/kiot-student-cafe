@@ -50,7 +50,16 @@
 		<link rel="stylesheet" href="{{ asset('back/assets/switcher/css/switcher.css')}}">
 		<link rel="stylesheet" href="{{ asset('back/assets/switcher/demo.css')}}">
 		<link href="{{ asset('back/assets/plugins/select2/select2.min.css')}}" rel="stylesheet" />
+		<link href="{{ asset('back/assets/plugins/sweet-alert/jquery.sweet-modal.min.css')}}" rel="stylesheet" />
+		<link href="{{ asset('back/assets/plugins/sweet-alert/sweetalert.css')}}" rel="stylesheet" />
+		<link rel="stylesheet" href="{{ asset('back/assets/plugins/multipleselect/multiple-select.css')}}">
+
+<!-- INTERNAL Sumoselect css-->
+<link rel="stylesheet" href="{{ asset('back/assets/plugins/sumoselect/sumoselect.css')}}">
+<link rel="stylesheet" href="{{ asset('back/assets/plugins/multi/multi.min.css')}}">
+
 @livewireStyles()
+ 
 		</head>
 
 	<body class="app sidebar-mini">

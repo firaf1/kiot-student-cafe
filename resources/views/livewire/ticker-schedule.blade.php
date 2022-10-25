@@ -31,6 +31,7 @@
                                             <th>Type</th>
                                             <th>Starting time</th>
                                             <th>Ending Time</th>
+                                            <th>For</th>
                                             <th>Status</th>
                                              
                                            
@@ -61,6 +62,7 @@
 															</td>
                                                          <td class="view-message"><span class="badge badge-light badge-pill"> {{ $sche->starting_time }} -hour</span></td>
                                                          <td class="view-message"><span class="badge badge-light badge-pill"> {{ $sche->ending_time }} -hour</span></td>
+                                                         <td><span class="badge badge-gradient-info">    {{ $sche->is_for_both  }}</span></td>
                                                          <td class="view-message">
                                                          @if($sche->type =='active')
                                                 <div class="form-group "
@@ -86,7 +88,7 @@
                                                 </div>
                                             @endif
                                                         </td>
-                                                         
+                                                        
                                                      </tr>
                                                          
                                                      @endforeach

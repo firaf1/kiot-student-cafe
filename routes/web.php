@@ -1,9 +1,13 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\User;
+use App\Events\NewMessage;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use Intervention\Image\ImageManagerStatic;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\DashboardContorller;
 use App\Http\Controllers\SuperAdminController;
 
 /*
@@ -16,13 +20,34 @@ use App\Http\Controllers\SuperAdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    \Artisan::call('view:cache');
+    \Artisan::call('view:clear');
+
+    return back();
+});
+Route::get('ff', function(){
+    event(new NewMessage("hello"));
+});
+
+Route::get('mm', function(){
+    return view('mm');
+});
+
+ Route::get('admin-dashboard', [DashboardContorller::class, 'superAdmin'])->name('superAdminDashboard');
+ Route::get('store-dashboard', [DashboardContorller::class, 'storeAdmin'])->name('storeDashboard');
+ Route::get('dashboard', [DashboardContorller::class, 'betDashboard'])->name('betDashboard');
+Route::get('auth', function(){
+    $user = User::find(2);
+    Auth::login($user);
+ 
+});
 
 Route::get('/', function () {
     return view('check');
 });
-Route::get('admin', function () {
-    return view('pages.index');
-});
+ 
 Route::get('schedule', [SuperAdminController::class, 'schedule'])->name('schedule');
 Route::get('user-index', [SuperAdminController::class, 'user'])->name('add-user');
 Route::get('schedules', [SuperAdminController::class, 'schedules'])->name('schedules');
@@ -32,12 +57,17 @@ Route::get('Materials', [SuperAdminController::class, 'materials'])->name('mater
 Route::get('qr-generate', [StudentController::class, 'qr_generate'])->name('qr-generate');
 Route::get('add-student', [StudentController::class, 'index'])->name('add-student');
 Route::post('import-student', [StudentController::class, 'importStudent'])->name('import-student');
+
 Route::get('store-index', [SuperAdminController::class, 'storeIndex'])->name('store-index');
+Route::get('request-item', [DashboardContorller::class, 'requestItem'])->name('request-item');
+Route::get('store-report',[DashboardContorller::class, 'storeReport'])->name('storeReport');
+Route::get('out-store', [SuperAdminController::class, 'outstore'])->name('out-store');
+Route::get('store-status',[SuperAdminController::class, 'StoreStatus'])->name('store-status');
+Route::get('request-status', [SuperAdminController::class, 'RequestStatus'])->name('request-status');
+Route::get('roles',[SuperAdminController::class, 'roles'])->name('roles');
 
 
-
-
-
+Route::get('login',[AuthController::class, 'Login'])->name('login');
 Route::get('qr', function () {
    /* This sets the $time variable to the current hour in the 24 hour clock format */
    $time = date("H");

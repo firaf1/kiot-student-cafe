@@ -77,8 +77,19 @@
 		<!-- Switcher js-->
 		<script src="{{ asset('back/assets/switcher/js/switcher.js') }}"></script>		
 		 
+		<script src="{{ asset('back/assets/plugins/sweet-alert/jquery.sweet-modal.min.js') }}"></script>
+		<script src="{{ asset('back/assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
+		<script src="{{ asset('back/assets/js/sweetalert2.all.js') }}"></script>
+		<script src="{{ asset('back/assets/plugins/multipleselect/multiple-select.js') }}"></script>
+		<script src="{{ asset('back/assets/plugins/multipleselect/multi-select.js') }}"></script>
+		<script src="{{ asset('back/assets/plugins/multi/multi.min.js') }}"></script>
 
+		<!--INTERNAL Form Advanced Element -->
+		<script src="{{ asset('back/assets/js/formelementadvnced.js') }}"></script>
+		<script src="{{ asset('back/assets/js/form-elements.js') }}"></script>
 @include('includes.notification')
+
+@stack('js')
 	</body>
 
 <!-- Mirrored from laravel.spruko.com/admitro/Vertical-IconSidedar-Light/index by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 May 2021 05:54:41 GMT -->

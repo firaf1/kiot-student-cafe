@@ -14,9 +14,25 @@ class SuperAdminController extends Controller
     {
         return view('pages.tickerStudentReport');
     }
+    public function RequestStatus()
+    {
+        return view('pages.requestStatus');
+    }
+    public function roles()
+    {
+        return view('pages.roles');
+    }
     public function storeIndex()
     {
         return view('pages.store');
+    }
+    public function StoreStatus()
+    {
+        return view('pages.storeStatus');
+    }
+    public function outstore()
+    {
+        return view('pages.outStore');
     }
     public function materials()
     {

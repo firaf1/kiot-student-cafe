@@ -99,7 +99,7 @@
 							<form>
 								@csrf
                                 <label class="mt-4 ">Name</label>
-								<input type="text"  wire:model="title"placeholder=" Name... " 
+								<input type="text"  wire:model.defer="title"placeholder=" Name... " 
                                 class="form-control @error('title')
                                     is-invalid
                                 @enderror">

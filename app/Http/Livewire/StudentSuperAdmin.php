@@ -7,17 +7,24 @@ use Livewire\Component;
 
 class StudentSuperAdmin extends Component
 {
-    public $student;
-    public function mount()
-    {
-        $this->students = Student::latest()->get();
-    }
+    public $student, $search,$inputUser;
+   
+public function updatedSearch()
+{
+    $this->inputUser = Student::where('type', 'like', '%' . $this->search . '%')
+            ->orWhere('id_number', 'like', '%' . $this->search . '%')
+            ->orWhere('department', 'like', '%' . $this->search . '%')
+            ->orWhere('name', 'like', '%' . $this->search . '%')
+            ->get();
+         
+        $this->render();
+}
 public function StatusChangeUnapprove($id)
 {
     $student = Student::where('id', $id)->first();
     $student->status = "Unapproved";
         $student->save();
-        $this->mount();
+        $this->render();
 }
 
     public function StatusChangeApprove($id)
@@ -26,10 +33,16 @@ public function StatusChangeUnapprove($id)
         $student = Student::where('id', $id)->first();
         $student->status = "Approved";
             $student->save();
-            $this->mount();
+            $this->render();
     }
     public function render()
     {
-        return view('livewire.student-super-admin');
+        if($this->inputUser == null)
+        
+        return view('livewire.student-super-admin', ['students'=>Student::latest()->get()]);
+        
+        
+        return view('livewire.student-super-admin', ['students'=>$this->inputUser]);
+
     }
 }
