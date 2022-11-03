@@ -121,7 +121,7 @@
 		
 		<!---Global-loader-->
 		<div id="global-loader" >
-			<img src="back/assets/images/svgs/loader.svg" alt="loader">
+			<img src="{{asset('back/assets/images/svgs/loader.svg')}}" alt="loader">
 		</div>
 		<!--- End Global-loader-->
 		<!-- Page -->

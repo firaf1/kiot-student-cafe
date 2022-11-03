@@ -12,11 +12,7 @@
                             <input type="text" wire:model="search" class="form-control" placeholder="Search Users">
                         </div>
                     </div>
-                    <div class="card-options">
-                        <button class="btn btn-primary mx-10" data-toggle="modal" data-target="#addUser">Add New
-                            User</button>
-
-                    </div>
+                    
                 </div>
                 <div class="card-body p-6">
                     <div class="inbox-body">

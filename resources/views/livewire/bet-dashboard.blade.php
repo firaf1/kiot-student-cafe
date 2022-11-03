@@ -1,4 +1,62 @@
 <div>
+    <div class="row" >
+        <div class="col-md-12 col-lg-3">
+            <div class="card text-white bg-success">
+                <div class="card-header border-transparent">
+                    <h3 class="card-title ">Pending Request</h3>
+                    <div class="card-options">
+                        <a href="#" class="card-options-collapse mr-2" data-toggle="card-collapse"><i class="fe fe-chevron-up text-white"></i></a>
+                        <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x text-white "></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                <h2 class="text-center mb-4">{{ $pending }} -Items</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-3">
+            <div class="card text-white bg-primary">
+                <div class="card-header border-transparent">
+                    <h3 class="card-title ">Approved Request</h3>
+                    <div class="card-options">
+                        <a href="#" class="card-options-collapse mr-2" data-toggle="card-collapse"><i class="fe fe-chevron-up text-white"></i></a>
+                        <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x text-white "></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                <h2 class="text-center  mb-4">{{ $approved }} -Items</h2>
+                            </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-3">
+            <div class="card text-white bg-warning">
+                <div class="card-header border-transparent">
+                    <h3 class="card-title ">Unapproved Request</h3>
+                    <div class="card-options">
+                        <a href="#" class="card-options-collapse mr-2" data-toggle="card-collapse"><i class="fe fe-chevron-up text-white"></i></a>
+                        <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x text-white "></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h2 class="text-center  mb-4">{{ $unapproved }} -Items</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-3">
+            <div class="card text-white bg-secondary">
+                <div class="card-header border-transparent">
+                    <h3 class="card-title ">Successfull</h3>
+                    <div class="card-options">
+                        <a href="#" class="card-options-collapse mr-2" data-toggle="card-collapse"><i class="fe fe-chevron-up text-white"></i></a>
+                        <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x text-white "></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                <h2 class="text-center  mb-4">{{ $taken }} -Items</h2>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
 
         <div class="col-md-12 col-lg-12 col-xl-12">
@@ -16,15 +74,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col col-auto mb-4">
-                                <div class="btn-group hidden-phone">
-                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#normalmodal">
-                                        <i class="fe fe-plus"></i> Add Request Items
-                                    </a>
+                            <div class="float-right ml-auto">
+                                <a href="#" class="option-dots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical fs-18"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right" style="">
+                                <a wire:click="StatusChange(null)" class="dropdown-item" href="#"><i class="fa fa-table mr-2"></i> All Request</a>
+                                    <a wire:click="StatusChange('Approved')" class="dropdown-item" href="#"><i class="fa fa-paper-plane mr-2"></i> Approved</a>
+                                    <a wire:click="StatusChange('Pending')" class="dropdown-item" href="#"><i class="fe fe-edit mr-2"></i> Pending</a>
+                                    <a wire:click="StatusChange('Unapproved')" class="dropdown-item" href="#"><i class="fe fe-trash mr-2"></i> Unapproved</a>
+                                    <a wire:click="StatusChange('Taken')" class="dropdown-item" href="#"><i class="fa fa-check-square-o mr-2"></i> Successfull</a>
                                 </div>
                             </div>
                         </div>
                         @if($items->count() == 0)
+                        
                         <div class="" wire:loading.remove>
 
                             <img src="{{ asset('myData/no_data.gif') }} "
@@ -32,8 +94,15 @@
                             <h2 class="text-warning text-center">No Data found</h2>
                             </div>
                         @else
-                        <div class="table-responsive">
-                            <table class="table table-inbox table-hover text-nowrap mb-0">
+                        <div class="dimmer active " style="width:60%; margin-left:20%;  " wire:loading wire:targer="StatusChange()">
+                        <div class="spinner4 ">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                    </div>
+                        <div class="table-responsive" wire:loading.remove wire:targer="StatusChange()">
+                            <table class="table table-inbox table-hover text-nowrap mb-0" wire:poll>
                                 <thead class="">
                                     <tr>
                                         <th>Person</th>
@@ -43,11 +112,11 @@
                                         <th>Store Status</th>
                                         <th>Status</th>
                                         <th>Date</th>
-                                        <th>Actions</th>
+                                        
 
                                     </tr>
                                 </thead>
-                                <tbody wire:poll>
+                                <tbody  >
 
                                     @foreach($items as $sche)
                                         <tr class="">
@@ -94,20 +163,12 @@
                                             <span class="badge badge-success-light mt-2">Pending</span>
                                             @elseif ($sche->status == 'Unapproved')
                                             <span class="badge badge-danger-light mt-2">Unapproved</span>
+                                            @elseif ($sche->status == 'Taken')
+                                            <span class="badge badge-secondary mt-2">Taken</span>
                                             @endif
                                             </td>
                                             <td>{{ $sche->created_at->diffForHumans() }}</td>
-                                            <td>
-                                            @if($sche->status != 'Approved')
-                                                <div class="btn-group align-top">
-                                                    <button class="btn btn-sm btn-success" type="button"
-                                                        wire:click="editSchedule({{ $sche->id }})">Edit</button>
-                                                    <button wire:click="deletedId({{ $sche->id }})" data-toggle
-                                                        class="btn btn-sm p-2 btn-danger" type="button"><i
-                                                            class="fe fe-trash-2"></i></button>
-                                                </div>
-                                                @endif
-                                            </td>
+                                             
                                         </tr>
 
                                     @endforeach

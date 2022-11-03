@@ -2,13 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Role;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use App\Models\Input;
 use Livewire\Component;
+use Illuminate\Support\Facades\Hash;
 
 class UserIndex extends Component
 {
-    public $firstName, $search,$multi, $editFirstName, $inputUser, $editRole, $editGender, $editEmail, $userID, $editLastName, $editPhoneNumber, $lastName, $deleted_id, $password, $phoneNumber, $password_confirmation, $gender, $role;
+    public $firstName, $search,$multi, $inputs, $editFirstName, $inputUser, $editRole, $editGender, $editEmail, $userID, $editLastName, $editPhoneNumber, $lastName, $deleted_id, $password, $phoneNumber, $password_confirmation, $gender, $role;
 
     protected $rules = [
         'password' => 'min:6|required',
@@ -35,6 +37,7 @@ class UserIndex extends Component
     }
     public function ApprovedUser($id)
     {
+    
         $user = User::findOrFail($id);
         $user->status = "Approved";
         $user->save();
@@ -43,11 +46,17 @@ class UserIndex extends Component
     }
     public function UnapprovedUser($id)
     {
+       
+        
         $user = User::findOrFail($id);
-        $user->status = "Approved";
+        $user->status = "Unapproved";
         $user->save();
         $this->emit('SweetAletSuccessNotification', "Successfully Unapproved", 'success', 'right');
 
+    }
+    public function updatedRole()
+    {
+        dd('hello');
     }
     public function AddUser()
     {
@@ -118,8 +127,17 @@ class UserIndex extends Component
         $this->deleted_id = $id;
         $this->emit('deleted_sweet_alert_modal', "Items Successfully Unapproved!", 'success', 'right');
     }
+    public function RoleAsign($userId, $inputId)
+    {
+   
+         $user = User::findOrFail($userId); //
+         $user->role_id = $inputId;
+         $user->save();
+         $this->emit('SweetAletSuccessNotification', "Successfully Updated!", 'success', 'right');
+    }
     public function render()
     {
+        $this->inputs = Role::where('status', 'Approved')->get();
         if ($this->inputUser != null) {
  
             return view('livewire.user-index', ['users' => $this->inputUser]);

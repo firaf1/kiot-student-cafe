@@ -95,6 +95,14 @@ Livewire.on('sweet_alert_comfirmation', (message, type, title) => {
 		});
       })
  
-		
+      Livewire.on('notificationSound', postId => {
+       
+       var audio = new Audio('danger-alarm.mp3');
+audio.play();
+
+setTimeout(function() { 
+    Livewire.emit('stopeAlarm')
+     }, 5000);
+})
 	 
 </script>

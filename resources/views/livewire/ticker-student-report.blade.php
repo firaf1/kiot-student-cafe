@@ -50,6 +50,7 @@
                             <div class="bounce3"></div>
                         </div>
                     </div>
+                    
                     <div class="inbox-body" wire:loading.remove>
                         <div class="row">
                             <div class="col">

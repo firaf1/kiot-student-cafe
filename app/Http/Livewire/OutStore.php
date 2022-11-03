@@ -15,12 +15,19 @@ class OutStore extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $amount, $allInputs, $search, $isLess, $isNotFound = false, $searchItems, $totalItems, $measurement;
+    public $amount, $allInputs, $search,$name="Tola", $isLess, $isNotFound = false, $searchItems, $totalItems, $measurement;
 
     protected $rules = [
         'amount' => 'required',
         'measurement' => 'required',
     ];
+    protected $listeners = [
+        'cart:update' => 'functionReceiverCallFromComponentA',
+    ];
+    public function functionReceiverCallFromComponentA(){
+        $this->name = "Calla";
+        $this->render();
+    }
     public function updatedSearch()
     {
         if ($this->search != null) {
@@ -92,7 +99,7 @@ class OutStore extends Component
         $store->amount = $this->amount;
         $store->type = "out";
         $store->status = "Pending";
-        $store->user_id = "1";
+        $store->user_id = Auth::user()->id;
         $store->role_id = "2";
         $store->save();
         $this->emit('postAdded', "Schedule Successfully Added!!", 'info', 'right');

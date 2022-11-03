@@ -35,7 +35,7 @@
                                         <th>User info</th>
                                         <th>gender</th>
                                         <th>Role</th>
-                                        <th>Stock</th>
+                                        <th>Roles</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -50,7 +50,7 @@
                                                     <div class="row align-items-center">
                                                         <div class="col-9 col-sm-9">
                                                             <div class="media mt-0">
-                                                                <img src="back/assets/images/users/1.jpg" alt="img"
+                                                                <img src="{{ asset($user->image) }}" alt="img"
                                                                     class="w-7 h-7 rounded shadow mr-3">
                                                                 <div class="media-body">
                                                                     <div class="d-md-flex align-items-center mt-1">
@@ -59,8 +59,16 @@
                                                                     </div>
                                                                     <span
                                                                         class="mb-0 fs-13 text-muted">{{ $user->phone_number }}
-                                                                        <span class="ml-2 text-success fs-13
-                                                                         font-weight-semibold">Paid</span></span>
+                                                                        @if($user->status == 'Approved')
+                                                                            <span class="badge badge-primary-light ">
+                                                                            {{ $user->status }}
+                                                                            </span>
+                                                                            @else
+                                                                            <span class="badge badge-danger-light ">
+                                                                            {{ $user->status }}
+                                                                            </span>
+                                                                        @endif
+                                                                         </span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -69,9 +77,38 @@
                                                 </div>
                                             </td>
 
-                                            <td><span class="badge badge-primary">{{ $user->gender }}</span></td>
-                                            <td>{{ $user->role }}</td>
-                                            <td>112</td>
+                                            <td><span class="badge badge-danger-light">{{ $user->gender }}</span></td>
+                                            <td>
+                                                @if($user->role == '1')
+                                                <span class="badge badge-primary ">Super Admin</span>
+                                                @elseif ($user->role == '2')
+                                                <span class="badge badge-secondary ">Store Admin</span>
+                                                @elseif ($user->role == '3')
+                                                <span class="badge badge-warning ">Admin</span>
+                                                @elseif ($user->role == '4')
+                                                <span class="badge badge-primary ">Ticker</span>
+                                            @endif
+                                             </td>
+                                            <td>
+                                                @if($user->role == '3')
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                       @if($user->role_id != null)
+                                                       {{ $user->role1->name }}
+                                                       @else 
+                                                       select role @endif
+                                                    </button>
+                                                    <div class="dropdown-menu" style="">
+                                                        @foreach ($inputs as $input)
+                                                        <a wire:click="RoleAsign({{ $user->id }}, {{ $input->id }})" class="dropdown-item" href="#">{{ $input->name }} 
+                                                            
+                                                        </a>
+                                                        @endforeach
+                                                        
+                                                    </div>
+                                                </div>
+                                                @endif
+                                            </td>
                                             <td class="number-font">
                                                 @if($user->status == "Approved")
                                             <div class="form-group " wire:click="UnapprovedUser({{ $user->id }})">
@@ -135,32 +172,7 @@
                 </div>
                 <div class="modal-body">
 
-                <div class="form-group" wire:ignore>
-													<label class="form-label">Select Filter</label>
-													<select multiple="multiple" wire:model.defer="multi"
-                                                     class=" select2" style="width:100%; " >
-														<option value="1">1</option>
-														<option value="2" >2</option>
-														<option value="3" >3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-														<option value="6">6</option>
-														<option value="7">7</option>
-														<option value="8">8</option>
-														<option value="9">9</option>
-														<option value="10">10</option>
-														<option value="11">11</option>
-														<option value="12">12</option>
-														<option value="13">13</option>
-														<option value="14">14</option>
-														<option value="15">15</option>
-														<option value="16">16</option>
-														<option value="17">17</option>
-														<option value="18">18</option>
-														<option value="19">19</option>
-														<option value="20">20</option>
-													</select>
-												</div>
+                
 
 
 
@@ -260,12 +272,12 @@
                                     {{ $message }}
                             </div>
                             @enderror
-                                <select wire:model.defer="role" class="  custom-select select2" style="width:100%; ">
+                                <select wire:model="role" class="  custom-select select2" style="width:100%; ">
                                     <option value="0">--Select--</option>
-                                    <option value="1">Germany</option>
-                                    <option value="2">Canada</option>
-                                    <option value="3">Usa</option>
-                                    <option value="4">Aus</option>
+                                    <option value="1">Super Admin</option>
+                                    <option value="2">Store Admin</option>
+                                    <option value="3">Admin</option>
+                                     
                                 </select>
                         </div>
                     </div>
@@ -390,10 +402,10 @@
                             @enderror
                                 <select wire:model.defer="editRole" class="form-control custom-select select2">
                                     <option value="0">--Select--</option>
-                                    <option value="1">Germany</option>
-                                    <option value="2">Canada</option>
-                                    <option value="3">Usa</option>
-                                    <option value="4">Aus</option>
+                                    <option value="1">Super Admin</option>
+                                    <option value="2">Store Admin</option>
+                                    <option value="3">Admin</option>
+                                   
                                 </select>
                         </div>
                     </div>

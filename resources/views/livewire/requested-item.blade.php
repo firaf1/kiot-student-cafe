@@ -4,7 +4,7 @@
         <div class="col-md-12 col-lg-12 col-xl-12 mt-3">
             <div class="card">
                 <div class="card-body p-6">
-                    <div class="inbox-body" wire:poll>
+                    <div class="inbox-body" >
                     @if($items->count() == 0)
                         <div class="" wire:loading.remove>
 
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                        
-                        <div class="table-responsive">
+                        <div class="table-responsive" wire:poll>
                             <table class="table table-inbox table-hover text-nowrap mb-0">
                                 <thead class="">
                                     <tr>

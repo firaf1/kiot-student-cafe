@@ -44,24 +44,15 @@
                                             <td>{{ $sche->name }}</td>
                                             <td>{{ $sche->measurement->name }}</td>
                                             <td>
-                                                <div class="tags">
-
                                                  
 
- 
-
- 
-                                                
-                                                @foreach($sche->roles($sche->id) as $key => $value)
-	<span class="tag tag-dark">
-    {{ $sche->one_input($value) }}
-    
-		<a   wire:click=" delete_role({{ $value }}, {{ $sche->id }})" class="tag-addon">
-            <i class="fe fe-x"></i></a>
-	</span>
-	 
-    @endforeach 
-</div>
+                                                @foreach($sche->roles($sche->id) as $value)
+                                                <div class="tag tag-danger">
+		{{ $value->role($value->role_id) }}
+		<span wire:click="delete_role({{ $value->id}})" class="tag-addon btn"><i class="fe fe-x"></i></span>
+	</div>
+                                                    @endforeach 
+                                              
 
 
 
@@ -222,27 +213,17 @@
 <option value="{{ $role->id }}">{{ $role->name }}</option>
 @endforeach
 													 
-                                                      </select>
-                                                      </div>
-                                                      @if($edited_roles !=null)
-                                                      <div class="tags">
-                        @foreach($edited_roles as $key => $value)
-	 
-	 
-	 
-        <span class="tag tag-danger mt-1">
-    mestengdo
-    
-	 
-	</span>
-	 
-	 
-	 
-    
-    @endforeach
-</div>
- 
-@endif
+        </select>
+        </div>
+    @if($edited_roles !=null)
+            <div class="tags">
+                @foreach($edited_roles as $value)
+                <span class="tag tag-danger mt-1">
+                    {{ $value->role($value->role_id) }}
+                </span>
+                @endforeach
+            </div>
+     @endif
  
                     </div>
 

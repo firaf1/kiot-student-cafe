@@ -34,6 +34,10 @@ class SuperAdminController extends Controller
     {
         return view('pages.outStore');
     }
+    public function store()
+    {
+        return view('pages.store.store');
+    }
     public function materials()
     {
         return view('pages.materials');

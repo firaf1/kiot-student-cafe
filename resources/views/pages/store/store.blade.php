@@ -1,4 +1,5 @@
 @extends('layouts.app-layout')
 @section('content')
-@livewire('bet-dashboard')
+
+@livewire('store-store')
 @endsection

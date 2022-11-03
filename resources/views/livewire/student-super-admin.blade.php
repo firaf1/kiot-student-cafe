@@ -136,7 +136,7 @@
 						 <img id="myImg"   alt="">
 					</div>
 					<div class="modal-footer">
-						<a id="download"  href="#" class="btn btn-indigo" >Danwload</a> <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+						<a id="download"  href="#" class="btn btn-indigo" >Download</a> <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
 					</div>
 				</div>
 			</div>

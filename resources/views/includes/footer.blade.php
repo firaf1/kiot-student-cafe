@@ -12,7 +12,6 @@
         </div><!-- End Page -->
 			<!-- Back to top -->
 		<a href="#top" id="back-to-top"><i class="fe fe-chevrons-up"></i></a>
-@livewireScripts()
 		<!-- Jquery js-->
 		<script src="{{ asset('back/assets/js/jquery-3.5.1.min.js') }}"></script>
 
@@ -28,7 +27,7 @@
 
 		<!-- Jquery-rating js-->
 		<script src="{{ asset('back/assets/plugins/rating/jquery.rating-stars.js') }}"></script>
-
+		
 		<!--Sidemenu js-->
 		<script src="{{ asset('back/assets/plugins/sidemenu/sidemenu.js') }}"></script>
 		
@@ -36,10 +35,10 @@
 		<script src="{{ asset('back/assets/plugins/p-scrollbar/p-scrollbar.js') }}"></script>
 		<script src="{{ asset('back/assets/plugins/p-scrollbar/p-scroll1.js') }}"></script>
 		<script src="{{ asset('back/assets/plugins/p-scrollbar/p-scroll.js') }}"></script>
-
 		
-<!--INTERNAL Peitychart js-->
-<script src="{{ asset('back/assets/plugins/peitychart/jquery.peity.min.js') }}"></script>
+		
+		<!--INTERNAL Peitychart js-->
+		<script src="{{ asset('back/assets/plugins/peitychart/jquery.peity.min.js') }}"></script>
 <script src="{{ asset('back/assets/plugins/peitychart/peitychart.init.js') }}"></script>
 
 <!--INTERNAL Apexchart js-->
@@ -87,11 +86,12 @@
 		<!--INTERNAL Form Advanced Element -->
 		<script src="{{ asset('back/assets/js/formelementadvnced.js') }}"></script>
 		<script src="{{ asset('back/assets/js/form-elements.js') }}"></script>
+		@livewireScripts()
 @include('includes.notification')
 
 @stack('js')
 	</body>
-
+	
 <!-- Mirrored from laravel.spruko.com/admitro/Vertical-IconSidedar-Light/index by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 May 2021 05:54:41 GMT -->
 </html>
 		

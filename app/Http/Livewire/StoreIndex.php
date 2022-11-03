@@ -13,13 +13,19 @@ class StoreIndex extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-
-    public $amount, $allInputs, $search, $isNotFound = false, $searchItems, $totalItems, $measurement;
-
+    
+    public $amount, $allInputs, $search, $isNotFound = false,$name="Kebede", $searchItems, $totalItems, $measurement;
+    
     protected $rules = [
         'amount' => 'required',
         'measurement' => 'required',
     ];
+    public function dd()
+    {
+         $this->name = "Firaol";
+        $this->emit('cart:update');
+         
+    }
     public function updatedSearch()
     {
         if ($this->search != null) {
