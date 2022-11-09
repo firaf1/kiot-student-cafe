@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
-class StoreAdmin
+class isSecurty
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class StoreAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->role != "2"){
+        if(Auth::user()->role != "4"){
             return Redirect::back();
          }
         return $next($request);

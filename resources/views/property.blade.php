@@ -176,7 +176,7 @@
 
     <div id="site"></div>
 
-   @livewire('student-enterance')
+   @livewire('property-scanner')
 
 
 

@@ -41,11 +41,18 @@ class LoginIndex extends Component
 
                 if (Auth::user()->role == '1') {
                     redirect(route('superAdminDashboard'));
-                } else if(Auth::user()->role == '2'){
+                } elseif(Auth::user()->role == '2'){
                     redirect(route('storeDashboard'));
                 }
-                 else {
+
+                 elseif(Auth::user()->role == '3'){
                     redirect(route('betDashboard'));
+                }
+                elseif(Auth::user()->role == '4'){
+                    redirect(route('securtyDashboard'));
+                }
+                else{
+                    $this->errorMessage = "Sorry your account is blocked";
                 }
 
             } else {

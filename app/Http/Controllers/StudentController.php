@@ -20,7 +20,8 @@ class StudentController extends Controller
     }
     public function qr_generate()
     {
-        $students = Student::all();
+        $students = Student::where('meal_card', null)->get();
+
         foreach($students as $student){
             if($student->image != null){
                 $card = ImageManagerStatic::make('card/card.jpg');
@@ -64,8 +65,8 @@ class StudentController extends Controller
                 $tempImage = 'KIOT-STUDENT-CARD-'.$student->name . time() . '.' . 'png';
                 // $card->save('cards/'. "ff".time().$card . '.png');
                 // $card->storeAs('STUDENT_CARD/', $tempImage, 'public');
-                $student->meal_card = "cards/STUDENT_CARD/" . $tempImage;
-                $card->save('cards/STUDENT_CARD/'. $tempImage);
+                $student->meal_card = "storage/cards/STUDENT_CARD/" . $tempImage;
+                $card->save('storage/cards/STUDENT_CARD/'. $tempImage);
                 $student->qr = $qr_data;
                 $student->save();
  
@@ -76,14 +77,10 @@ class StudentController extends Controller
     }
     public function importStudent(Request $request)
     {
-        // $request->validate([
-        //     'file' => 'required|max:10000|mimes:xlsx,xls',
-        // ]);
-        // dd($request->file);
-        $path = $request->file;
-        // Excel::toCollection(new StudentsImport, $path);
-        $res = Excel::import(new StudentsImport("My name is Firaol biru"), request()->file('file'));
-        
-       
+        $request->validate([
+            'file' => 'required|max:10000|mimes:xlsx,xls',
+        ]);
+        Excel::import(new StudentsImport(), request()->file('file'));
+        return back()->with('success1111111111', 'User Imported Successfully.');
     }
 }

@@ -21,14 +21,19 @@ public function incrementPostCount($qr)
      
          
         $schedule = Schedule::where('type', 'active')->first();
-        
+        if($schedule == null){
+           $this->status = 0;
+            $this->emit('tickProblemEmit', "Schedule Successfully Deleted!");
+            return $this->errorMessage = "there is no active schedule";
+        }
        $this->student = Student::where('qr', $qr)->first();
        if($this->student){
         
            $type = $this->student->type;
       
        if($this->student->status == "Unapproved"){
-        $this->status = 0;
+        
+        $this->status = 1;
         $this->errorMessage = "Account is Freezed";
     
         $not = new Notification();
@@ -38,10 +43,10 @@ public function incrementPostCount($qr)
         $this->emit('dangerNotification111', "Schedule Successfully Deleted!");
         return 0;
        }
-       elseif($schedule->is_for_both != "cafe" && $type == "non-café"){
-        $this->status = 0;
+       elseif($schedule->is_for_both == "cafe" && $type == "non-café"){
+        $this->status = 1;
         $this->errorMessage = "Not Allowed For Non Cafe Student";
-        $this->emit('dangerNotification111', "Schedule Successfully Deleted!");
+       return $this->emit('dangerNotification111', "Schedule Successfully Deleted!");
         
        }
       

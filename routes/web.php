@@ -49,8 +49,17 @@ Route::middleware(['super-admin'])->group(function () {
     Route::get('schedules', [SuperAdminController::class, 'schedules'])->name('schedules');
     Route::get('Student-Report', [SuperAdminController::class, 'TickerStudentReport'])->name('tickerReport');
     Route::post('import-student', [StudentController::class, 'importStudent'])->name('import-student');
+
+
+    
 });
 
+// securty Admin Routes    
+    Route::middleware(['is-securty'])->group(function () {
+    Route::get('securty-dashboard', [PropertyController::class, 'securtyDashboard'])->name('securtyDashboard');
+    Route::get('properties',[PropertyController::class, 'property'])->name('property');
+    Route::get('properties-report',[PropertyController::class, 'propertyReport'])->name('propertyReport');
+});
 
 Route::middleware(['store-admin'])->group(function () {
     Route::get('store-dashboard', [DashboardContorller::class, 'storeAdmin'])->name('storeDashboard');
@@ -104,12 +113,17 @@ Route::get('qr', function () {
   
 }); //auth end
  
-
 Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/cafe-check', function () {
     return view('check');
 });
  
-
+Route::get('property-check', function () {
+    
+    return view('property'); 
+});
 
 
 

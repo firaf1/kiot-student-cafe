@@ -54,10 +54,7 @@ class UserIndex extends Component
         $this->emit('SweetAletSuccessNotification', "Successfully Unapproved", 'success', 'right');
 
     }
-    public function updatedRole()
-    {
-        dd('hello');
-    }
+  
     public function AddUser()
     {
         

@@ -11,13 +11,7 @@
                     href="{{ route('storeDashboard') }}">Store Dashboard</a></li>
         </ol>
     </div>
-    <div class="page-rightheader">
-        <div class="btn btn-list">
-            <a href="index-2.html#" class="btn btn-info"><i class="fe fe-settings mr-1"></i> General Settings </a>
-            <a href="index-2.html#" class="btn btn-danger"><i class="fe fe-printer mr-1"></i> Print </a>
-            <a href="index-2.html#" class="btn btn-warning"><i class="fe fe-shopping-cart mr-1"></i> Buy Now </a>
-        </div>
-    </div>
+    
 </div>
 <!--End Page header-->
 
@@ -34,7 +28,7 @@
                         <h2 class="text-white m-0 font-weight-bold">{{ $pending }}</h2>
                     </div>
                     <div class="ml-auto">
-                        <span class="text-white display-6"><i class="fa fa-signal fa-2x"></i></span>
+                        <span class="text-white display-6"><i class="fa fa-send fa-2x"></i></span>
                     </div>
                 </div>
             </div>
@@ -49,7 +43,7 @@
                         <h2 class="text-white m-0 font-weight-bold">{{ $approved }}</h2>
                     </div>
                     <div class="ml-auto">
-                        <span class="text-white display-6"><i class="fa fa-usd fa-2x"></i></span>
+                        <span class="text-white display-6"><i class="fa fa-check-square-o fa-2x"></i></span>
                     </div>
                 </div>
             </div>
@@ -64,7 +58,7 @@
                         <h2 class="text-white m-0 font-weight-bold">{{ $unapproved }}</h2>
                     </div>
                     <div class="ml-auto">
-                        <span class="text-white display-6"><i class="fa fa-file-text-o fa-2x"></i></span>
+                        <span class="text-white display-6"><i class="fa fa-check-square-o fa-2x"></i></span>
                     </div>
                 </div>
             </div>
@@ -81,7 +75,7 @@
                         <h2 class="text-white m-0 font-weight-bold">{{ $itemAddedByYou }}</h2>
                     </div>
                     <div class="ml-auto">
-                        <span class="text-white display-6"><i class="fa fa-newspaper-o fa-2x"></i></span>
+                        <span class="text-white display-6"><i class="fa fa-users fa-2x"></i></span>
                     </div>
                 </div>
             </div>

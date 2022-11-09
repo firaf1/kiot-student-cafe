@@ -55,7 +55,7 @@
             </li>
 
 			<li class="slide">
-            <a class="side-menu__item" href="{{ route('add-user') }}">
+                <a class="side-menu__item" href="{{ route('add-user') }}">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                     width="24">
                     <path d="M0 0h24v24H0V0z" fill="none" />
@@ -63,70 +63,70 @@
                         d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
                     </svg>
                 <span class="side-menu__label">User</span><span class="badge badge-danger side-badge">Hot</span></a>
-        </li>
-		<li class="slide">
-            <a class="side-menu__item" href="{{ route('add-student') }}">
-                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
-                    width="24">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path
-                        d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
-                    </svg>
-                <span class="side-menu__label">Add Student</span> </a>
-        </li>
-		<li class="slide">
-            <a class="side-menu__item" href="{{ route('materials') }}">
-                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
-                    width="24">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path
-                        d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
-                    </svg>
-                <span class="side-menu__label">Inputs</span> </a>
-        </li>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('add-student') }}">
+                    <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
+                        </svg>
+                    <span class="side-menu__label">Add Student</span> </a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('materials') }}">
+                    <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
+                        </svg>
+                    <span class="side-menu__label">Inputs</span> </a>
+            </li>
 		
-		<li class="slide">
-            <a class="side-menu__item" href="{{ route('request-status') }}">
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('request-status') }}">
 
-                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
-                    width="24">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path
-                        d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
-                    </svg>
-                <span class="side-menu__label">Request Status</span> </a>
-        </li>
-		<li class="slide">
-            <a class="side-menu__item" href="{{ route('store-status') }}">
-                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
-                    width="24">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path
-                        d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
-                    </svg>
-                <span class="side-menu__label"> Store Status</span> </a>
-        </li>
-		<li class="slide">
-            <a class="side-menu__item" href="{{ route('roles') }}">
+                    <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
+                        </svg>
+                    <span class="side-menu__label">Request Status</span> </a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('store-status') }}">
+                    <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
+                        </svg>
+                    <span class="side-menu__label"> Store Status</span> </a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('roles') }}">
 
-                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
-                    width="24">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path
-                        d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
-                    </svg>
-                <span class="side-menu__label">Roles</span> </a>
-        </li>
-		<li class="slide">
-            <a class="side-menu__item" href="{{ route('measurement') }}">
-                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
-                    width="24">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path
-                        d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
-                    </svg>
-                <span class="side-menu__label">Measurement</span> </a>
-        </li>
+                    <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
+                        </svg>
+                    <span class="side-menu__label">Roles</span> </a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('measurement') }}">
+                    <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
+                        </svg>
+                    <span class="side-menu__label">Measurement</span> </a>
+            </li>
 		<li class="slide">
             <a class="side-menu__item" href="{{ route('schedule') }}">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
@@ -157,11 +157,14 @@
                     </svg>
                 <span class="side-menu__label">Report</span> </a>
         </li>
-        @endif
 
+
+      
+        @endif
+       
  
 	@if (Auth::user()->role == "2")
-	<li class="slide">
+	    <li class="slide">
             <a class="side-menu__item" href="{{ route('storeDashboard') }}">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                     width="24">
@@ -197,30 +200,52 @@
                     width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M6.5 10h-2v7h2v-7zm6 0h-2v7h2v-7zm8.5 9H2v2h19v-2zm-2.5-9h-2v7h2v-7zm-7-6.74L16.71 6H6.29l5.21-2.74m0-2.26L2 6v2h19V6l-9.5-5z"></path><svg/>
                 <span class="side-menu__label">Store</span> </a>
         </li>
-@endif
+    @endif
        
-@if (Auth::user()->role == "3")
-<li class="slide">
-    <a class="side-menu__item" href="{{ route('betDashboard') }}">
-        <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
-        width="24">
-        <path d="M0 0h24v24H0V0z" fill="none" />
+    @if (Auth::user()->role == "3")
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('betDashboard') }}">
+                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                    width="24">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
                     <path
                     d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
                 </svg>
                 <span class="side-menu__label">Dashboard</span> </a>
-            </li>
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('out-store') }}">
-                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
-                        width="24"><path d="M-74 29h48v48h-48V29zM0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none"></path><path d="M13 12h7v1.5h-7zm0-2.5h7V11h-7zm0 5h7V16h-7zM21 4H3c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 15h-9V6h9v13z"></path></svg>
-                    <span class="side-menu__label">Request items</span> </a>
-            </li>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{ route('out-store') }}">
+            <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                    width="24"><path d="M-74 29h48v48h-48V29zM0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none"></path><path d="M13 12h7v1.5h-7zm0-2.5h7V11h-7zm0 5h7V16h-7zM21 4H3c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 15h-9V6h9v13z"></path></svg>
+                <span class="side-menu__label">Request items</span> </a>
+        </li>
  
        
 	@endif
       
-
+    @if(Auth::user()->role == '4')
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('securtyDashboard') }}">
+                    <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                        width="24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
+                        </svg>
+                    <span class="side-menu__label">Dashboard</span> </a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('property') }}">
+                    <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                    width="24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M20 6h-3V4c0-1.11-.89-2-2-2H9c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zM9 4h6v2H9V4zm11 15H4v-2h16v2zm0-5H4V8h3v2h2V8h6v2h2V8h3v6z"></path></>
+                    <span class="side-menu__label">Properties</span> </a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('propertyReport') }}">
+                    <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-6 15h-2v-2h2v2zm0-4h-2V8h2v6zm-1-9c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"></path></>
+                    <span class="side-menu__label">Property Report</span> </a>
+            </li>
+        @endif
     </ul>
 
 </aside>

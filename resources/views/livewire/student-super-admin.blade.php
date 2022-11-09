@@ -1,4 +1,12 @@
 <div>
+<div wire:loading class="" style="width:100%; height:100%; background:#060220de;
+ 
+ position:fixed; top:0px; left:0px; z-index:999999">
+ <div class="card-body">
+                                      <img style="position:absolute; top:50%; left:40%" src="loader2.gif" alt="">
+                                     </div>
+ </div>
+ 
     <div class="row flex-lg-nowrap">
         <div class="col-12">
             <div class="row flex-lg-nowrap">
@@ -10,7 +18,7 @@
                                 <div class="col-6 mb-4">
 
                                     <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#normalmodal">
-                                        <i class="fe fe-plus"></i> Add New Student
+                                        <i class="fe fe-plus"></i> Import Student
                                     </a>
                                 </div>
                                 <div class="col-6 col-auto">
@@ -24,12 +32,12 @@
                                     </div>
                                 </div>
                             </div>
-@if($students->count() == 0)
-<div class="" >
+                        @if($students->count() == 0)
+                                <div class="" >
 
-                                <img src="http://127.0.0.1:8000/myData/no_data.gif " style="width:38%; height:20hv; margin-left:30%;  " alt="">
-                                <h2 class="text-warning text-center">No Data found</h2>
-                            </div>
+                                    <img src="http://127.0.0.1:8000/myData/no_data.gif " style="width:38%; height:20hv; margin-left:30%;  " alt="">
+                                    <h2 class="text-warning text-center">No Data found</h2>
+                                </div>
                           @else
                             <div class="table-responsive">
                                 <table
@@ -51,16 +59,26 @@
                                             <tr class="mb-0">
                                                 <td class="font-weight-bold">
                                                     <div class="media mt-0">
+                                                    
                                                         <img src="{{ asset($student->image) }}" alt="img"
                                                             class="avatar brround avatar-md mr-3">
+                                                      
                                                         <div class="media-body">
                                                             <div class="d-md-flex align-items-center mt-1">
                                                                 <h6 class="mb-1">{{ $student->name }}</h6>
                                                             </div>
-                                                            <span
-                                                                class="mb-0 fs-13 text-muted">{{ $student->department }}
+                                                            @if($student->reg_type == "Regular")
+                                                            <span class="mb-0 fs-13 text-muted">{{ $student->department }}
                                                                 <span
-                                                                    class="ml-2 text-success fs-13 font-weight-semibold">Paid</span></span>
+                                                                    class="badge badge-primary">Regular</span>
+                                                                </span>
+                                                                @else 
+                                                                <span class="mb-0 fs-13 text-muted">{{ $student->department }}
+                                                                <span
+                                                                    class="badge badge-secondary">{{ $student->reg_type }}</span>
+                                                                </span>
+                                                            @endif
+                                                            
                                                         </div>
                                                     </div>
                                                 </td>
@@ -124,7 +142,46 @@
             </div>
         </div>
     </div>
-
+    <div class="modal fade show" wire:ignore.self id="normalmodal" tabindex="-1" role="dialog" aria-labelledby="normalmodal"  aria-modal="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="normalmodal1">Import Student</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						 
+						<div class="modal-body">
+						@if (count($errors) > 0)
+						 
+					 
+						@foreach($errors->all() as $error)
+						<div class="alert alert-light-secondary" role="alert">
+						{{ $error }}
+						</div>
+						  
+                        
+                          @endforeach      
+                       
+                   
+               
+                @endif
+							 
+								<input type="file" wire:model="file"  id="" class="form-control">
+								@error('file')
+									<p class="text-danger"> {{ $message }} </p>
+								@enderror
+								 
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button  type="submit" wire:loading.remove class="btn btn-primary" wire:click="submitForm()" >Import Student</button>
+							</div>
+						 
+					</div>
+				</div>
+			</div>
 
     <div class="modal   show" id="modaldemo8"   aria-modal="true">
 			<div class="modal-dialog  " role="document">
@@ -141,6 +198,7 @@
 				</div>
 			</div>
 		</div>
+       
         <script>
             function imageZoom(name, id){
                 document.getElementById("myImg").src = name;
@@ -149,5 +207,7 @@
 	            el.setAttribute("download", name);
               
             }
+
+
         </script>
 </div>

@@ -60,13 +60,30 @@
         $('#userDeleteModal').modal('show');	
 
 })
+
+Livewire.on('themeChange', (theme) => {
+ 
+    // document.getElementById('my-body').classList.add(theme);
+    console.log(theme)
+        if(theme == 'dark-mode'){
+            document.getElementById('my-body').classList.remove("light-mode");
+            
+        }
+        
+        else{
+            document.getElementById('my-body').classList.remove('dark-mode');
+        } 
+
+       document.getElementById('my-body').classList.add(theme);	
+
+})
 Livewire.on('editUserModalShow', () => {
  
         $('#editUser').modal('show');	
 
 })
 Livewire.on('sweet_alert_comfirmation', (message, type, title) => {
-      	
+    $('#normalmodal').modal('hide');	
     Swal.fire({
   icon: type,
   title: title,

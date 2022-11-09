@@ -4,11 +4,25 @@ namespace App\Http\Livewire;
 
 use App\Models\Student;
 use Livewire\Component;
+use App\Imports\StudentsImport;
+use Maatwebsite\Excel\Facades\Excel;
+use Livewire\WithFileUploads;
 
 class StudentSuperAdmin extends Component
 {
-    public $student, $search,$inputUser;
+    use WithFileUploads;
+    public $student, $search,$inputUser, $file;
    
+    public function submitForm()
+    {
+      $this->validate([
+        'file' => 'required'
+      ]);
+        Excel::import(new StudentsImport(), $this->file);
+        $this->render();
+        $this->emit('sweet_alert_comfirmation', "Student Successfully Imported!", 'success', 'Success');
+        
+    }
 public function updatedSearch()
 {
     $this->inputUser = Student::where('type', 'like', '%' . $this->search . '%')

@@ -12,13 +12,7 @@
 									<li class="breadcrumb-item active" aria-current="page"><a href="#"> Dashboard</a></li>
 								</ol>
 							</div>
-							<div class="page-rightheader">
-								<div class="btn btn-list">
-									<a href="index-2.html#" class="btn btn-info"><i class="fe fe-settings mr-1"></i> General Settings </a>
-									<a href="index-2.html#" class="btn btn-danger"><i class="fe fe-printer mr-1"></i> Print </a>
-									<a href="index-2.html#" class="btn btn-warning"><i class="fe fe-shopping-cart mr-1"></i> Buy Now </a>
-								</div>
-							</div>
+						 
 						</div>
 						<!--End Page header-->
 																		
@@ -30,8 +24,11 @@
 										<p class=" mb-1 ">Total Non Cafe </p>
 										<h2 class="mb-1 number-font">{{ $totalCafeStudent }}</h2>
 										<small class="fs-12 text-muted">from total registered student</small>
+                                        @if(($totalCafeStudent + $totalNonCafeStudent) !=0)
 										<span class="ratio bg-warning">{{ (100* $totalCafeStudent)/($totalCafeStudent + $totalNonCafeStudent) }}%</span>
-										 
+                                        @else 
+                                        <span class="ratio bg-warning">0%</span>
+										 @endif
 									</div>
 									<div id="spark1"></div>
 								</div>
@@ -42,8 +39,11 @@
 										<p class=" mb-1 ">Total Non Cafe</p>
 										<h2 class="mb-1 number-font">{{ $totalCafeStudent }}</h2>
 										<small class="fs-12 text-muted">from total registered student</small>
+                                        @if(($totalCafeStudent + $totalNonCafeStudent) !=0)
 										<span class="ratio bg-info">{{ (100* $totalCafeStudent)/($totalCafeStudent + $totalNonCafeStudent) }}%</span>
-										 
+                                        @else 
+                                        <span class="ratio bg-warning">0%</span>
+										 @endif
 									</div>
 									<div id="spark2"></div>
 								</div>
@@ -75,17 +75,17 @@
 						</div>
 						<div class="row">
 						<!-- End Row-1 -->
-							<div class="col-sm-12 col-md-6 col-xl-3">
+							<div class="col-sm-12 col-md-6 col-xl-4">
 								<div class="card bg-primary">
 									<div class="card-body">
 										<div class="d-flex no-block align-items-center">
 											<div>
-												<h6 class="text-white">Today</h6>
-												<h2 class="text-white m-0 font-weight-bold">{{ $todayStudent }}</h2>
+												<h6 class="text-white">pending</h6>
+												<h2 class="text-white m-0 font-weight-bold">{{ $pending }}</h2>
 											</div>
 											<div class="ml-auto">
 												<span class="text-white display-6">
-													<i class="fa fa-users fa-2x"></i>
+													<i class="fa fa-send fa-2x"></i>
 												</span>
 											</div>
 										</div>
@@ -93,52 +93,37 @@
 								</div>
 							</div>
 
-							<div class="col-sm-12 col-md-6 col-xl-3">
+							<div class="col-sm-12 col-md-6 col-xl-4">
 								<div class="card bg-secondary">
 									<div class="card-body">
 										<div class="d-flex no-block align-items-center">
 											<div>
-												<h6 class="text-white">This Week</h6>
-												<h2 class="text-white m-0 font-weight-bold">{{ $weekStudent }}</h2>
+												<h6 class="text-white">approved</h6>
+												<h2 class="text-white m-0 font-weight-bold">{{ $approved }}</h2>
 											</div>
 											<div class="ml-auto">
-												<span class="text-white display-6"><i class="fa fa-signal fa-2x"></i></span>
+												<span class="text-white display-6"><i class="fa fa-check-square-o fa-2x" ></i></span>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-12 col-md-6 col-xl-3">
+							<div class="col-sm-12 col-md-6 col-xl-4">
 								<div class="card bg-warning">
 									<div class="card-body">
 										<div class="d-flex no-block align-items-center">
 											<div>
-												<h6 class="text-white">This Month</h6>
-												<h2 class="text-white m-0 font-weight-bold">{{ $monthStudent }}</h2>
+												<h6 class="text-white">Unapproved</h6>
+												<h2 class="text-white m-0 font-weight-bold">{{ $unapproved }}</h2>
 											</div>
 											<div class="ml-auto">
-												<span class="text-white display-6"><i class="fa fa-usd fa-2x"></i></span>
+												<span class="text-white display-6"><i class="fa fa-times-circle fa-2x"></i></span>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-
-							<div class="col-sm-12 col-md-6 col-xl-3">
-								<div class="card bg-info">
-									<div class="card-body">
-										<div class="d-flex no-block align-items-center">
-											<div>
-												<h6 class="text-white">News</h6>
-												<h2 class="text-white m-0 font-weight-bold">542</h2>
-											</div>
-											<div class="ml-auto">
-												<span class="text-white display-6"><i class="fa fa-newspaper-o fa-2x"></i></span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+ 
 						</div>
 						<!-- Row-2 -->
 						<div class="row">

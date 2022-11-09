@@ -40,7 +40,7 @@
 														<i class="fe fe-user"></i>
 													</div>
 												</div>
-												<input wire:model="id_number" type="text" class="form-control @error('id_number')  is-invalid @enderror" placeholder="ID Number">
+												<input wire:model.defer="id_number" type="text" class="form-control @error('id_number')  is-invalid @enderror" placeholder="ID Number">
                                               
 											</div>
                                             @error('id_number') <p class="text-danger" style="margin-top:-1rem;"> {{$message}} </p>@enderror
@@ -51,7 +51,7 @@
 													</div>
                                                   
 												</div>
-												<input wire:model="serial_number"  type="text" class="form-control @error('serial_number')  is-invalid @enderror" placeholder="Serial Number">
+												<input wire:model.defer="serial_number"  type="text" class="form-control @error('serial_number')  is-invalid @enderror" placeholder="Serial Number">
 											</div>
                                             @error('serial_number') <p class="text-danger" style="margin-top:-1rem;"> {{$message}} </p>@enderror
                                             <p>First Picture</p>
@@ -72,7 +72,7 @@
 											<div class="row">
 												<div class="col-12">
 
-                                                <button type="button" style="height:3rem; " wire:loading.class="btn-loading" 
+                                                <button type="button" style="height:3rem; " wire:target="save" wire:loading.class="btn-loading" 
                                                 wire:click="save()"
                              class="btn  btn-primary btn-block px-4">
                              <span wire:loading.remove>

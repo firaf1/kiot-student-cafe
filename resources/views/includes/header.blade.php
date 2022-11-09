@@ -61,7 +61,8 @@
 @livewireStyles()
  
 		</head>
-
-	<body class="app sidebar-mini">
-	
+ 
+	<body class="app sidebar-mini {{ Auth::user()->theme}}" id="my-body">
+	 
+	 
 		<!-- Start Switcher -->

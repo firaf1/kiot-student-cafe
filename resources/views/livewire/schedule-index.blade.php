@@ -191,7 +191,7 @@ position:fixed; top:0px; left:0px; z-index:999999">
 							<form action="{{ route('import-student') }} " method="post" enctype="multipart/form-data">
 								@csrf
                                 <label class="mt-4 ">Title</label>
-								<input type="text"  wire:model="title"placeholder=" Title " 
+								<input type="text"  wire:model.defer="title"placeholder=" Title " 
                                 class="form-control @error('title')
                                     is-invalid
                                 @enderror">

@@ -3,37 +3,36 @@
 namespace App\Imports;
 
 use App\Models\Student;
- use Illuminate\Support\Collection;
-use App\Models\Customer;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class StudentsImport implements ToCollection
+class StudentsImport implements ToCollection, WithHeadingRow
 {
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
-    public $item;
-    public function __construct($item)
-    {
-        $this->item = $item;
-    }
+
     public function collection(Collection $rows)
     {
-    
-        foreach ($rows as $row) 
-        {
-           
-            // Customer::create([
-            //     'phone_number'=>$row[0],
-            // ]);
-          Student::create([
-            'name'=> $row[0],
-            'department'=> $this->item,
-            'id_number'=> $row[2],
-            'type'=> $row[3],
-        ]);
+        Validator::make($rows->toArray(), [
+            '*.first_name' => 'required',
+            '*.last_name' => 'required',
+            '*.department' => 'required',
+            '*.id_number' => 'required',
+            '*.cafteria' => 'required',
+            
+            '*.registratin_type' => 'required',
+        ])->validate();
+
+        foreach ($rows as $row) {
+            Student::create([
+                'name' => $row['first_name'] . " " . $row['last_name'],
+                'department' => $row['department'],
+                'id_number' => $row['id_number'],
+                'type' => $row['cafteria'],
+                'image'=> 'storage/StudentImage'.'/'. $row['id_number'].'.jpg',
+                'status' => 'Approved',
+                'reg_type' => $row['registratin_type'],
+            ]);
+        }
     }
-}
 }

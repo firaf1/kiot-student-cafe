@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Property;
 use App\Models\Student;
 use Livewire\Component;
+use App\Models\Property;
+use App\Models\Notification;
 use Livewire\WithFileUploads;
+use App\Models\Property_Report;
 
 class PropertyRegister extends Component
 {
@@ -22,20 +24,37 @@ class PropertyRegister extends Component
         ]);
         $student = Student::where('id_number', $this->id_number)->first();
         if (!$student) {
-            return $this->addError('id_number', 'ID number is not found');
-
+            return $this->addError('id_number', 'ID number is not Register');
         }
-
+        $pro = Property::where('user_id', $student->id)->count();
+        if($pro>3){
+            return $this->addError('id_number', 'Not allowed more than 3 properties');
+        }
+        if(0 != Property::where('serial_number', $this->serial_number)->count()){
+           $pro_report = new Property_Report();
+           $temp_id = Property::where('serial_number', $this->serial_number)->first();
+           $pro_report->property_id = $temp_id->id;
+           $pro_report->student_id = $student->id;
+           $pro_report->status = "Pending";
+           $pro_report->save();
+           
+           $not = new Notification();
+           $not->user_id = $student->id;
+           $not->save();
+           
+            return $this->msg = "Property is Successfully saved";
+        }
+         
         $property = new Property();
-        $tempImage = 'kiot-property-' . time() . '.' . $this->first->extension();
-        $this->first->storeAs('User_Profile/', $tempImage, 'public');
+        $tempImage = 'kiot-property-1' . time() . '.' . $this->first->extension();
+        $this->first->storeAs('Property/', $tempImage, 'public');
         $property->firstImage = "storage/Property/" . $tempImage;
 
-        $tempImage = 'kiot-property-' . time() . '.' . $this->second->extension();
+        $tempImage = 'kiot-property-2' . time() . '.' . $this->second->extension();
         $this->second->storeAs('Property/', $tempImage, 'public');
         $property->secondImage = "storage/Property/" . $tempImage;
 
-        $tempImage = 'kiot-property-' . time() . '.' . $this->third->extension();
+        $tempImage = 'kiot-property-3' . time() . '.' . $this->third->extension();
         $this->third->storeAs('Property/', $tempImage, 'public');
         $property->thirdImage = "storage/Property/" . $tempImage;
         $property->serial_number = $this->serial_number;

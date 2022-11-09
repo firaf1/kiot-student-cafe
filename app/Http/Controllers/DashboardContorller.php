@@ -13,6 +13,9 @@ class DashboardContorller extends Controller
 {
     public function superAdmin()
     {
+        $pending = Store::where('status', 'Pending')->whereMonth('created_at', Carbon::now()->month)->count();
+        $approved = Store::where('status', 'Approved')->whereMonth('created_at', Carbon::now()->month)->count();
+        $unapproved = Store::where('status', 'Unapproved')->whereMonth('created_at', Carbon::now()->month)->count();
         $totalCafeStudent = Student::where('type', 'cafe')->count();
         $totalNonCafeStudent = Student::where('type', 'non-cafe')->count();
         $totalStudent = Student::all()->count();
@@ -33,6 +36,7 @@ class DashboardContorller extends Controller
 
         return view('pages.dashboard.superAdmin', compact(['totalCafeStudent', 'todayStudent', 'totalStudent',
             'weekStudent',
+            'pending', 'approved','unapproved',
             'deleted', 'taken', 'stores', 'inputs',
             'monthStudent', 'totalStudent', 'totalUser', 'totalNonCafeStudent']));
     }

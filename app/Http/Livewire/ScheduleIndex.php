@@ -30,8 +30,8 @@ class ScheduleIndex extends Component
         $student->is_for_both = "cafe";
             $student->save();
             $this->mount();
-            
-            $this->emit('postAdded', "Schedule Successfully Changed to cafe!!!", 'warning', 'center');
+         
+            $this->emit('postAdded', "Schedule Successfully Changed to cafe!!!", 'warning', 'center', 'Success');
     }
     public function Toboth($id)
     {
@@ -41,7 +41,7 @@ class ScheduleIndex extends Component
             $student->save();
             $this->mount();
             
-            $this->emit('postAdded', "Schedule Successfully Changed to cafe!!!", 'warning', 'center');
+            $this->emit('postAdded', "Schedule Successfully Changed to cafe!!!", 'warning', 'center', 'Success');
     }
 
     public function StatusChangeUnapprove($id)
@@ -51,7 +51,7 @@ class ScheduleIndex extends Component
         $student->save();
         $this->mount();
         $this->emit('postAdded', "Schedule Successfully Unapproved!");
-        $this->emit('postAdded', "Schedule Successfully Unapproved!!", 'warning', 'center');
+        $this->emit('postAdded', "Schedule Successfully Unapproved!!", 'warning', 'center', 'Success');
 }
 
     public function StatusChangeApprove($id)
@@ -62,7 +62,7 @@ class ScheduleIndex extends Component
             $student->save();
 
             $this->mount();
-            $this->emit('postAdded', "Schedule Successfully Approved!!", 'info', 'right');
+            $this->emit('postAdded', "Schedule Successfully Approved!!", 'info', 'right', 'Success');
     }
     public function AddSchedule()
     {
@@ -80,7 +80,7 @@ class ScheduleIndex extends Component
             $this->reset();
             $schedule->save();
             $this->mount();
-            $this->emit('postAdded', "Schedule Successfully Added!", 'success', 'right');
+            $this->emit('postAdded', "Schedule Successfully Added!", 'success', 'right', 'Success');
         }
         else if($this->startingDate > 22 && $this->startingDate > $this->endingDate && (($this->endingDate + 24) - $this->startingDate) <=2 ){
             $schedule = new Schedule();
@@ -93,7 +93,7 @@ class ScheduleIndex extends Component
             $this->reset();
             $schedule->save();
             $this->mount();
-              $this->emit('postAdded', "Schedule Successfully Added!", 'success', 'right');
+              $this->emit('postAdded', "Schedule Successfully Added!", 'success', 'right', 'Notes!!');
         }
         else{
             $this->scheduleErrorMessage = "Invalid Schedule Check Your input";
@@ -132,7 +132,7 @@ class ScheduleIndex extends Component
         $schedule->starting_time = $this->editStartDate;
         $schedule->save();
         $this->mount();
-        $this->emit('postAdded', "Schedule Successfully Updated!", 'success', 'center');
+        $this->emit('postAdded', "Schedule Successfully Updated!", 'success', 'center','Notes');
 
     }
     public function render()

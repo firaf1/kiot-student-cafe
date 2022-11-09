@@ -140,3 +140,12 @@
 			</div>
 						<!--Footer-->
 		@include('includes.footer')
+
+
+			@if (count($errors) > 0)
+				<script>
+					$('#normalmodal').modal('show');	
+				</script>
+			@endif
+
+			
