@@ -277,6 +277,7 @@
                                     <option value="1">Super Admin</option>
                                     <option value="2">Store Admin</option>
                                     <option value="3">Admin</option>
+                                    <option value="4">Securty</option>
                                      
                                 </select>
                         </div>
@@ -405,6 +406,7 @@
                                     <option value="1">Super Admin</option>
                                     <option value="2">Store Admin</option>
                                     <option value="3">Admin</option>
+                                    <option value="4">Securty</option>
                                    
                                 </select>
                         </div>

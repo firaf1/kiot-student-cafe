@@ -56,7 +56,7 @@ class ScheduleIndex extends Component
 
     public function StatusChangeApprove($id)
     {
-         
+       
         $student = Schedule::where('id', $id)->first();
         $student->status = "Approved";
             $student->save();

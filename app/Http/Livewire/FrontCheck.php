@@ -19,8 +19,6 @@ class FrontCheck extends Component
 
 public function incrementPostCount($qr)
     {
-     
-         
         $schedule = Schedule::where('type', 'active')->first();
         if($schedule == null){
            $this->status = 0;

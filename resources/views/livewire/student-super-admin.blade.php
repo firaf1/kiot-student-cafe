@@ -1,12 +1,28 @@
 <div>
-<div wire:loading class="" style="width:100%; height:100%; background:#060220de;
+<div   wire:target="qrGenerete, file, submitForm, generateForOneStudent" wire:loading class="" style="width:100%; height:100%; background:#060220de;
  
  position:fixed; top:0px; left:0px; z-index:999999">
  <div class="card-body">
                                       <img style="position:absolute; top:50%; left:40%" src="loader2.gif" alt="">
+                                      <h3>please wait......</h3>
                                      </div>
  </div>
- 
+ <div class="page-header">
+							<div class="page-leftheader">
+								<h4 class="page-title mb-0">Student List</h4>
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="#"><i class="fe fe-grid mr-2 fs-14"></i>Apps</a></li>
+									<li class="breadcrumb-item"><a href="#">User List</a></li>
+									<li class="breadcrumb-item active" aria-current="page"><a href="#">Student List</a></li>
+								</ol>
+							</div>
+							<div class="page-rightheader">
+								<div class="btn btn-list">
+								<a href="#" wire:click="qrGenerete()" class="btn btn-primary"><i class="fe fe-printer mr-1"></i> Card Generate  </a>
+ 									 
+								</div>
+							</div>
+						</div>
     <div class="row flex-lg-nowrap">
         <div class="col-12">
             <div class="row flex-lg-nowrap">
@@ -49,6 +65,7 @@
                                             <th>Type</th>
                                             <th>Status</th>
                                             <th>Card</th>
+                                            <th>Generate</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -103,6 +120,11 @@
                                          <img height="100rem" src="{{ asset($student->meal_card) }}" />
                                         </a>
                                         
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary" wire:click="generateForOneStudent({{ $student->id }} )" >
+                                                Generate
+                                            </button>
                                         </td>
                                         <td>
                                             @if($student->status =='Approved')

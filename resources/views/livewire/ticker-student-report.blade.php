@@ -4,14 +4,13 @@
             <h4 class="page-title mb-0">Cafe Student Report</h4>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#"><i class="fe fe-server mr-2 fs-14"></i>Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="index-2.html#">report</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="#">report</a></li>
             </ol>
         </div>
         <div class="page-rightheader">
             <div class="btn btn-list">
-                <a href="index-2.html#" class="btn btn-info"><i class="fe fe-settings mr-1"></i> General Settings </a>
-                <a href="index-2.html#" class="btn btn-danger"><i class="fe fe-printer mr-1"></i> Print </a>
-                <a href="index-2.html#" class="btn btn-warning"><i class="fe fe-shopping-cart mr-1"></i> Buy Now </a>
+                <a href="#" wire:click="export()" class="btn btn-info"><i class="fe fe-settings mr-1"></i> Export Students </a>
+                
             </div>
         </div>
     </div>
@@ -61,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="card-options">
-                                <a href="index-2.html#" class="option-dots" data-toggle="dropdown" aria-haspopup="true"
+                                <a href="#" class="option-dots" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false"><i class="fe fe-more-horizontal fs-20"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" wire:click="Changedate(1)" href="#">Today</a>

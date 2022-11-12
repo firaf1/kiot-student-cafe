@@ -49,6 +49,7 @@
 			</div>
         </div>
 		
+		@livewireScripts()
 		<!-- Jquery js-->
 		<script src="back/assets/js/jquery-3.5.1.min.js"></script>
 
@@ -66,8 +67,17 @@
 		<script src="back/assets/plugins/rating/jquery.rating-stars.js"></script>
 				<!-- Custom js-->
 		<script src="back/assets/js/custom.js"></script>	
-        @livewireScripts()
 	</body>
+		<script>
+				Livewire.on('dddd', () => {
+					document.getElementById('t-1').classList.remove("active");
+					document.getElementById('t-2').classList.add("active");
 
+					document.getElementById('tab11').classList.remove("active");
+					document.getElementById('tab12').classList.add("active");
+
+
+				})
+		</script>
 <!-- Mirrored from laravel.spruko.com/admitro/Vertical-IconSidedar-Light/register-1 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 May 2021 05:58:27 GMT -->
 </html>

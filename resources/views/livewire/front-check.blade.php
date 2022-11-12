@@ -180,6 +180,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <input class="form-control" style="opacity:0; " id="rec" type="text" autofocus>
+                                    
                                     {{-- <p style="color: red; font-size: 8pt">Type to check manually!</p> --}}
                                 </div>
 

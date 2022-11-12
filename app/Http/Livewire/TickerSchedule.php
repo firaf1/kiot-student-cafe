@@ -30,12 +30,12 @@ class TickerSchedule extends Component
 
     public function StatusChangeUnapprove($id)
 {
-   
+    
     $student = Schedule::where('id', $id)->first();
     $student->type = "inactive";
         $student->save();
         $this->mount();
-        $this->emit('postAdded', "Schedule Successfully InActive!");
+      
         $this->emit('postAdded', "Schedule Successfully InActive!!!", 'warning', 'center');
 }
 

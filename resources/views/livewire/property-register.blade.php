@@ -3,19 +3,35 @@
 							<div class="row justify-content-center">
 								<div class="col-md-5">
 									<div class="card">
-										<div class="card-body">
-											<div class="text-center title-style mb-6">
-												<h1 class="mb-2">Register</h1>
-                                                @if($msg != null)
+                                    <div class="card" id="tabs-style3">
+									 
+									<div class="card-body">
+										<div class="panel panel-primary tabs-style-3"  >
+											<div class="tab-menu-heading">
+												<div class="tabs-menu ">
+													<!-- Tabs -->
+													<ul class="nav panel-tabs">
+														<li class=""><a href="#tab11" id="t-1" class="active" data-toggle="tab"><i class="fe fe-airplay mr-1"></i>Register Your Property</a></li>
+														<li><a href="#tab12" id="t-2" data-toggle="tab"><i class="fe fe-package mr-1"></i> Check Your Profile</a></li>
+														 
+													</ul>
+												</div>
+											</div>
+											<div class="panel-body tabs-menu-body">
+												<div class="tab-content">
+													<div class="tab-pane active" id="tab11">
+                                                    <div class="card-bodya">
+                                                        @if($msg != null)
+                                                        <div class="text-center title-style mb-6">
 
                                                 <div class="alert alert-light-success" role="alert">
                                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-										<i class="fa fa-check-circle-o mr-2" aria-hidden="true"></i>    {{ $msg }}</div>
+                                                <i class="fa fa-check-circle-o mr-2" aria-hidden="true"></i>    {{ $msg }}</div>
 
 
                                                 
-                                                @endif
 											</div>
+                                                @endif
 											<div class="row mb-3">
                                             @if ($first)
                                             <div class="col-sm-4">
@@ -74,18 +90,65 @@
 
                                                 <button type="button" style="height:3rem; " wire:target="save" wire:loading.class="btn-loading" 
                                                 wire:click="save()"
-                             class="btn  btn-primary btn-block px-4">
-                             <span wire:loading.remove>
-                             Register
-                             </span>
+                                                class="btn  btn-primary btn-block px-4">
+                                                <span wire:loading.remove>
+                                                Register
+                                                </span>
 
-                         </button>
+                                            </button>
  												</div>
 											</div>
 											 
 										</div>
+													</div>
+													<div class="tab-pane" id="tab12">
+                                                        @error('preview_id_numer')
+                                                        <div class="alert alert-light-danger" role="alert">
+                                                                        {{ $message }}
+                                                    </div>
+                                                        @enderror
+                                                        @if ($user)
+                                                        <div class="card box-widget widget-user">
+									<div class="widget-user-image mx-auto mt-5"><img alt="User Avatar" class="rounded-circle" src="{{ asset($user->image) }}"></div>
+									<div class="card-body text-center">
+										<div class="pro-user">
+											<h4 class="pro-user-username text-dark mb-1 font-weight-bold">{{ $user->name }}</h4>
+											<h6 class="pro-user-desc text-muted">{{ $user->department }}</h6>
+											<div class="wideget-user-rating">
+												 
+												<a href="#"><i class="fa fa-institution text-warning mr-1"></i></a> <span>0{{ $user->phone_number }}</span>
+											</div>
+											<a href="#" class="btn btn-primary  mt-3"><i class="fa fa-institution"></i> {{ $user->type }}</a>
+											<a href="#" class="btn btn-success  mt-3"><i class="fa fa-rss"></i> {{ $user->reg_type }}</a>
+										</div>
+									</div>
+									 
+								</div>
+                                                        @endif
+                                                   
+                                                    <div class="form-group">
+                                                        <input type="text" placeholder="Enter Your ID Number" wire:model.defer="preview_id_numer" class="form-control">
+                                                    </div>
+												 <button style="height:3rem; " wire:target="preview" wire:loading.class="btn-loading" 
+                                                wire:click="preview()"
+                                                class="btn  btn-primary btn-block px-4">
+                                                <span wire:loading.remove>
+                                                Preview
+                                                </span>
+                                                </button>
+												</div>
+											</div>
+										</div>
+									</div>
+ 		<!---Prism Pre code-->
+		 
+		<!---Prism Pre code-->
+								</div>
+										
+
 									</div>
 								</div>
 							</div>
+                         
 						</div>
  

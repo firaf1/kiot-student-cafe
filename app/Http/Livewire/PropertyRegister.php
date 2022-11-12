@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use App\Models\Student;
 use Livewire\Component;
 use App\Models\Property;
@@ -12,7 +13,20 @@ use App\Models\Property_Report;
 class PropertyRegister extends Component
 {
     use WithFileUploads;
-    public $id_number, $first, $second, $msg, $third, $serial_number;
+    public $id_number, $first, $user, $second,$preview_id_numer, $msg, $third, $serial_number;
+    public function preview()
+    {
+        $this->emit('dddd');
+        $this->user = Student::where('id_number', $this->preview_id_numer)->first();
+        if(!$this->user){
+            return $this->addError('preview_id_numer', 'Wrong ID Number');
+        }
+       if($this->preview_id_numer ==null){
+        return $this->addError('preview_id_numer', 'ID number field is required');
+       } else{
+
+       }
+    }
     public function save()
     {
         $this->validate([

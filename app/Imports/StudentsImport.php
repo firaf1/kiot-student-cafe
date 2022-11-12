@@ -19,20 +19,34 @@ class StudentsImport implements ToCollection, WithHeadingRow
             '*.department' => 'required',
             '*.id_number' => 'required',
             '*.cafteria' => 'required',
-            
+            '*.phone_number' => 'required',
             '*.registratin_type' => 'required',
         ])->validate();
 
         foreach ($rows as $row) {
-            Student::create([
-                'name' => $row['first_name'] . " " . $row['last_name'],
-                'department' => $row['department'],
-                'id_number' => $row['id_number'],
-                'type' => $row['cafteria'],
-                'image'=> 'storage/StudentImage'.'/'. $row['id_number'].'.jpg',
-                'status' => 'Approved',
-                'reg_type' => $row['registratin_type'],
-            ]);
+            if(Student::where('id_number', $row['id_number'])->count() == 0){
+                Student::create([
+                    'name' => $row['first_name'] . " " . $row['last_name'],
+                    'department' => $row['department'],
+                    'id_number' => $row['id_number'],
+                    'phone_number' => $row['phone_number'],
+                    'type' => $row['cafteria'],
+                    'image'=> 'storage/StudentImage'.'/'. $row['id_number'].'.jpg',
+                    'status' => 'Approved',
+                    'reg_type' => $row['registratin_type'],
+                ]);
+            }else{
+               $student = Student::where('id_number', $row['id_number'])->first();
+               $end = date('Y', strtotime('-1 years'));
+               $student->created_at = now();
+               $student->save();
+            }
         }
+      
+        $end = date('Y', strtotime('-1 years'));
+ 
+        $st = Student::whereYear('created_at', $end)->delete();
+
+
     }
 }

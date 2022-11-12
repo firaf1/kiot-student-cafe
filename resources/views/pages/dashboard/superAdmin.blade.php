@@ -25,7 +25,7 @@
 										<h2 class="mb-1 number-font">{{ $totalCafeStudent }}</h2>
 										<small class="fs-12 text-muted">from total registered student</small>
                                         @if(($totalCafeStudent + $totalNonCafeStudent) !=0)
-										<span class="ratio bg-warning">{{ (100* $totalCafeStudent)/($totalCafeStudent + $totalNonCafeStudent) }}%</span>
+										<span class="ratio bg-warning">{{ round((100* $totalCafeStudent)/($totalCafeStudent + $totalNonCafeStudent), 1) }}%</span>
                                         @else 
                                         <span class="ratio bg-warning">0%</span>
 										 @endif
@@ -40,7 +40,7 @@
 										<h2 class="mb-1 number-font">{{ $totalCafeStudent }}</h2>
 										<small class="fs-12 text-muted">from total registered student</small>
                                         @if(($totalCafeStudent + $totalNonCafeStudent) !=0)
-										<span class="ratio bg-info">{{ (100* $totalCafeStudent)/($totalCafeStudent + $totalNonCafeStudent) }}%</span>
+										<span class="ratio bg-info">{{ round((100* $totalCafeStudent)/($totalCafeStudent + $totalNonCafeStudent), 1) }}%</span>
                                         @else 
                                         <span class="ratio bg-warning">0%</span>
 										 @endif

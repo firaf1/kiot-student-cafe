@@ -226,6 +226,7 @@ audio.play();
                 $('.mask-overlay').remove();
                 let inp = document.getElementById('rec');
                 let valueOF = inp.value;
+                
                 Livewire.emit('postAdded',valueOF )
                  
                 inp.value = null;
