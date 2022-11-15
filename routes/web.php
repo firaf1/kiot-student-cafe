@@ -65,21 +65,36 @@ Route::get('qr', function () {
     if ($time >= "19") {
         echo "Good night";
     }
- });
-Route::middleware(['auth'])->group(function () {
+});
+
+
+
+ Route::middleware(['auth'])->group(function () {
+    Route::middleware(['blocked'])->group(function () {
+    Route::middleware(['ticker'])->group(function () {
+
+    Route::get('schedules', [SuperAdminController::class, 'schedules'])->name('schedules');
+
+    });
+ Route::middleware(['registeral'])->group(function () {
+
+    Route::get('user-index', [SuperAdminController::class, 'user'])->name('add-user');
+    Route::get('add-student', [StudentController::class, 'index'])->name('add-student');
+    
+    });
 // Super Admin Route
 Route::middleware(['super-admin'])->group(function () {
     Route::get('admin-dashboard', [DashboardContorller::class, 'superAdmin'])->name('superAdminDashboard');
-    Route::get('user-index', [SuperAdminController::class, 'user'])->name('add-user');
+   
     Route::get('qr-generate', [StudentController::class, 'qr_generate'])->name('qr-generate');
-    Route::get('add-student', [StudentController::class, 'index'])->name('add-student');
+  
     Route::get('Materials', [SuperAdminController::class, 'materials'])->name('materials');
     Route::get('request-status', [SuperAdminController::class, 'RequestStatus'])->name('request-status');
     Route::get('store-status',[SuperAdminController::class, 'StoreStatus'])->name('store-status');
     Route::get('roles',[SuperAdminController::class, 'roles'])->name('roles');
     Route::get('Measurement', [SuperAdminController::class, 'measurement'])->name('measurement');
     Route::get('schedule', [SuperAdminController::class, 'schedule'])->name('schedule');
-    Route::get('schedules', [SuperAdminController::class, 'schedules'])->name('schedules');
+   
     Route::get('Student-Report', [SuperAdminController::class, 'TickerStudentReport'])->name('tickerReport');
     Route::post('import-student', [StudentController::class, 'importStudent'])->name('import-student');
 
@@ -111,6 +126,11 @@ Route::middleware(['admin'])->group(function () {
 
 });
 
+
+
+
+
+
 Route::get('logout', function(){
     Auth::logout();
     return redirect('/');
@@ -121,7 +141,7 @@ return view('pages.profile');
 })->name('profile');
 
 
- 
+});
   
 }); //auth end
  
@@ -148,7 +168,35 @@ Route::get('request',  [PropertyController::class, 'index'])->name('propertyRequ
 
 
 Route::get('login',[AuthController::class, 'Login'])->name('login');
+Route::get('account-blocked', function(){
+    if(Auth::user()->status == "Approved"){
+        if (Auth::user()->role == '1') {
+           return redirect(route('superAdminDashboard'));
+        } elseif(Auth::user()->role == '2'){
+           return redirect(route('storeDashboard'));
+        }
 
+         elseif(Auth::user()->role == '3'){
+           return redirect(route('betDashboard'));
+        }
+        elseif(Auth::user()->role == '0'){
+           return redirect(route('add-user'));
+        }
+        elseif(Auth::user()->role == '4'){
+           return redirect(route('securtyDashboard'));
+        }
+        elseif(Auth::user()->role == '5'){
+           return redirect(route('schedules'));
+        }
+    }
+    return view('blocked');
+})->name('blocked');
+
+
+
+Route::fallback(function () {
+    return view('notFound');
+});
 Route::post('import-student', [StudentController::class, 'importStudent'])->name('import-student');
 //users
 Route::get('/add-user', function () {

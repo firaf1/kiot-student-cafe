@@ -56,6 +56,9 @@ class Kernel extends HttpKernel
        
         'auth' => \App\Http\Middleware\Authenticate::class,
         'super-admin' => \App\Http\Middleware\SuperAdmin::class,
+        'blocked' => \App\Http\Middleware\isBlocked::class,
+        'registeral' => \App\Http\Middleware\isRegisteral::class,
+        'ticker' => \App\Http\Middleware\isTicker::class,
         'store-admin' => \App\Http\Middleware\StoreAdmin::class,
         'admin' => \App\Http\Middleware\Admin::class,
         'is-securty' => \App\Http\Middleware\isSecurty::class,

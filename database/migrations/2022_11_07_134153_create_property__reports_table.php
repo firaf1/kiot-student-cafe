@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('property__reports', function (Blueprint $table) {
             $table->id();
-            $table->string('property_id')->nullable();
-            $table->string('student_id')->nullable();
+             $table->unsignedBigInteger('property_id')->nullable();
+            $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
+             $table->unsignedBigInteger('student_id')->nullable();
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->string('status')->nullable();
             $table->timestamps();
         });

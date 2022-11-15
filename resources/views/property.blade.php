@@ -172,7 +172,7 @@
     @livewireStyles()
 </head>
 
-<body id="home-version-1" class="home-version-1" data-style="default" style="overflow:hidden">
+<body id="home-version-1" class="home-version-1" data-style="default" style="overflow:hidden; background: #081f35 url(front/bg_banner.png); ">
 
     <div id="site"></div>
 

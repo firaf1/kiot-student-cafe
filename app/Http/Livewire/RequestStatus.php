@@ -24,8 +24,7 @@ class RequestStatus extends Component
             $searchInput = Input::where('name', 'like', $this->search)->orWhere('name', 'like', '%' . $this->search . '%')->get();
  
             if ($searchInput->count() > 0) {
-              
-                // dd($searchInput);
+                
                 $i = 0;
                 $isF = false;
                 $this->searchItems = null;
@@ -39,7 +38,8 @@ class RequestStatus extends Component
                         $i = 0;
                         foreach($store as $st){
                             if ($this->searchItems == null) {
-                                $this->searchItems = $store;
+                                
+                                $this->searchItems = Store::where('inputs_id', $se->id)->where('status', '!=', 'Taken')->where('type', 'out') ->get()->take(1);
                             } else {
                                 $this->searchItems->push($st);
                                  

@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('tickes', function (Blueprint $table) {
             $table->id();
-            $table->string('student_id');
-            $table->string('schedule_id');
+            $table->unsignedBigInteger('student_id')->nullable();
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+             $table->unsignedBigInteger('schedule_id')->nullable();
+            $table->foreign('schedule_id')->references('id')->on('schedules')->onDelete('cascade');
             $table->string('status')->nullable();
             
             $table->timestamps();

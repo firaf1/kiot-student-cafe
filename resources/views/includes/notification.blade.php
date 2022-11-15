@@ -21,18 +21,18 @@ Toast.fire({
     })
 
 
-    Livewire.on('postAdded', (postId, type, position, bold) => {
-        console.log(type)
+    Livewire.on('postAdded', (postId, type, position) => {
+      
         notif({
-            msg: "<b>"+bold+"</b> " + postId,
+            msg: "<b>"+type+"</b> " + postId,
             type: type,
             position: position
         });
         $('#normalmodal').modal('hide');
         $('#delete_shedule_modal').modal('hide');
+         
         $('#EditSchedule').modal('hide');
-        if(bold == 'Success')
-        $('#signApproved').modal('hide');
+      
     })
 
     Livewire.on('EditscheduleModal', (postId) => {
@@ -72,7 +72,7 @@ Toast.fire({
         })
 
         Toast.fire({
-            icon: 'success',
+            icon: type,
             title: postId
         })
 

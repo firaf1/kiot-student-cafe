@@ -32,6 +32,11 @@ public function incrementPostCount($qr)
        if($this->student){
         $this->status = 2;
         if($this->student->status == "Unapproved"){
+            $not = new Notification();
+            $not->type = "bar";
+            $not->user_id = $this->student->id;
+            $not->save();
+             
             $this->emit('dangerNotification111', "Schedule Successfully Deleted!");
         }
     }

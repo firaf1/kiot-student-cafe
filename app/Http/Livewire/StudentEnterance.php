@@ -38,12 +38,13 @@ public function incrementPostCount($qr)
     
         $not = new Notification();
         $not->user_id = $this->student->id;
+        $not->type = "cafe";
         $not->save();
          
         $this->emit('dangerNotification111', "Schedule Successfully Deleted!");
         return 0;
        }
-       elseif($schedule->is_for_both == "cafe" && $type == "non-café"){
+       elseif($schedule->is_for_both == "cafe" && $type == "non-cafe"){
         $this->status = 1;
         $this->errorMessage = "Not Allowed For Non Cafe Student";
        return $this->emit('dangerNotification111', "Schedule Successfully Deleted!");

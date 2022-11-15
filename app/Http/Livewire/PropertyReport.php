@@ -12,6 +12,7 @@ class PropertyReport extends Component
 
     public function UpdatedSearch()
     {
+       $this->searchItems = Student::where('id','<',1)->get();
         $users = Student::where('name', 'like', $this->search)->orWhere('id_number', 'like', '%' . $this->search . '%')
         ->orWhere('name', 'like', '%' . $this->search . '%')
         ->get();
@@ -20,36 +21,35 @@ class PropertyReport extends Component
         if($users->count()>0){
         foreach($users as $user){
             $pros = Property_Report::where('student_id', $user->id)->get();
+            if($pros->count()>0){
             // if($pros->count() > 0)
             // dd($pros);
 
             foreach($pros as $pro){
                 if($this->searchItems ==null){
-                    $this->searchItems =Property_Report::where('student_id', $user->id)->get()->take(1);
+                    $this->searchItems =Property::where('user_id', $user->id)->get()->take(1);
                 } else
                 $this->searchItems->push($pro);
             }
+        } else $this->searchItems = Student::where('id','<',1)->get();
         }
-        }
+    }
         else{
                $dds = Property::where('id', 'like', $this->search)->orWhere('serial_number', 'like', '%' . $this->search . '%')->get();
-               
-         foreach($dds as $dd){
-             
-                $prorps = Property_Report::where('property_id', $dd->id)->get();
-                foreach($prorps as $pro){
-                    if($this->searchItems ==null){
-                        $this->searchItems =Property_Report::where('property_id', $dd->id)->get()->take(1);
-                         
-                    } else
-                    $this->searchItems->push($pro);
-        
+                if($dds->count() > 0){
+                    foreach($dds as $pro){
+                        $temp =Property_Report::where('property_id', $pro->id)->get();
+                            if($temp->count() > 0){
+                                if($this->searchItems ==null){
+                                    $this->searchItems = $temp;
+                                } else
+                                $this->searchItems->push($temp);
+                            }
+                          
+                    }
                 }
-
-           
-
-         }
-                
+                else $this->searchItems = Student::where('id','<',1)->get();
+            
         }
         
     }

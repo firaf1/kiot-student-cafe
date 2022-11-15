@@ -11,8 +11,7 @@ class ScheduleIndex extends Component
     protected $rules = [
 
         'title' => 'required|unique:schedules,title',
-        'startingDate' => 'required|numeric|min:1|max:24',
-        'endingDate' => 'required|numeric|min:1|max:24',
+         
         
 
     ];
@@ -41,7 +40,7 @@ class ScheduleIndex extends Component
             $student->save();
             $this->mount();
             
-            $this->emit('postAdded', "Schedule Successfully Changed to cafe!!!", 'warning', 'center', 'Success');
+            $this->emit('postAdded', "Schedule Successfully Changed to Both!!!", 'warning', 'center', 'Success');
     }
 
     public function StatusChangeUnapprove($id)
@@ -66,38 +65,22 @@ class ScheduleIndex extends Component
     }
     public function AddSchedule()
     {
-        
+      
         $this->validate();
-        $time = date("H");
-        if($this->startingDate <= 22 && $this->startingDate < $this->endingDate && ($this->startingDate+2)<= $this->endingDate){
+     
+      
             $schedule = new Schedule();
             $schedule->title = $this->title;
             $schedule->type = "inactive";
-            $schedule->starting_time = $this->startingDate;
-            $schedule->ending_time = $this->endingDate;
+ 
             $schedule->status = "Unapproved";
             $this->scheduleErrorMessage = "";
-            $this->reset();
             $schedule->save();
+         
             $this->mount();
             $this->emit('postAdded', "Schedule Successfully Added!", 'success', 'right', 'Success');
-        }
-        else if($this->startingDate > 22 && $this->startingDate > $this->endingDate && (($this->endingDate + 24) - $this->startingDate) <=2 ){
-            $schedule = new Schedule();
-            $schedule->title = $this->title;
-            $schedule->type = "inactive";
-            $schedule->starting_time = $this->startingDate;
-            $schedule->ending_time = $this->endingDate;
-            $schedule->status = "Unapproved";
-            $this->scheduleErrorMessage = "";
-            $this->reset();
-            $schedule->save();
-            $this->mount();
-              $this->emit('postAdded', "Schedule Successfully Added!", 'success', 'right', 'Notes!!');
-        }
-        else{
-            $this->scheduleErrorMessage = "Invalid Schedule Check Your input";
-        }
+       
+    
    
     }
 

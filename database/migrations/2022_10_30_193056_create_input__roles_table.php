@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('input__roles', function (Blueprint $table) {
             $table->id();
-            $table->string('input_id')->nullable();
-            $table->string('role_id')->nullable();
+             $table->unsignedBigInteger('input_id')->nullable();
+            $table->foreign('input_id')->references('id')->on('inputs')->onDelete('cascade');
+             $table->unsignedBigInteger('role_id')->nullable();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -23,30 +23,52 @@ class StoreStatus extends Component
     {
         if ($this->search != null) {
             $searchInput = Input::where('name', 'like', $this->search)->orWhere('name', 'like', '%' . $this->search . '%')->get();
-
+ 
             if ($searchInput->count() > 0) {
-                $this->isNotFound = false;
-                $store = Store::all();
+              
+                // dd($searchInput);
                 $i = 0;
+                $isF = false;
+                $this->searchItems = null;
                 foreach ($searchInput as $se) {
-                    $store = Store::where('inputs_id', $se->id)->latest()->get();
-                    if ($i == 0) {
-                        $this->searchItems = $store;
-                    } else {
-                        $this->searchItems->push($store);
+                   
+                    
+                    $store = Store::where('inputs_id', $se->id)->where('status', '!=', 'Taken')->where('type', 'in')->get();
+                    if($store->count() != 0) {
+                        $isF = true;
+
+                        $i = 0;
+                        foreach($store as $st){
+                            if ($this->searchItems == null) {
+                                $this->searchItems = Store::where('inputs_id', $se->id)->where('status', '!=', 'Taken')->where('type', 'in')->get()->take(1);
+                            } else {
+                                $this->searchItems->push($st);
+                                 
+                            }
+                            $i++;
+                        }
                     }
-                    $i++;
+                   
                 }
-                $this->resetPage();
+                if($isF){
+                    $this->isNotFound = false;
+                } else{
+                    $this->isNotFound = true;
+                    $this->searchItems = null;
+                }
+                
             } else {
+                $this->searchItems = null;
                 $this->isNotFound = true;
                 $this->resetPage();
             }
 
         } else {
+
             $this->isNotFound = false;
             $this->searchItems = null;
             $this->resetPage();
+
         }
     }
 

@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('input__roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('input_id')->nullable();
-            
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('role_id')->nullable();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
         });
     }
 
@@ -28,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('input__roles');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

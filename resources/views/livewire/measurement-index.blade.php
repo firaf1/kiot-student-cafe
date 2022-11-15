@@ -6,20 +6,11 @@
 									<div class="card-body p-6">
 										<div class="inbox-body">
 											<div class="row">
-												<div class="col">
-													<div class="form-group w-200">
-														<div class="input-icon">
-															<span class="input-icon-addon">
-																<i class="fe fe-search"></i>
-															</span>
-															<input type="text" class="form-control" placeholder="Search Tasks">
-														</div>
-													</div>
-												</div>
+												 
 												<div class="col col-auto mb-4">
 													<div class="btn-group hidden-phone">
                                                     <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#normalmodal">
-                                        <i class="fe fe-plus"></i> Add New User
+                                        <i class="fe fe-plus"></i> Add New Measurement
                                     </a>
 												</div>
 												</div>
@@ -113,7 +104,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" wire:click="AddSchedule" class="btn btn-primary">Add Schedule</button>
+							<button type="button" wire:click="AddSchedule" class="btn btn-primary">Add Measurement</button>
 						</div>
 					</div>
 				</div>
@@ -123,7 +114,7 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="normalmodal1">Add Schedule</h5>
+							<h5 class="modal-title" id="normalmodal1">Update Schedule</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">×</span>
 							</button>
@@ -139,43 +130,13 @@
                                @error('title')
                                 <p class="text-danger">{{ $message }}</p>   
                                @enderror
-                                <label class="mt-4 ">Starting Date</label>
-                                <div class="d-flex">
-											<div class="input-group wd-150">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														<svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M12 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm4.25 12.15L11 13V7h1.5v5.25l4.5 2.67-.75 1.23z" opacity=".3"></path><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg>
-													</div><!-- input-group-text -->
-												</div><!-- input-group-prepend -->
-												<input wire:model="editStartDate" class="form-control  @error('editStartDate')  is-invalid
-                                @enderror ui-timepicker-input" id="tp3" placeholder="Set time" type="text" autocomplete="off">
- 											</div><!-- input-group -->
-										</div>
-                                        @error('editStartDate')
-                                <p class="text-danger">{{ $message }}</p>   
-                               @enderror
-                                <label class="mt-4 ">Ending Date</label>
-                              
-                                <div class="d-flex">
-											<div class="input-group wd-150">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														<svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M12 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm4.25 12.15L11 13V7h1.5v5.25l4.5 2.67-.75 1.23z" opacity=".3"></path><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg>
-													</div><!-- input-group-text -->
-												</div><!-- input-group-prepend -->
-												<input wire:model="editEndDate" class="form-control  @error('editEndDate')
-                                    is-invalid
-                                @enderror ui-timepicker-input" id="tp3" placeholder="Set time" type="text" autocomplete="off">
- 											</div><!-- input-group -->
-										</div>
-                                        @error('editEndDate')
-                                <p class="text-danger">{{ $message }}</p>   
-                               @enderror
+                               
+                                
  							</form>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" wire:click="update_Schedule" class="btn btn-primary">Update Schedule</button>
+							<button type="button" wire:click="update_Schedule" class="btn btn-primary">Update Measurement</button>
 						</div>
 					</div>
 				</div>

@@ -39,7 +39,7 @@
                             <tr>
 
                                 <th scope="col" style="color-black">
-                                    <h4 style=" color: black;">MC Number    : </h4>
+                                    <h4 style=" color: black;">ID Number    : </h4>
                                 </th>
                                 <th scope="col">
                                     <h6 wire:loading class="student-department">Loading...</h6>
@@ -133,33 +133,14 @@
     <!--=      Slider Section    =-->
     <!--=========================-->
 
-    <section class="slider-wrapper" style="width:100%; height:100%; overflow:hidden;">
+    <section class="slider-wrapfper" style="width:100%; height:100%; overflow:hidden;">
 
         <div class="slider">
             <div class="bounce mt-5">
                 <img src="{{ asset('front/hom.png') }} " class="fa" alt="">
             </div>
         </div>
-        <div class="slider-hexagon-wrapper">
-
-            <ul>
-                <li>
-                    <div class="hexagon one color-four"></div>
-                </li>
-                <li>
-                    <div class="hexagon one color-five"></div>
-                </li>
-                <li>
-                    <div class="hexagon one color-one"></div>
-                </li>
-                <li>
-                    <div class="hexagon one color-two"></div>
-                </li>
-                <li>
-                    <div class="hexagon three color-three"></div>
-                </li>
-            </ul>
-        </div>
+       
         <div class="slider-text">
             <div class="container">
                 <div class="row">
@@ -169,14 +150,14 @@
                             <img src="{{ asset('front/wollo.png') }}" style="margin-top:-5rem; "
                                 width="500" />
                             <div class="sleider-heading">
-                                <h1 onclick="openFullscreen();" style="color: darkolivegreen">Wollo<br>University <br>
-                                    <span>Student Cafe<br> CHECK
+                                <h1 onclick="openFullscreen();" style="color: #a1ff00">Wollo<br>University <br>
+                                    <span style="color:#b2bfb2;">Student Cafe<br> CHECK
                                         POINT</span></h1>
 
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <input class="form-control" id="rec" type="text" autofocus>
+                                    <input class="form-control" style="opacity:0" id="rec" type="text" autofocus>
                                     {{-- <p style="color: red; font-size: 8pt">Type to check manually!</p> --}}
                                 </div>
 
@@ -195,7 +176,7 @@
             </div>
             <!-- /.container -->
         </div>
-        <div class="slider-hex-right">
+        <div class="slider-hex-right" style="margin-top:-10rem">
             <ul>
                 <li data-aos="fade" data-aos-delay="3000" data-aos-duration="500">
                     <div class="hexagon one color-five"></div>

@@ -34,21 +34,21 @@ class MeasurementIndex extends Component
         $measurement = new Measurement();
         $measurement->name = $this->title;
         $measurement->save();
-        $this->emit('postAdded', "Schedule Successfully Added!!", 'info', 'right');
+        $this->emit('postAdded', "Measurement Successfully Added!!", 'success', 'right');
    $this->mount();
     }
 
     public function deletedId($id)
     {
       $this->delete_id = $id;
-      $this->emit('Show_shedule_warning_modal', "Schedule Successfully Added!");
+      $this->emit('Show_shedule_warning_modal', "Measurement Successfully Added!");
     }
     public function delete()
     {
         $sche = Measurement::where('id', $this->delete_id)->first();
         $sche->delete();
         $this->mount();
-        $this->emit('dangerNotification', "Schedule Successfully Deleted!");
+        $this->emit('dangerNotification', "Measurement Successfully Deleted!");
 
     }
     public function editSchedule($id)
@@ -57,7 +57,7 @@ class MeasurementIndex extends Component
         $this->schedule_id = $id;
         $this->editTitle = $schedule->name;
       
-        $this->emit('EditscheduleModal', "Schedule Successfully Deleted!");
+        $this->emit('EditscheduleModal', "Measurement Successfully Deleted!");
     }
 
     public function update_Schedule()
@@ -67,7 +67,7 @@ class MeasurementIndex extends Component
  
         $schedule->save();
         $this->mount();
-        $this->emit('postAdded', "Schedule Successfully Updated!", 'success', 'center');
+        $this->emit('postAdded', "Measurement Successfully Updated!", 'success', 'right');
 
     }
     public function render()

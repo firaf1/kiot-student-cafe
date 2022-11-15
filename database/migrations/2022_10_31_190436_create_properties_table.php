@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+             $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('students')->onDelete('cascade');
             $table->string('firstImage')->nullable();
             $table->string('secondImage')->nullable();
             $table->string('thirdImage')->nullable();

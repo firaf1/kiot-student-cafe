@@ -6,16 +6,7 @@
 									<div class="card-body p-6">
 										<div class="inbox-body">
 											<div class="row">
-												<div class="col">
-													<div class="form-group w-200">
-														<div class="input-icon">
-															<span class="input-icon-addon">
-																<i class="fe fe-search"></i>
-															</span>
-															<input type="text" class="form-control" placeholder="Search Tasks">
-														</div>
-													</div>
-												</div>
+												 
 												<div class="col col-auto mb-4">
 													<div class="btn-group hidden-phone">
                                                     <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#normalmodal">

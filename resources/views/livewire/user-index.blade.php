@@ -50,8 +50,16 @@
                                                     <div class="row align-items-center">
                                                         <div class="col-9 col-sm-9">
                                                             <div class="media mt-0">
-                                                                <img src="{{ asset($user->image) }}" alt="img"
+                                                            @if(file_exists($user->image))
+                                                            <img src="{{ asset($user->image) }}" alt="img"
                                                                     class="w-7 h-7 rounded shadow mr-3">
+                                                            @else   
+                                                            <img src="{{ asset('front/placeholder.jpg') }}" alt="img"
+                                                            class="avatar brround avatar-md mr-3">
+                                                            @endif
+                                                                
+
+
                                                                 <div class="media-body">
                                                                     <div class="d-md-flex align-items-center mt-1">
                                                                         <h6 class="mb-1">{{ $user->fname }}
@@ -94,7 +102,7 @@
                                                 <div class="dropdown">
                                                     <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                                        @if($user->role_id != null)
-                                                       {{ $user->role1->name }}
+                                                       {{ $user->role->name }}
                                                        @else 
                                                        select role @endif
                                                     </button>
@@ -274,7 +282,7 @@
                             @enderror
                                 <select wire:model="role" class="  custom-select select2" style="width:100%; ">
                                     <option value="0">--Select--</option>
-                                    <option value="1">Super Admin</option>
+                                    <option value="1">Cafe Admin</option>
                                     <option value="2">Store Admin</option>
                                     <option value="3">Admin</option>
                                     <option value="4">Securty</option>

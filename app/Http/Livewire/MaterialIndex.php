@@ -75,8 +75,10 @@ public function delete_role($id)
             }
         // dd(User::find(Auth::user()->id));
 
-        $this->emit('postAdded', "Input Successfully Added!!", 'info', 'right');
-        $this->reset();
+        $this->emit('postAdded', "Input Successfully Added!!", 'success','right');
+        
+        $this->title = "";
+        $this->multi = null;
    $this->mount();
            
     }

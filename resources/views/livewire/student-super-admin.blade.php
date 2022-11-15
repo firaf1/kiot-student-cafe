@@ -76,9 +76,13 @@
                                             <tr class="mb-0">
                                                 <td class="font-weight-bold">
                                                     <div class="media mt-0">
-                                                    
-                                                        <img src="{{ asset($student->image) }}" alt="img"
+                                                    @if(file_exists($student->image))
+                                                    <img src="{{ asset($student->image) }}" alt="img"
                                                             class="avatar brround avatar-md mr-3">
+                                                            @else   
+                                                            <img src="{{ asset('front/placeholder.jpg') }}" alt="img"
+                                                            class="avatar brround avatar-md mr-3">
+                                                            @endif
                                                       
                                                         <div class="media-body">
                                                             <div class="d-md-flex align-items-center mt-1">
@@ -122,9 +126,15 @@
                                         
                                         </td>
                                         <td>
+                                            @if($student->qr == null)
                                             <button class="btn btn-primary" wire:click="generateForOneStudent({{ $student->id }} )" >
                                                 Generate
                                             </button>
+                                            @else 
+                                            <button class="btn btn-danger" wire:click="ReGenerate({{ $student->id }} )" >
+                                                Re-Generate
+                                            </button>
+                                            @endif
                                         </td>
                                         <td>
                                             @if($student->status =='Approved')
@@ -164,6 +174,29 @@
             </div>
         </div>
     </div>
+
+    
+    <!-- // Delete Modal  -->
+
+    <div class="modal fade show" id="delete_shedule_modal" aria-modal="true">
+        <div class="modal-dialog modal-dialog-centered text-center" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body text-center p-4">
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                            aria-hidden="true">×</span></button>
+                    <i class="fe fe-alert-circle fs-100 text-warning lh-1 mb-5 d-inline-block"></i>
+                    <h4 class="text-warning">Warning: Are your sure want Regenare a card?</h4>
+                    <p class="mg-b-20 mg-x-20"> This card cann't be used any more it generate new card </p>
+                    <button wire:click="GenerateAgain()" aria-label="Close" class="btn btn-danger pd-x-25" data-dismiss="modal"
+                        type="button">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <div class="modal fade show" wire:ignore.self id="normalmodal" tabindex="-1" role="dialog" aria-labelledby="normalmodal"  aria-modal="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">

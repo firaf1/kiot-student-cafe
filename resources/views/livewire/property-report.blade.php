@@ -98,7 +98,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade show" id="delete_shedule_modal" aria-modal="true">
+    <div class="modal fade show" wire:ignore.self id="delete_shedule_modal" aria-modal="true">
         <div class="modal-dialog modal-dialog-centered text-center" role="document">
             <div class="modal-content tx-size-sm">
                 <div class="modal-body text-center p-4">

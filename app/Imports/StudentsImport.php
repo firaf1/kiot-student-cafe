@@ -25,13 +25,14 @@ class StudentsImport implements ToCollection, WithHeadingRow
 
         foreach ($rows as $row) {
             if(Student::where('id_number', $row['id_number'])->count() == 0){
+               $myID = str_replace("/","-",$row['id_number']);
                 Student::create([
                     'name' => $row['first_name'] . " " . $row['last_name'],
                     'department' => $row['department'],
                     'id_number' => $row['id_number'],
                     'phone_number' => $row['phone_number'],
                     'type' => $row['cafteria'],
-                    'image'=> 'storage/StudentImage'.'/'. $row['id_number'].'.jpg',
+                    'image'=> 'storage/StudentImage'.'/'. $myID.'.jpg',
                     'status' => 'Approved',
                     'reg_type' => $row['registratin_type'],
                 ]);

@@ -136,33 +136,14 @@
     <!--=      Slider Section    =-->
     <!--=========================-->
 
-    <section class="slider-wrapper" style="width:100%; height:100%; overflow:hidden;">
+    <section class="slider-wrapdper" style="width:100%; height:100%; overflow:hidden;">
 
-        <div class="slider">
-            <div class="bounce mt-5">
-                <img src="{{ asset('front/hom.png') }} " class="fa" alt="">
+        <div class="slider" >
+            <div class="bounce mt-5"  >
+                <img src="{{ asset('front/hom.png') }} "   alt="">
             </div>
         </div>
-        <div class="slider-hexagon-wrapper">
-
-            <ul>
-                <li>
-                    <div class="hexagon one color-four"></div>
-                </li>
-                <li>
-                    <div class="hexagon one color-five"></div>
-                </li>
-                <li>
-                    <div class="hexagon one color-one"></div>
-                </li>
-                <li>
-                    <div class="hexagon one color-two"></div>
-                </li>
-                <li>
-                    <div class="hexagon three color-three"></div>
-                </li>
-            </ul>
-        </div>
+      
         <div class="slider-text">
             <div class="container">
                 <div class="row">
@@ -172,15 +153,15 @@
                             <img src="{{ asset('front/wollo.png') }}" style="margin-top:-5rem; "
                                 width="500" />
                             <div class="sleider-heading">
-                                <h1 onclick="openFullscreen();" style="color: darkolivegreen">Wollo<br>University <br>
-                                    <span>Student <br> CHECK
+                                <h1 onclick="openFullscreen();" style="color: #a1ff00">Wollo<br>University <br>
+                                    <span style="color:#b2bfb2;">Student <br> CHECK
                                         POINT</span></h1>
 
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
                                     <input class="form-control" style="opacity:0; " id="rec" type="text" autofocus>
-                                    
+
                                     {{-- <p style="color: red; font-size: 8pt">Type to check manually!</p> --}}
                                 </div>
 

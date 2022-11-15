@@ -20,6 +20,7 @@ class PropertyIndex extends Component
         if($users->count()>0){
         foreach($users as $user){
             $pros = Property::where('user_id', $user->id)->get();
+            if($pros->count()>0){
             // if($pros->count() > 0)
             // dd($pros);
 
@@ -29,13 +30,14 @@ class PropertyIndex extends Component
                 } else
                 $this->searchItems->push($pro);
             }
+        } else $this->searchItems = Student::where('id','<',1)->get();
         }
     }
         else{
                $dd = Property::where('id', 'like', $this->search)->orWhere('serial_number', 'like', '%' . $this->search . '%')->get();
-          if($dd->count()>0){
+           
             $this->searchItems = $dd;
-          }
+       
         }
         
     }

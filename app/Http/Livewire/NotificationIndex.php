@@ -42,6 +42,15 @@ class NotificationIndex extends Component
         $this->latest = $latest->id;
       
         if($this->latest > $this->old){
+            if($latest->type == "bar"){
+                $this->emit('SweetAletSuccessNotification', "Someone Try to Enter With Blocked Card !", 'warning', 'right');
+            }
+            if($latest->type == "property")
+            $this->emit('SweetAletSuccessNotification', "Someone Try to Register Already Registered Property !", 'warning', 'right');
+
+            if($latest->type == "cafe")
+            $this->emit('SweetAletSuccessNotification', "Someone Try to Enter Cafeteria With Blocked Card !", 'warning', 'right');
+
             $this->emit('notificationSound', "Schedule Successfully Deleted!");
         }
        

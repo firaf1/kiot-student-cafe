@@ -1,13 +1,5 @@
 <div>
-
-<div wire:loading class="" style="width:100%; height:100%; background:#060220de;
  
-position:fixed; top:0px; left:0px; z-index:999999">
-<div class="card-body">
-									 <img style="position:absolute; top:50%; left:40%" src="loader2.gif" alt="">
-									</div>
-</div>
-
 
 <div class="row">
 							 
@@ -41,8 +33,7 @@ position:fixed; top:0px; left:0px; z-index:999999">
                                             <th></th>
                                             <th>Title</th>
                                             <th>Type</th>
-                                            <th>Starting time</th>
-                                            <th>Ending Time</th>
+                                            
 											<th>For</th>
                                             <th>Status</th>
                                             <th>Actions</th>
@@ -187,9 +178,7 @@ position:fixed; top:0px; left:0px; z-index:999999">
                                 
 							<div class="alert alert-light-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><i class="fa fa-frown-o mr-2" aria-hidden="true"></i>Oh snap!  {{ $scheduleErrorMessage }}.</div>
                             @endif
-
-							<form action="{{ route('import-student') }} " method="post" enctype="multipart/form-data">
-								@csrf
+ 
                                 <label class="mt-4 ">Title</label>
 								<input type="text"  wire:model.defer="title"placeholder=" Title " 
                                 class="form-control @error('title')
@@ -198,43 +187,12 @@ position:fixed; top:0px; left:0px; z-index:999999">
                                @error('title')
                                 <p class="text-danger">{{ $message }}</p>   
                                @enderror
-                                <label class="mt-4 ">Starting Date</label>
-                                <div class="d-flex">
-											<div class="input-group wd-150">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														<svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M12 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm4.25 12.15L11 13V7h1.5v5.25l4.5 2.67-.75 1.23z" opacity=".3"></path><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg>
-													</div><!-- input-group-text -->
-												</div><!-- input-group-prepend -->
-												<input wire:model="startingDate" class="form-control  @error('startingDate')  is-invalid
-                                @enderror ui-timepicker-input" id="tp3" placeholder="Set time" type="text" autocomplete="off">
- 											</div><!-- input-group -->
-										</div>
-                                        @error('startingDate') 
-                                <p class="text-danger">{{ $message }}</p>   
-                               @enderror
-                                <label class="mt-4 ">Ending Date</label>
-                              
-                                <div class="d-flex">
-											<div class="input-group wd-150">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														<svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M12 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm4.25 12.15L11 13V7h1.5v5.25l4.5 2.67-.75 1.23z" opacity=".3"></path><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg>
-													</div><!-- input-group-text -->
-												</div><!-- input-group-prepend -->
-												<input wire:model="endingDate" class="form-control  @error('endingDate')
-                                    is-invalid
-                                @enderror ui-timepicker-input" id="tp3" placeholder="Set time" type="text" autocomplete="off">
- 											</div><!-- input-group -->
-										</div>
-                                        @error('endingDate')
-                                <p class="text-danger">{{ $message }}</p>   
-                               @enderror
- 							</form>
+                                
+ 						 
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" wire:click="AddSchedule" class="btn btn-primary">Add Schedule</button>
+							<button type="button" wire:click="AddSchedule()" class="btn btn-primary">Add Schedule</button>
 						</div>
 					</div>
 				</div>

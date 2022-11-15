@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
-            $table->string('inputs_id');
+             $table->unsignedBigInteger('inputs_id')->nullable();
+            $table->foreign('inputs_id')->references('id')->on('inputs')->onDelete('cascade');
             $table->string('amount');
             $table->string('status')->nullable();
             $table->string('type')->nullable();

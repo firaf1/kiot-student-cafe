@@ -29,6 +29,9 @@
 										@if(Auth::user()->role == "1")
 										@livewire('notification-index')
 										@endif
+										@if(Auth::user()->role == "4")
+										@livewire('notification-index')
+										@endif
 										<div class="dropdown profile-dropdown">
 											<a href="index-2.html#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
 												<span>

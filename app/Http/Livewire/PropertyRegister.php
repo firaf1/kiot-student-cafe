@@ -54,8 +54,9 @@ class PropertyRegister extends Component
            
            $not = new Notification();
            $not->user_id = $student->id;
+           $not->type = "property";
            $not->save();
-           
+           $this->emit('notificationSound', "Schedule Successfully Deleted!");
             return $this->msg = "Property is Successfully saved";
         }
          

@@ -10,10 +10,9 @@
 													<div class="form-group w-200">
 														<div class="input-icon">
 															<span class="input-icon-addon">
-																<i class="fe fe-search"></i>
+																Schedule List
 															</span>
-															<input type="text" class="form-control" placeholder="Search Tasks">
-														</div>
+ 														</div>
 													</div>
 												</div>
 												<div class="col col-auto mb-4">
@@ -29,8 +28,7 @@
                                             <th></th>
                                             <th>Title</th>
                                             <th>Type</th>
-                                            <th>Starting time</th>
-                                            <th>Ending Time</th>
+                                            
                                             <th>For</th>
                                             <th>Status</th>
                                              
@@ -60,8 +58,7 @@
 															<span class="badge badge-primary mt-2">{{ $sche->type }}</span>
 															@endif
 															</td>
-                                                         <td class="view-message"><span class="badge badge-light badge-pill"> {{ $sche->starting_time }} -hour</span></td>
-                                                         <td class="view-message"><span class="badge badge-light badge-pill"> {{ $sche->ending_time }} -hour</span></td>
+                                                          
                                                          <td><span class="badge badge-gradient-info">    {{ $sche->is_for_both  }}</span></td>
                                                          <td class="view-message">
                                                          @if($sche->type =='active')

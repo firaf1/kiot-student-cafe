@@ -158,7 +158,7 @@
             }
         }
 
-         
+
 
         .imgs {
             display: inline-block
@@ -172,7 +172,7 @@
     @livewireStyles()
 </head>
 
-<body id="home-version-1" class="home-version-1" data-style="default" style="overflow:hidden">
+<body id="home-version-1" class="home-version-1" data-style="default" style="overflow:hidden; width:100%; height:100%; background: #081f35 url(front/bg_banner.png); " >
 
     <div id="site"></div>
 
@@ -185,7 +185,7 @@
     @livewireScripts()
     <script>
         Livewire.on('dangerNotification111', postId => {
-       
+
         var audio = new Audio('danger-alarm.mp3');
 audio.play();
 
@@ -226,9 +226,9 @@ audio.play();
                 $('.mask-overlay').remove();
                 let inp = document.getElementById('rec');
                 let valueOF = inp.value;
-                
+
                 Livewire.emit('postAdded',valueOF )
-                 
+
                 inp.value = null;
 
                 var mask = '<div class="mask-overlay">';

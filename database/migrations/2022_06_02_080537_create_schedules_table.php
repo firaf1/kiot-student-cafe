@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('type');
-            $table->integer('starting_time');
-            $table->integer('ending_time');
+            $table->integer('starting_time')->nullable();
+            $table->integer('ending_time')->nullable();;
             $table->string('status')->nullable();
             +
             $table->timestamps();
