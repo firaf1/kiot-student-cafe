@@ -83,7 +83,7 @@ public function export()
                 $users1 =Ticke::select("*")
                 ->whereBetween('created_at',
                     [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]
-                )->where('schedule_id', $this->changedSchedule)->whereDate('created_at', Carbon::today())->get();
+                )->where('schedule_id', $this->changedSchedule)->get();
                 $this->users= $users1->unique(['student_id']);
             }
             if ($this->date == 3) {

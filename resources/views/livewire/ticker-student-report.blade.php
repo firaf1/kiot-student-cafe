@@ -21,11 +21,19 @@
                     <div class="mt-4 mb-4 ml-4 mr-4 text-center">
                         <a href="#" class="btn btn-primary btn-block">Schedule List</a>
                     </div>
-
+                    <a href="#" wire:click="ScheduleList(0)"
+                            class="list-group-item list-group-item-action @if (0 == $changedSchedule)
+                                active
+                            @endif d-flex align-items-center">
+                            <i class="fe fe-check-circle fs-18 mr-2"></i> All
+ 
+                        </a>
                     @foreach($schedules as $schedule)
                         <a href="#" wire:click="ScheduleList({{ $schedule->id }})"
-                            class="list-group-item list-group-item-action d-flex align-items-center">
-                            <i class="fe fe-codepen fs-18 mr-2"></i> {{ $schedule->title }}
+                            class="list-group-item list-group-item-action @if ($schedule->id == $changedSchedule)
+                                active
+                            @endif d-flex align-items-center">
+                            <i class="fe fe-chevrons-right fs-18 mr-2"></i> {{ $schedule->title }}
 
                             <span class="ml-auto badge badge-success">@if( $schedule->TotalStudent($schedule->id) !=
                                 0){{ $schedule->TotalStudent($schedule->id) }} @endif</span>
