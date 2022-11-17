@@ -179,7 +179,7 @@
                         <div class="form-group">
                             <label class="form-label"> Items <span class="text-red">*</span></label>
                             <select wire:model="measurement" class="SlectBox  form-control ">
-                                <option>--select measurement--</option>
+                                <option>--select items--</option>
                                 @foreach($allInputs as $schedule)
 
                                 <!-- <option value="{{ $schedule->id }}" disabled>{{ $schedule->name }}</option> -->

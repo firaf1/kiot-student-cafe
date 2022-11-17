@@ -5,17 +5,18 @@ use App\Models\User;
 use App\Models\Student;
 use App\Events\NewMessage;
  
+use Illuminate\Support\Facades\Auth;
+ 
 use Illuminate\Support\Facades\Route;
  
 use App\Http\Controllers\AuthController;
- 
 use App\Http\Controllers\userController;
+use Illuminate\Support\Facades\Redirect;
 use Intervention\Image\ImageManagerStatic;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\DashboardContorller;
 use App\Http\Controllers\SuperAdminController;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------

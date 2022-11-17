@@ -278,7 +278,7 @@
  <div class="row">
 	<div class="col-12">
 
-		@livewire('user-index')
+		{{-- @livewire('user-index') --}}
 	</div>
  </div>
 

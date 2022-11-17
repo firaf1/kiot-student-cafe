@@ -25,6 +25,7 @@ class UserIndex extends Component
     ];
     public function updatedSearch()
     {
+        
         $this->inputUser = User::where('fname', 'like', '%' . $this->search . '%')
             ->orWhere('fname', 'like', '%' . $this->search . '%')
             ->orWhere('lname', 'like', '%' . $this->search . '%')

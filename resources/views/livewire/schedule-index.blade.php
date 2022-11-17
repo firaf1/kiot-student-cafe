@@ -65,9 +65,7 @@
 															<span class="badge badge-success-light mt-2">{{ $sche->type }}</span>
 															@endif
 															</td>
-															
-                                                         <td class="view-message"><span class="badge badge-light badge-pill"> {{ $sche->starting_time }} -hour</span></td>
-                                                         <td class="view-message"><span class="badge badge-light badge-pill"> {{ $sche->ending_time }} -hour</span></td>
+														 
 														 <td>
 																@if($sche->is_for_both == 'cafe')
 															<div class="btn-group mt-2 mb-2">

@@ -43,7 +43,7 @@ class StudentSuperAdmin extends Component
          $pic = ImageManagerStatic::make($student->image)->resize(225, 260);
          
          $card->insert($pic, '', 980, 150);
-         $dns = new DNS2D;
+        //  $dns = new DNS2D;
        
          $random = strtoupper(substr(md5(mt_rand()), 0, 10));
       
@@ -104,6 +104,7 @@ class StudentSuperAdmin extends Component
              $font->angle(0);
          });
          $end = date('Y-m-d', strtotime('+5 years'));
+
          $card->text($end, 430, 440, function ($font) {
              $font->file(public_path('css/id.ttf'));
              $font->size(30);
@@ -123,6 +124,7 @@ class StudentSuperAdmin extends Component
  
  
          $myID = str_replace("/","-",$student->id_number);
+
          $tempImage = 'KIOT-STUDENT-CARD-'.$myID . time() . '.' . 'png';
  
          // $card->save('cards/'. "ff".time().$card . '.png');
@@ -132,6 +134,7 @@ class StudentSuperAdmin extends Component
          $card->save('cards/STUDENT_CARD/'. $tempImage);
          
          $student->qr = $qr_data;
+         
          $student->save();
          if($student->save()){
              $this->emit('sweetAlertToast', "Card is Successfully Created!!", 'success');
