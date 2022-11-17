@@ -15,8 +15,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\DashboardContorller;
 use App\Http\Controllers\SuperAdminController;
-
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -167,7 +166,7 @@ Route::get('request',  [PropertyController::class, 'index'])->name('propertyRequ
 
 
 
-Route::get('login',[AuthController::class, 'Login'])->name('login');
+Route::get('login',[AuthController::class, 'Login'])->name('login')->middleware('isAlreadyLogged');
 Route::get('account-blocked', function(){
     if(Auth::user()->status == "Approved"){
         if (Auth::user()->role == '1') {

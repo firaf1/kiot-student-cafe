@@ -55,6 +55,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
        
         'auth' => \App\Http\Middleware\Authenticate::class,
+        'isAlreadyLogged' => \App\Http\Middleware\alreadyLogged::class,
         'super-admin' => \App\Http\Middleware\SuperAdmin::class,
         'blocked' => \App\Http\Middleware\isBlocked::class,
         'registeral' => \App\Http\Middleware\isRegisteral::class,
