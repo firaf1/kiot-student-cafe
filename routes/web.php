@@ -132,7 +132,7 @@ Route::middleware(['admin'])->group(function () {
 
 Route::get('logout', function(){
     Auth::logout();
-    return redirect('/');
+    return redirect('/login');
 })->name('logout');
 
 Route::get('profile', function(){
