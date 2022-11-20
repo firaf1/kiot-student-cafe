@@ -67,11 +67,19 @@ Route::get('qr', function () {
     }
 });
 
+Route::get('language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
 
+Route::middleware(['localized'])->group(function () {
 
  Route::middleware(['auth'])->group(function () {
+
     Route::middleware(['blocked'])->group(function () {
-    Route::middleware(['ticker'])->group(function () {
+
+        Route::middleware(['ticker'])->group(function () {
 
     Route::get('schedules', [SuperAdminController::class, 'schedules'])->name('schedules');
 
@@ -144,7 +152,7 @@ return view('pages.profile');
 });
   
 }); //auth end
- 
+});
 Route::get('/', function () {
     return view('welcome');
 });

@@ -43,6 +43,7 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+         
     ];
 
     /**
@@ -55,6 +56,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
        
         'auth' => \App\Http\Middleware\Authenticate::class,
+        'localized' => \App\Http\Middleware\Localization::class,
         'isAlreadyLogged' => \App\Http\Middleware\alreadyLogged::class,
         'super-admin' => \App\Http\Middleware\SuperAdmin::class,
         'blocked' => \App\Http\Middleware\isBlocked::class,
