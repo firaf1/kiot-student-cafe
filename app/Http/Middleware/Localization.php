@@ -22,5 +22,5 @@ class Localization
             App::setLocale(Session::get('locale'));
         }
         return $next($request);
-        }
+    }
 }
