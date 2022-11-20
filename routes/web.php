@@ -16,7 +16,9 @@ use Intervention\Image\ImageManagerStatic;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\DashboardContorller;
+use App\Http\Controllers\LockScreenController;
 use App\Http\Controllers\SuperAdminController;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,13 +69,20 @@ Route::get('qr', function () {
     }
 });
 
+
+Route::get('lockscreen', [LockScreenController::class, 'get'])->name('lock');
+
+Route::post('unlock', [LockScreenController::class, 'post'])->name('unlock');
+
 Route::get('language/{locale}', function ($locale) {
+    Session::forget('locale');
     app()->setLocale($locale);
     session()->put('locale', $locale);
     return redirect()->back();
-});
+})->name('change-language');
 
-Route::middleware(['localized'])->group(function () {
+Route::middleware(['isLocked'])->group(function () {
+    Route::middleware(['localized'])->group(function () {
 
  Route::middleware(['auth'])->group(function () {
 
@@ -152,6 +161,7 @@ return view('pages.profile');
 });
   
 }); //auth end
+});
 });
 Route::get('/', function () {
     return view('welcome');

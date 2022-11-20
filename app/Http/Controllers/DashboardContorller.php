@@ -13,7 +13,6 @@ class DashboardContorller extends Controller
 {
     public function superAdmin()
     {
-        app()->setLocale('am');
 
         $pending = Store::where('status', 'Pending')->whereMonth('created_at', Carbon::now()->month)->count();
         $approved = Store::where('status', 'Approved')->whereMonth('created_at', Carbon::now()->month)->count();
