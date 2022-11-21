@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="card-options">
-                    
+
 
                 </div>
             </div>
@@ -20,7 +20,7 @@
                 <div class="" wire:loading.remove>
                     <img src="{{ asset('myData/no_data.gif') }} "
                                 style="width:38%; height:20hv; margin-left:30%;  " alt="">
-                            <h2 class="text-warning text-center">No Data found</h2>
+                            <h2 class="text-warning text-center">@lang('notDataFound')</h2>
                             </div>
                             @else
                 <div class="table-responsive" wire:poll >
@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
- 
+
                         @foreach ($propeties as $pro)
                         <tr>
                                 <td class="font-weight-bold">
@@ -65,32 +65,32 @@
 
                                 <td><span class="badge badge-primary-light">{{ $pro->property->serial_number }}</span></td>
                                 <td>
-                                    <a data-toggle="modal" href="#modaldemo3"> 
+                                    <a data-toggle="modal" href="#modaldemo3">
 
                                         <img src="{{ asset($pro->property->firstImage) }}" onclick="imageZoom('{{ asset($pro->property->firstImage) }}',
                                         '{{ asset($pro->property->secondImage) }}',
                                         '{{ asset($pro->property->thirdImage) }}',
                                         '{{ $pro->property->serial_number }}'
-                                        )" 
+                                        )"
                                                                 alt="img" class="w-7 h-7 rounded shadow mr-3">
                                     </a>
                                 </td>
-                                 <td> 
+                                 <td>
                                  <span class="badge badge-primary mt-2"> {{ $pro->created_at->diffForHumans() }}</span>
-   
+
                                  </td>
-                                 
+
                                 <td class="align-middle">
                                     <div class="btn-group align-top">
-                                        
+
                                         <button  wire:click="deletedId({{ $pro->id }})" class="btn btn-sm btn-danger"
                                             type="button"><i class="fe fe-trash-2"></i></button>
                                     </div>
                                 </td>
                             </tr>
- 
+
                         @endforeach
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -114,7 +114,7 @@
         </div>
     </div>
 
-    
+
     <div class="modal   show" id="modaldemo3"   aria-modal="true">
 			<div class="modal-dialog  modal-lg" role="document">
 				<div class="modal-content modal-content-demo">
@@ -134,9 +134,9 @@
                         </div>
                         <h3 class="text-primary  m-4 text-center" id="serial"></h3>
                     </div>
-						 
+
 					</div>
-					 
+
 				</div>
 			</div>
 		</div>
@@ -149,7 +149,7 @@
                 var el = document.getElementById("download");
                 el.setAttribute("href", first);
 	            el.setAttribute("download", first);
-              
+
             }
         </script>
 </div>

@@ -12,48 +12,48 @@
                             <input type="text" wire:model="search" class="form-control" placeholder="Search Users">
                         </div>
                     </div>
-                     
+
                 </div>
                 <div class="card-body p-6">
                     <div class="inbox-body">
-                         
+
                         @if($isNotFound)
                         <div class="" wire:loading.remove>
 
                             <img src="{{ asset('myData/no_data.gif') }} "
                                 style="width:38%; height:20hv; margin-left:30%;  " alt="">
-                            <h2 class="text-warning text-center">No Data found</h2>
+                            <h2 class="text-warning text-center">@lang('notDataFound')</h2>
                             </div>
                         @else
                         <div class="table-responsive">
                             <table class="table table-hover table-vcenter text-nowrap mb-0 table-striped   border-top">
                                 <thead class="">
                                     <tr>
-                                        <th>Name</th>
-                                       
-                                        <th>Available</th>
-                                        <th>Measurements</th>
-                                        <th>Store Status</th>
-                                        <th>Date</th>
+                                        <th>@lang('Name')</th>
+
+                                        <th>@lang('Available')</th>
+                                        <th>@lang('Measurements')</th>
+                                        <th>@lang('Store Status')</th>
+                                        <th> @lang('date') </th>
                                     </tr>
                                 </thead>
                                 <tbody wire:poll>
                                 <span class="bg-warning list-bar"></span>
-                                    @foreach($items as $input) 
+                                    @foreach($items as $input)
                                         <tr>
                                             @if($input->check($input->id))
                                                 <td>{{ $input->name }}</td>
-                                                <td> 
+                                                <td>
                                                     <span class="badge badge-primary-light ">{{ $input->inItems($input->id) }}
-                                                        </span> 
+                                                        </span>
                                                     </td>
-                                              
-                                                
-                                                <td> 
+
+
+                                                <td>
                                                     <span class="badge badge-danger-light ">{{ $input->measurement->name }}
-                                                        </span> 
+                                                        </span>
                                                     </td>
-                                               
+
                                                 <td>
                                                      <span class="badge badge-primary"> {{ $input->status }}</span>
                                                     </td>
@@ -65,10 +65,10 @@
                                 </tbody>
                             </table>
                             <div class="d-flex">
-                                 
+
                                 </div>
                                 @if($searchItems== null)
-                               
+
                                     <div class="p-2">{{ $items->links() }}</div>
                                 @endif
                             </div>

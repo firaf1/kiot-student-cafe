@@ -10,7 +10,7 @@
 
                             <img src="{{ asset('myData/no_data.gif') }} "
                                 style="width:38%; height:20hv; margin-left:30%;  " alt="">
-                            <h2 class="text-warning text-center">No Data found</h2>
+                            <h2 class="text-warning text-center">@lang('notDataFound')</h2>
                             </div>
                         @else
                         <div class="row">
@@ -30,20 +30,20 @@
                                 </div>
                             </div>
                         </div>
-                       
+
                         <div class="table-responsive" wire:poll>
                             <table class="table table-inbox table-hover text-nowrap mb-0">
                                 <thead class="">
                                     <tr>
-                                        <th>Person</th>
-                                        <th>Name</th>
-                                        <th>Measurements</th>
-                                        <th>Amount</th>
-                                        
-                                        <th>Store Status</th>
+                                        <th>@lang('person')</th>
+                                        <th>@lang('name')</th>
+                                        <th>@lang('Measurements')</th>
+                                        <th>@lang('amount')</th>
 
-                                        <th>Date</th>
-                                        <th>Actions</th>
+                                        <th>@lang('Store_Status')</th>
+
+                                        <th>@lang('date')</th>
+                                        <th>@lang('action')</th>
 
                                     </tr>
                                 </thead>
@@ -65,40 +65,40 @@
                                                 <span class="badge badge-danger  mt-2">
                                               <i class="fa fa-exclamation-triangle text-warning"> </i>
 
-                                              out of store
+                                              @lang('outOFStore')
                                               </span>
                                             @elseif($sche->ItemsPercent($sche->inputs_id)<75)
                                             <span class="badge badge-success  mt-2">
                                              <i class="fa fa-check text-light"></i>
 
-                                              {{ $sche->inItems($sche->inputs_id) }} - items
+                                              {{ $sche->inItems($sche->inputs_id) }} - @lang('items')
                                               </span>
                                               @elseif ($sche->inItems($sche->inputs_id)<=0)
                                               <span class="badge badge-danger  mt-2">
                                               <i class="fa fa-exclamation-triangle text-warning"> </i>
 
-                                              out of store
+                                              @lang('outOFStore')
                                               </span>
                                               @else
                                               <span class="badge badge-warning  mt-2">
                                               <i class="fa fa-exclamation-triangle text-danger"></i>
 
-                                              {{ $sche->inItems($sche->inputs_id) }} - items
+                                              {{ $sche->inItems($sche->inputs_id) }} - @lang('items')
                                               </span>
                                               @endif
                                             </td>
 
                                             <td>{{ $sche->created_at->diffForHumans() }}</td>
                                             <td>
-                                               
+
                                             <div class="dropdown">
 														<button wire:click="approvedStore({{$sche->id }})" type="button" class="btn btn-primary " data-toggle="dropdown" aria-expanded="false">
-															Approved
+															@lang('approved')
 														</button>
-														 
+
 													</div>
-                                             
-                                                    
+
+
                                             </td>
                                         </tr>
 
@@ -110,7 +110,7 @@
                                 <div class="mr-auto p-2">showing {{ $items->count() }} of {{ $totalItems }} entries
                                 </div>
                                 @if($searchItems== null)
-                                 
+
                                     <div class="p-2">{{ $items->links() }}</div>
                                 @endif
                             </div>
@@ -130,26 +130,26 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content modal-content-demo">
 					<div class="modal-header">
-						<h6 class="modal-title">Signature Approval</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+						<h6 class="modal-title">@lang('ApprovalSignature')</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 					</div>
 					<div class="modal-body">
                     <div class="alert alert-light-danger" role="alert">
-                    After you entered your password you are responsible for this action !!
-</div>
+                   @lang('youAreResponsible') !!
+                        </div>
 
- 					<div class="form-group"> 
+ 					<div class="form-group">
                         <input type="password" wire:model="password" placeholder="Password" class="form-control" name="" id=""> </div>
                         @if($passwordMessage != null)
-                          <p class="text-danger"> {{ $passwordMessage }}  dd</p>  
+                          <p class="text-danger"> {{ $passwordMessage }}  dd</p>
                         @endif
 					</div>
 					<div class="modal-footer">
 						<button class="btn  btn-primary btn-block " wire:click="save()" wire:target="save" wire:loading.class="btn-loading py-4" type="button">
                               <span wire:loading.remove wire:target="save">
-                                 Save
+                                 @lang('save')
                              </span>
-                            </button> 
-                      
+                            </button>
+
 					</div>
 				</div>
 			</div>

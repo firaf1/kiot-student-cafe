@@ -25,7 +25,7 @@
 
                             <img src="{{ asset('myData/no_data.gif') }} "
                                 style="width:38%; height:10hv; margin-left:30%;  " alt="">
-                            <h2 class="text-warning text-center">No Data found</h2>
+                            <h2 class="text-warning text-center">@lang('notDataFound')</h2>
                         </div>
                     @else
                         <div class="table-responsive">
@@ -92,9 +92,9 @@
                                                 </td>
                                                 <td>
                                                     @if ($user->role == '1')
-                                                        <span class="badge badge-primary ">Super Admin</span>
+                                                        <span class="badge badge-primary ">@lang('cafeAdmin')</span>
                                                     @elseif ($user->role == '2')
-                                                        <span class="badge badge-secondary ">Store Admin</span>
+                                                        <span class="badge badge-secondary ">@lang('StoreAdmin')</span>
                                                     @elseif ($user->role == '3')
                                                         <span class="badge badge-warning ">Admin</span>
                                                     @elseif ($user->role == '4')
@@ -307,7 +307,7 @@
                             <select wire:model="role" class="  custom-select select2" style="width:100%; ">
                                 <option>--Select--</option>
                                 <option value="1">Cafe Admin</option>
-                                <option value="2">Store Admin</option>
+                                <option value="2">@lang('StoreAdmin')</option>
                                 <option value="3">Admin</option>
                                 <option value="4">Ticker</option>
                                 <option value="5">Securty</option>
@@ -436,8 +436,8 @@
                             @enderror
                             <select wire:model.defer="editRole" class="form-control custom-select select2">
                                 <option>--Select--</option>
-                                <option value="1">Super Admin</option>
-                                <option value="2">Store Admin</option>
+                                <option value="1">@lang('cafeAdmin')</option>
+                                <option value="2">@lang('StoreAdmin')</option>
                                 <option value="3">Admin</option>
                                 <option value="4">Ticker</option>
                                 <option value="5">Securty</option>

@@ -10,7 +10,7 @@
         <div class="page-rightheader">
             <div class="btn btn-list">
                 <a href="#" wire:click="export()" class="btn btn-info"><i class="fe fe-settings mr-1"></i> Export Students </a>
-                
+
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                                 active
                             @endif d-flex align-items-center">
                             <i class="fe fe-check-circle fs-18 mr-2"></i> All
- 
+
                         </a>
                     @foreach($schedules as $schedule)
                         <a href="#" wire:click="ScheduleList({{ $schedule->id }})"
@@ -57,7 +57,7 @@
                             <div class="bounce3"></div>
                         </div>
                     </div>
-                    
+
                     <div class="inbox-body" wire:loading.remove>
                         <div class="row">
                             <div class="col">
@@ -119,7 +119,7 @@
 
                                 <img src="{{ asset('myData/no_data.gif') }} "
                                     style="width:38%; height:20hv; margin-left:30%;  " alt="">
-                                <h2 class="text-warning text-center">No Data found</h2>
+                                <h2 class="text-warning text-center">@lang('notDataFound')</h2>
                             </div>
                         @endif
                     </div>

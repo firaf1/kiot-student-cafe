@@ -13,9 +13,113 @@
     "Add_Store":"ወደ ክምችት ጨምር",
     "Requested_Items":"የተጠየቁ ዕቃዎች",
     "History":"ታሪክ",
-    "Store":"Store",
+    "Store":"ክምችት",
     "Request_items":"እቃዎችን ጠይቅ",
     "Properties":"ንብረቶች",
-    "Property_Report":"የንብረት ሪፖርት"
+    "welcome":"ታዲያስ! እንኳን ደህና መጣችሁ",
+    "Home":"መነሻ ገጽ",
+    "TotalCafe":"ጠቅላላ የካፌ ተማሪዎች    ",
+    "TotalNonCafe":"ጠቅላላ የካፌ ያልሆኑ ተማሪዎች",
+    "fromregistered":"ከጠቅላላው የተመዘገበ ተማሪ",
+    "total":"አጠቃላይ ተማሪዎች",
+    "compareToLastMonth":"ካለፈው ወር ጋር ሲነጻጸር",
+    "GoalReached":"የተደረሱ ግቦች",
+    "approved":"የጸደቀ",
+    "unapproved":"ያልጸደቀ",
+    "theStoreandInputStatus":"የማከማቻ እና የግብአት ሁኔታ",
+    "recentActivity":"የቅርብ ጊዜ እንቅስቃሴ",
+    "pending":"በመጠባበቅ ላይ",
+    "totalUser":"ጠቅላላ ተጠቃሚ",
+    "addNew":"አዲስ ",
+    "intoStore":"እቃዎችን ጨምራል",
+    "added": "ተጨምሯል",
+    "out": "ወጪ",
+    "outfromthestore": "ከመጋዘን የወጡ እቃዎች",
+    "costOutRequest": "የወጪ ወጪ ጥያቄ    ",
+    "thisMonthByYourPermission": "በዚህ ወር በእርስዎ ፈቃድ",
+    "deletedRequest": "የተሰረዘ ጥያቄ",
+    "copyRight": "  የቅጂ መብት",
+    "wolloUniversity": "ወሎ ዩኒቨርሲቲ",
+    "DesignedBy": "የበለጸገዉ በ",
+    "softwaredepartment": "የሶፍትዌር ምህንድስና ትህምርት ክፍል ተማሪዎች",
+    "allRightReceived": "መብቱ በህግ የተጠበቀ ነው.",
+    "profile": "የግል መገለጫ",
+    "screeenLock": "ስክሪን መቆለፊያ",
+    "logout": "ዛግተ ውጣ",
+    "main": "ዋና",
+    "Property_Report":"የንብረት ሪፖርት",
+    "UnapprovedStore":"ያልጸደቀ መደብር",
+    "Total":"ድምር",
+    "Store and input Status":"ክምችት እና የግባት ሁኔታ",
+    "Recent Activity":"የቅርብ ጊዜ እንቅስቃሴ",
+    "Cost Out Request":"የወጪ ወጪ ጥያቄ",
+    "Deleted Request":"የተሰረዙ ጥያቄ",
+    "Name":"ስም",
+    "Available":"ይሉ",
+    "Measurements":"መለኪያዎች",
+    "Store Status":"የመጋዘን  ሁኔታ",
+    "items":"እቃዎች",
+    "person":"ሰዎች",
+   
+    "status":"ሁኔታ",
+    "action":"ድርጊቶች",
+    "addItems":"እቃዎችን ያክሉ",
+    "selectitems":"ግባአት ይምረጡ",
+    "amountOfItems":"የእቃዎች ብዛት",
+    "amount":"መጠን",
+    "addNewItems": "አዲስ ንጥል ያክሉ",
+    "notDataFound": "ምንም ውሂብ አልተገኘም።",
+    "outOFStore": "አልቋል",
+    "edit": "አርትዖቶት",
+    "showing": "በማሳየት ላይ",
+    "addInput": "ግብዓቶችን ያክሉ",
+    "updateInput": "ግብዓቶችን አዘምን",
+    "Cancel": "ሰርዝ",
+    "Warning": "ማስጠንቀቂያ",
+    "areYourSureWantToDelete": "እርግጠኛ ነዎት መሰረዝ ይፈልጋሉ",
+    "deletedPermanently": "ይህ የመደብር ንጥል ነገር እስከመጨረሻው ተሰርዞ ላይገኝ ይችላል።",
+    "Continue": "ቀጥል",
+    "ApprovalSignature": "የማረጋገጫ ፊርማ",
+    "youAreResponsible": "የይለፍ ቃልዎን ካስገቡ በኋላ ለዚህ ድርጊት ኃላፊነቱን ይወስዳሉ",
+    "save": "አስቀምጥ",
+    "StoreAdmin": "የመጋዘን አስተዳዳሪ",
+    "cafeAdmin": "የካፌ አስተዳዳሪ",
+    "editProfile": "መገለጫ አርትዕ",
+    "oldPassword": "የድሮ የይለፍ ቃል",
+    "newPassword": "አዲስ የይለፍ ቃል",
+    "confirmPassword": "የይለፍ ቃል አረጋግጥ",
+    "editPassword": "የይለፍ ቃል አርትዕ",
+    "firstName": "የመጀመሪያ ስም",
+    "lastname": "ያባት ስም",
+    "ProfilePicture": "የመገለጫ ሥዕል",    
+    "emailAddress": "የ ኢሜል አድራሻ",
+    "phoneNumber": "ስልክ ቁጥር",
+    "update": "አዘምን",
+    "registeralOffice": "መዝገብ ቤት",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    "date": "ቀን"
+    
   
 }

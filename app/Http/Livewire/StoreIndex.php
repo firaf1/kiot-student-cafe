@@ -44,16 +44,16 @@ class StoreIndex extends Component
                     }
                     $i++;
                 }
-                $this->resetPage();
+                $this->render();
             } else {
                 $this->isNotFound = true;
-                $this->resetPage();
+                $this->render();
             }
 
         } else {
             $this->isNotFound = false;
             $this->searchItems = null;
-            $this->resetPage();
+            $this->render();
         }
     }
 
@@ -70,8 +70,7 @@ class StoreIndex extends Component
         $store->role_id = "2";
         $store->status = "Pending";
         $store->save();
-        $this->reset();
-        $this->emit('postAdded', "Schedule Successfully Added!!", 'info', 'right');
+         $this->emit('postAdded', "Schedule Successfully Added!!", 'info', 'right');
       
 
     }

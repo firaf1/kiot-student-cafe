@@ -86,12 +86,12 @@
                             </div>
                         </div>
                         @if($items->count() == 0)
-                        
+
                         <div class="" wire:loading.remove>
 
                             <img src="{{ asset('myData/no_data.gif') }} "
                                 style="width:38%; height:20hv; margin-left:30%;  " alt="">
-                            <h2 class="text-warning text-center">No Data found</h2>
+                            <h2 class="text-warning text-center">@lang('notDataFound')</h2>
                             </div>
                         @else
                         <div class="dimmer active " style="width:60%; margin-left:20%;  " wire:loading wire:targer="StatusChange()">
@@ -112,7 +112,7 @@
                                         <th>Store Status</th>
                                         <th>Status</th>
                                         <th>Date</th>
-                                        
+
 
                                     </tr>
                                 </thead>
@@ -134,7 +134,7 @@
                                                 <span class="badge badge-danger  mt-2">
                                               <i class="fa fa-exclamation-triangle text-warning"> </i>
 
-                                              out of store
+                                              @lang('outOFStore')
                                               </span>
                                             @elseif($sche->ItemsPercent($sche->inputs_id)<75)
                                             <span class="badge badge-success  mt-2">
@@ -146,7 +146,7 @@
                                               <span class="badge badge-danger  mt-2">
                                               <i class="fa fa-exclamation-triangle text-warning"> </i>
 
-                                              out of store
+                                              @lang('outOFStore')
                                               </span>
                                               @else
                                               <span class="badge badge-warning  mt-2">
@@ -168,7 +168,7 @@
                                             @endif
                                             </td>
                                             <td>{{ $sche->created_at->diffForHumans() }}</td>
-                                             
+
                                         </tr>
 
                                     @endforeach
@@ -246,12 +246,12 @@
 
                                 @if ($schedule->CheckStore($schedule->id)>0)
                                 @if ($schedule->roleCheck($schedule->id))
-                                            
+
                                             <option value="{{ $schedule->id }}">{{ $schedule->name }}</option>
                                             @endif
- 
-    
- 
+
+
+
                                     @endif
 
                                 @endforeach

@@ -56,7 +56,7 @@
 
                                     <img src="http://127.0.0.1:8000/myData/no_data.gif "
                                         style="width:38%; height:20hv; margin-left:30%;  " alt="">
-                                    <h2 class="text-warning text-center">No Data found</h2>
+                                    <h2 class="text-warning text-center">@lang('notDataFound')</h2>
                                 </div>
                             @else
                                 <div class="table-responsive">
@@ -279,7 +279,6 @@
             var el = document.getElementById("download");
             el.setAttribute("href", name);
             el.setAttribute("download", name);
-
         }
     </script>
 </div>

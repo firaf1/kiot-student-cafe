@@ -10,7 +10,7 @@
                     alt="Admintro logo">
             </a>
             <div class="app-sidebar__toggle" data-toggle="sidebar">
-                <a class="open-toggle" href="index-2.html#">
+                <a class="open-toggle" href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="feather feather-align-left header-icon mt-1">
@@ -24,24 +24,70 @@
 
 
             <div class="d-flex order-lg-2 ml-auto">
-                <div class="btn-group mt-2 mb-2">
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
-                        aria-expanded="false">
-                        @if(session()->has('locale'))
-                        {{ session('locale') }}
-                        @else 
-                           en
-                        @endif
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu" style="">
-                        <form action="" method="get"></form>
-                        <li><a href="{{ route('change-language', 'am') }}">Amharic</a></li>
-                        <li><a href="{{ route('change-language', 'en') }}">English</a></li>
-                    </ul>
-                </div>
 
-                <a href="index-2.html#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch">
+
+
+                <div class="dropdown profile-dropdown mt-3 mx-4">
+											<a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown" aria-expanded="false">
+												<span>
+												<span class="">
+
+                                                @if(session()->has('locale'))
+                                                @if(session('locale') == 'en')
+
+                                                <div class="media mt-0">
+                                                         <i class=" side-menu__icon flag flag-us"></i>
+
+                                                        <div class="media-body">
+															<div class="d-md-flex align-items-center mt-1">
+																<h6 class="mb-1 ml-2"> Us-English</h6>
+															</div>
+ 														</div>
+													</div>
+
+
+
+
+                                                    @elseif(session('locale') == 'am')
+                                                    <div class="media mt-0">
+                                                         <i class=" side-menu__icon flag flag-et"></i>
+
+                                                        <div class="media-body">
+															<div class="d-md-flex align-items-center mt-1">
+																<h6 class="mb-1 ml-2"> አማርኛ</h6>
+															</div>
+ 														</div>
+													</div>
+
+                                                    @endif
+
+                                            @else
+                                            <div class="media mt-0">
+                                                         <i class=" side-menu__icon flag flag-us"></i>
+
+                                                        <div class="media-body">
+															<div class="d-md-flex align-items-center mt-1">
+																<h6 class="mb-1 ml-2"> Us-English</h6>
+															</div>
+ 														</div>
+													</div>
+                                            @endif
+
+                                                </span>
+												</span>
+											</a>
+											<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow animated" style="">
+                                                <a class="dropdown-item d-flex" href="{{ route('change-language', 'am') }}">
+                                                <i class=" side-menu__icon flag flag-et"></i>
+                                                    <div class="ml-4">አማርኛ</div>
+												</a>
+												<a class="dropdown-item d-flex" href="{{ route('change-language', 'en') }}">
+                                                <i class=" side-menu__icon flag flag-us"></i>
+ 													<div class="ml-4">English</div>
+												</a>
+											</div>
+										</div>
+                <a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch">
                     <svg class="header-icon search-icon" x="1008" y="1248" viewBox="0 0 24 24"
                         height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false">
                         <path d="M0 0h24v24H0V0z" fill="none" />
@@ -49,7 +95,7 @@
                             d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
                     </svg>
                 </a>
-                
+
                 <div class="dropdown   header-fullscreen">
                     <a class="nav-link icon full-screen-link p-0" id="fullscreen-button">
                         <svg xmlns="http://www.w3.org/2000/svg" class="header-icon" width="24" height="24"
@@ -67,7 +113,7 @@
                     @livewire('notification-index')
                 @endif
                 <div class="dropdown profile-dropdown">
-                    <a href="index-2.html#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
+                    <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
                         <span>
 
                             @if (Auth::user()->image == null)
@@ -86,15 +132,22 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow animated">
                         <div class="text-center">
-                            <a href="index-2.html#"
+                            <a href="#"
                                 class="dropdown-item text-center user pb-0 font-weight-bold">{{ Auth::user()->fname }}</a>
                             <span class="text-center user-semi-title">
                                 @if (Auth::user()->role == '1')
-                                    Super Admin
+                                    @lang('cafeAdmin')
                                 @elseif(Auth::user()->role == '2')
-                                    Store Admin
+                                    @lang('StoreAdmin')
                                 @elseif(Auth::user()->role == '3')
                                     Admin
+                                    @elseif(Auth::user()->role == '4')
+                                    Admin
+                                    @elseif(Auth::user()->role == '0')
+                                    @lang('registeralOffice')
+                                    @elseif(Auth::user()->role == '5')
+                                   Ticker
+
                                 @endif
                             </span>
                             <div class="dropdown-divider"></div>
@@ -106,11 +159,11 @@
                                 <path
                                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7.07 18.28c.43-.9 3.05-1.78 4.93-1.78s4.51.88 4.93 1.78C15.57 19.36 13.86 20 12 20s-3.57-.64-4.93-1.72zm11.29-1.45c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6zm0 5c-.83 0-1.5-.67-1.5-1.5S11.17 8 12 8s1.5.67 1.5 1.5S12.83 11 12 11z" />
                             </svg>
-                            <div class="">Profile</div>
+                            <div class="">@lang('profile')</div>
                         </a>
                         <a class="dropdown-item d-flex" href="{{ route('lock') }}">
                             <i class="si si-lock" data-toggle="tooltip" title="" data-original-title="si-lock"></i>
-                            <div class="mx-3">Lock Screen</div>
+                            <div class="mx-3">@lang('screeenLock')</div>
                         </a>
 
                         <a class="dropdown-item d-flex" href="{{ route('logout') }}">
@@ -124,9 +177,9 @@
                                         d="M11,7L9.6,8.4l2.6,2.6H2v2h10.2l-2.6,2.6L11,17l5-5L11,7z M20,19h-8v2h8c1.1,0,2-0.9,2-2V5c0-1.1-0.9-2-2-2h-8v2h8V19z" />
                                 </g>
                             </svg>
-                            <div class="">Sign Out</div>
+                            <div class="">@lang('logout')</div>
                         </a>
-                      
+
                     </div>
                 </div>
             </div>

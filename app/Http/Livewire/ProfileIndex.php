@@ -7,6 +7,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class ProfileIndex extends Component
 {
@@ -27,12 +28,23 @@ class ProfileIndex extends Component
     }
     public function UpdateProfile()
     {
+        if($this->email != null){
+            $this->validate([
+                'email'=>'email|max:32|unique:users',
+
+            ]);
+        }
+        
         $this->validate();
          $user = User::where('id', '=', Auth::user()->id)->first();
          $user->lname = $this->lname;
          $user->fname = $this->fname;
          $user->email = $this->email;
          if($this->profilePicture != null){
+            $this->validate([
+                'profilePicture'=>'image|mimes:jpeg,jpg,png,gif|max:1000',
+
+            ]);
             $tempImage = 'kiot-user-' . time() . '.' .  $this->profilePicture->extension();
             $this->profilePicture->storeAs('User_Profile/', $tempImage, 'public');
             $user->image = "storage/User_Profile/" . $tempImage;
@@ -55,9 +67,12 @@ class ProfileIndex extends Component
              if($this->password_confirmation == $this->newPassword){
                $user->password = Hash::make($this->newPassword);
                $user->save();
-               $this->reset();
+              $this->password = null;
+              $this->password_confirmation = null;
+              $this->newPassword = null;
                $this->emit('postAdded', "Password Successfully Updated!", 'success', 'right' , 'Success');
-               Auth::login($user);
+               Auth::logout();
+               return Redirect::route('login');
                
               }
               else{

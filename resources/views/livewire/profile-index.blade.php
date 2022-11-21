@@ -4,7 +4,7 @@
 								 
 								<div class="card">
 									<div class="card-header">
-										<div class="card-title">Edit Password</div>
+										<div class="card-title">@lang('editPassword')</div>
 									</div>
 									<div class="card-body">
 										<div class="text-center mb-5">
@@ -22,7 +22,7 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="form-label">Old Password</label>
+											<label class="form-label">@lang('oldPassword')</label>
 											<input type="password" wire:model="password" class="form-control @error('password') is-invalid @enderror" value="password">
                                             @error('password')
                                                <p class="text-danger"> {{ $message }}</p>
@@ -30,14 +30,14 @@
 										</div>
 
 										<div class="form-group">
-											<label class="form-label" wire:model="password">New Password</label>
+											<label class="form-label" wire:model="password"> @lang('newPassword') </label>
 											<input type="password" wire:model="newPassword" class="form-control @error('newPassword') is-invalid @enderror" value="password">
                                             @error('newPassword')
                                                <p class="text-danger"> {{ $message }}</p>
                                             @enderror
                                         </div>
 										<div class="form-group">
-											<label class="form-label">Confirm Password</label>
+											<label class="form-label"> @lang('confirmPassword') </label>
 											<input type="password" wire:model="password_confirmation" class="form-control  @error('password_confirmation') is-invalid @enderror" value="password">
                                             @error('password_confirmation')
                                                <p class="text-danger"> {{ $message }}</p>
@@ -48,7 +48,7 @@
 										<button type="button" wire:click="password_update()" 
                                         class="btn btn-primary">
                                         <span   wire:loading.remove wire:targer="password_update()" >
-                                 Update
+                                        @lang('update')
                              </span>
                              <span class="" wire:loading wire:targer="password_update()" >
                                 
@@ -59,47 +59,66 @@
                             </button>
 
                             
-										<a href="#" class="btn btn-danger">Cancle</a>
+										<a href="#" class="btn btn-danger">@lang('Cancel')</a>
 									</div>
 								</div>
 							</div>
                             
 							<div class="col-xl-9 col-lg-8">
-								<div class="card">
+								<div class="card">	
 									<div class="card-header">
-										<div class="card-title">Edit Profile</div>
+										<div class="card-title">@lang('editProfile')</div>
 									</div>
 									<div class="card-body">
  										<div class="row">
 											<div class="col-sm-6 col-md-6">
 												<div class="form-group">
-													<label class="form-label">First Name</label>
-													<input wire:model="fname" type="text" class="form-control" placeholder="First Name">
+													<label class="form-label">@lang('firstName')</label>
+													<input wire:model="fname" type="text"
+													 class="form-control @error('fname') is-invalid @enderror" placeholder="@lang('firstName')">
 												</div>
+												@error('fname')
+													<p class="text-danger">{{ $message }}</p>
+												@enderror
 											</div>
 											<div class="col-sm-6 col-md-6">
 												<div class="form-group">
-													<label class="form-label">Last Name</label>
-													<input type="text" wire:model="lname" class="form-control" placeholder="Last Name">
+													<label class="form-label">@lang('lastname')</label>
+													<input type="text" wire:model="lname" 
+													class="form-control @error('lname') is-invalid @enderror" placeholder="@lang('lastname')">
 												</div>
+												@error('lname')
+													<p class="text-danger">{{ $message }}</p>
+												@enderror
 											</div>
                                             <div class="col-sm-12 col-md-12">
 												<div class="form-group">
-													<label class="form-label">Profile Picture</label>
+													<label class="form-label">@lang('Profile Picture')</label>
 													<input type="file" wire:model="profilePicture" class="form-control" placeholder="Number">
 												</div>
+												@error('profilePicture')
+													<p class="text-danger">{{ $message }}</p>
+												@enderror
 											</div>
 											<div class="col-sm-12 col-md-12">
 												<div class="form-group">
-													<label class="form-label">Email address</label>
-													<input wire:model="email" type="email" class="form-control" placeholder="Email">
+													<label class="form-label">@lang('emailAddress')</label>
+													<input wire:model="email" type="email"
+													class="form-control @error('email') is-invalid @enderror" placeholder="@lang('emailAddress')">
 												</div>
+												@error('email')
+													<p class="text-danger">{{ $message }}</p>
+												@enderror
 											</div>
 											<div class="col-sm-12 col-md-12">
 												<div class="form-group">
-													<label class="form-label">Phone Number</label>
-													<input wire:model="phone_number" type="number" class="form-control" placeholder="Phone Number">
+													<label class="form-label">@lang('phoneNumber')</label>
+													<input wire:model="phone_number" type="number" 
+													class="form-control @error('phone_number') is-invalid @enderror" placeholder="@lang('phoneNumber')">
 												</div>
+												@error('phone_number')
+													<p class="text-danger">{{ $message }}</p>
+												@enderror
 											</div>
 											
 											   
@@ -111,7 +130,7 @@
                                             
                                         <button type="button" wire:click="UpdateProfile()" class="btn btn-primary">
                         <span wire:loading.remove wire:targer="UpdateProfile()">
-                            Update
+                            @lang('update')
                         </span>
                         <span class="" wire:loading wire:targer="UpdateProfile()">
 
@@ -122,7 +141,7 @@
                         </span>
                     </button>
                                         
-										<a href="#" class="btn btn-danger">Cancle</a>
+										<a href="#" class="btn btn-danger">@lang('Cancel')</a>
 									</div>
 								</div>
 							</div>

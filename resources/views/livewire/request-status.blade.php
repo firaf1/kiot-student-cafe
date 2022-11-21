@@ -27,7 +27,7 @@
 
                             <img src="{{ asset('myData/no_data.gif') }} "
                                 style="width:38%; height:20hv; margin-left:30%;  " alt="">
-                            <h2 class="text-warning text-center">No Data found</h2>
+                            <h2 class="text-warning text-center">@lang('notDataFound')</h2>
                             </div>
                         @else
                         <div class="table-responsive">
@@ -38,7 +38,7 @@
                                         <th>Name</th>
                                         <th>Measurements</th>
                                         <th>Amount</th>
-                                        
+
                                         <th>Store Status</th>
 
                                         <th>Date</th>
@@ -64,7 +64,7 @@
                                                 <span class="badge badge-danger  mt-2">
                                               <i class="fa fa-exclamation-triangle text-warning"> </i>
 
-                                              out of store
+                                              @lang('outOFStore')
                                               </span>
                                             @elseif($sche->ItemsPercent($sche->inputs_id)<75)
                                             <span class="badge badge-success  mt-2">
@@ -76,7 +76,7 @@
                                               <span class="badge badge-danger  mt-2">
                                               <i class="fa fa-exclamation-triangle text-warning"> </i>
 
-                                              out of store
+                                              @lang('outOFStore')
                                               </span>
                                               @else
                                               <span class="badge badge-warning  mt-2">
@@ -131,7 +131,7 @@
                                 <div class="mr-auto p-2">showing {{ $items->count() }} of {{ $totalItems }} entries
                                 </div>
                                 @if($searchItems== null)
-                               
+
                                     <div class="p-2">{{ $items->links() }}</div>
                                 @endif
                             </div>

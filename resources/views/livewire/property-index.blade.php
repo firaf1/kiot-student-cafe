@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="card-options">
-                    
+
 
                 </div>
             </div>
@@ -21,7 +21,7 @@
 
                             <img src="{{ asset('myData/no_data.gif') }} "
                                 style="width:38%; height:20hv; margin-left:30%;  " alt="">
-                            <h2 class="text-warning text-center">No Data found</h2>
+                            <h2 class="text-warning text-center">@lang('notDataFound')</h2>
                             </div>
                             @else
                 <div class="table-responsive">
@@ -36,7 +36,7 @@
                             </tr>
                         </thead>
                         <tbody>
- 
+
                         @foreach ($propeties as $pro)
                         <tr>
                                 <td class="font-weight-bold">
@@ -66,13 +66,13 @@
 
                                 <td><span class="badge badge-primary-light">{{ $pro->serial_number }}</span></td>
                                 <td>
-                                    <a data-toggle="modal" href="#modaldemo3"> 
+                                    <a data-toggle="modal" href="#modaldemo3">
 
                                         <img src="{{ asset($pro->firstImage) }}" onclick="imageZoom('{{ asset($pro->firstImage) }}',
                                         '{{ asset($pro->secondImage) }}',
                                         '{{ asset($pro->thirdImage) }}',
                                         '{{ $pro->serial_number }}'
-                                        )" 
+                                        )"
                                                                 alt="img" class="w-7 h-7 rounded shadow mr-3">
                                     </a>
                                 </td>
@@ -96,29 +96,29 @@
                                         </button>
                                         @endif
                                         <div class="dropdown-menu" style="">
-                                            <a  wire:click="ChangeStat('Approved', '{{ $pro->id }}')" class="dropdown-item" href="#"> 
+                                            <a  wire:click="ChangeStat('Approved', '{{ $pro->id }}')" class="dropdown-item" href="#">
                                                 Approved
                                             </a>
                                             <a  wire:click="ChangeStat('Unapproved', '{{ $pro->id }}')" class="dropdown-item" href="#">
-                                                Unapproved    
+                                                Unapproved
                                             </a>
-                                            
+
 
                                         </div>
                                     </div>
                                 </td>
-                                 
+
                                 <td class="align-middle">
                                     <div class="btn-group align-top">
-                                        
+
                                         <button wire:click="deletedId({{ $pro->id }})" class="btn btn-sm btn-danger"
                                             type="button"><i class="fe fe-trash-2"></i></button>
                                     </div>
                                 </td>
                             </tr>
- 
+
                         @endforeach
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -146,9 +146,9 @@
                         </div>
                         <h3 class="text-primary  m-4 text-center" id="serial"></h3>
                     </div>
-						 
+
 					</div>
-					 
+
 				</div>
 			</div>
 		</div>
@@ -170,7 +170,7 @@
         </div>
     </div>
 
-    
+
 
 
 
@@ -186,7 +186,7 @@
                 var el = document.getElementById("download");
                 el.setAttribute("href", first);
 	            el.setAttribute("download", first);
-              
+
             }
         </script>
 </div>

@@ -4,11 +4,11 @@
 
 <div class="page-header">
     <div class="page-leftheader">
-        <h4 class="page-title mb-0">Hi! Welcome Back</h4>
+        <h4 class="page-title mb-0">@lang('welcome')</h4>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index-2.html#"><i class="fe fe-home mr-2 fs-14"></i>Home</a></li>
+            <li class="breadcrumb-item"><a href="index-2.html#"><i class="fe fe-home mr-2 fs-14"></i>@lang('Home')</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a
-                    href="{{ route('storeDashboard') }}">Store Dashboard</a></li>
+                    href="{{ route('storeDashboard') }}">@lang('Store') @lang('Dashboard')</a></li>
         </ol>
     </div>
     
@@ -24,7 +24,7 @@
             <div class="card-body">
                 <div class="d-flex no-block align-items-center">
                     <div>
-                        <h6 class="text-white">Pending</h6>
+                        <h6 class="text-white">@lang('pending')</h6>
                         <h2 class="text-white m-0 font-weight-bold">{{ $pending }}</h2>
                     </div>
                     <div class="ml-auto">
@@ -39,7 +39,7 @@
             <div class="card-body">
                 <div class="d-flex no-block align-items-center">
                     <div>
-                        <h6 class="text-white">Approved</h6>
+                        <h6 class="text-white">@lang('approved')</h6>
                         <h2 class="text-white m-0 font-weight-bold">{{ $approved }}</h2>
                     </div>
                     <div class="ml-auto">
@@ -54,7 +54,7 @@
             <div class="card-body">
                 <div class="d-flex no-block align-items-center">
                     <div>
-                        <h6 class="text-white">UnapprovedStore</h6>
+                        <h6 class="text-white">@lang('UnapprovedStore')</h6>
                         <h2 class="text-white m-0 font-weight-bold">{{ $unapproved }}</h2>
                     </div>
                     <div class="ml-auto">
@@ -71,7 +71,7 @@
             <div class="card-body">
                 <div class="d-flex no-block align-items-center">
                     <div>
-                        <h6 class="text-white">Total</h6>
+                        <h6 class="text-white">@lang('Total')</h6>
                         <h2 class="text-white m-0 font-weight-bold">{{ $itemAddedByYou }}</h2>
                     </div>
                     <div class="ml-auto">
@@ -94,7 +94,7 @@
     <div class="col-xl-4  col-md-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Store and input Status</h3>
+                <h3 class="card-title">@lang('Store and input Status')</h3>
                  
             </div>
             <div class="card-body">
@@ -132,7 +132,7 @@
     <div class="col-xl-4 col-lg-4 col-md-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Recent Activity</h3>
+                <h3 class="card-title">@lang('Recent Activity')</h3>
                  
             </div>
             <div class="card-body">
@@ -158,11 +158,11 @@
                                                        
                                                             @if($store->type == 'in')
                                                             <span class="badge badge-primary ml-2">
-                                                                Added
+                                                                @lang('out')
                                                             </span>
                                                             @elseif ($store->type == 'out')
                                                             <span class="badge badge-warning ml-2">
-                                                                Out
+                                                               @lang('out')
                                                             </span>
                                                         @endif
 
@@ -173,9 +173,9 @@
                                                     </div>
                                                     <p class="text-muted fs-12"><span class="text-info">{{$store->user->fname}}</span> 
                                                     @if($store->type == 'in')
-                                                    add new {{ $store->amount }} {{ $store->input->name }} {{ $store->input->measurement->name }} in to store 
+                                                   @lang('added') {{ $store->amount }} {{ $store->input->name }} {{ $store->input->measurement->name }} @lang('intoStore')
                                                     @elseif ($store->type == 'out')
-                                                    {{ $store->amount }}  {{ $store->input->name }} {{ $store->input->measurement->name }} of item out from the store 
+                                                    {{ $store->amount }}  {{ $store->input->name }} {{ $store->input->measurement->name }} @lang('outfromthestore') 
                                                     @endif
                                                      
                                                         </p>
@@ -207,9 +207,9 @@
             <div class="card-body">
                 <div class="d-flex align-items-end justify-content-between">
                     <div>
-                        <p class=" mb-1 fs-14"> Cost Out Request</p>
+                        <p class=" mb-1 fs-14"> @lang('Cost Out Request')</p>
                         <h2 class="mb-0"><span class="number-font1">{{ $taken }}</span>
-                        <span class="ml-2 text-muted fs-11"><span class="text-success">this month by your permission</span> </span></h2>
+                        <span class="ml-2 text-muted fs-11"><span class="text-success">@lang('thisMonthByYourPermission')</span> </span></h2>
                     </div>
                     <span class="text-info fs-35 bg-info-transparent border-info dash1-iocns">
                         <i class="las la-thumbs-up"></i></span>
@@ -223,9 +223,9 @@
             <div class="card-body">
                 <div class="d-flex align-items-end justify-content-between">
                     <div>
-                        <p class=" mb-1 fs-14"> Deleted Request </p>
+                        <p class=" mb-1 fs-14"> @lang('Deleted Request') </p>
                         <h2 class="mb-0"><span class="number-font1">{{ $deleted }}</span>
-                        <span class="ml-2 text-muted fs-11"><span class="text-success">this month by your permission</span> </span></h2>
+                        <span class="ml-2 text-muted fs-11"><span class="text-success">@lang('thisMonthByYourPermission')</span> </span></h2>
                     </div>
                     <span class="text-danger fs-35 bg-danger-transparent border-danger dash1-iocns">
                     <i class="fa fa-trash"></i></span>
