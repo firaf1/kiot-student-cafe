@@ -146,7 +146,7 @@
                                     @elseif(Auth::user()->role == '0')
                                     @lang('registeralOffice')
                                     @elseif(Auth::user()->role == '5')
-                                   Ticker
+                                   @lang('ticker')
 
                                 @endif
                             </span>
