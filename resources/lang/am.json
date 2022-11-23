@@ -96,6 +96,11 @@
     "phoneNumber": "ስልክ ቁጥር",
     "update": "አዘምን",
     "registeralOffice": "መዝገብ ቤት",
+    "Request": "ጥያቄዎች",
+    "approvedRequest": "የጸደቁ ጥያቄዎች",
+    "unapprovedRequest": "ያልተፈቀዱ ጥያቄዎች",
+    "totalReport": "ጠቅላላ ሪፖርት",
+    "pendingRequest": "በመጠባበቅ ላይ ያሉ ጥያቄዎች",
 
 
 

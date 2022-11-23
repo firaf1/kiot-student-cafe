@@ -7,7 +7,7 @@
                         <span class="input-icon-addon">
                             <i class="fe fe-search"></i>
                         </span>
-                        <input type="text" wire:model="search" class="form-control" placeholder="Search...">
+                        <input type="text" wire:model="search" class="form-control" placeholder="Search..11.">
                     </div>
                 </div>
                 <div class="card-options">
