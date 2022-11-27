@@ -35,7 +35,7 @@
                             </div>
                         @else
                             <div class="table-responsive" >
-                                <table class="table table-inbox table-hover text-nowrap mb-0">
+                                <table class="table table-inbox table-hover text-nowrap mb-0"  wire:poll>
                                     <thead class="">
                                         <tr>
                                             <th>Person</th>
@@ -49,7 +49,7 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody  wire:poll>
+                                    <tbody >
 
                                         @foreach ($items as $sche)
                                             <tr class="">

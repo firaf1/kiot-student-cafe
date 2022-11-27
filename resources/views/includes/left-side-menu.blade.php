@@ -89,19 +89,23 @@
                 <span class="side-menu__label">@lang('Measurement')</span> </a>
         </li>
 
-
+        <li class="slide">
+                <a class="side-menu__item" href="{{ route('roles') }}">
+                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M19 5v14H5V5h14m0-2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm6 10H6v-1.53c0-2.5 3.97-3.58 6-3.58s6 1.08 6 3.58V18zm-9.69-2h7.38c-.69-.56-2.38-1.12-3.69-1.12s-3.01.56-3.69 1.12z"></path></svg>
+                    <span class="side-menu__label">@lang('Roles')</span> </a>
+            </li>
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('materials') }}">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0zm18.31 6l-2.76 5z" fill="none"></path><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z"></path></svg>
                        
                     <span class="side-menu__label">@lang('Inputs')</span> </a>
             </li>
-
             <li class="slide">
-                <a class="side-menu__item" href="{{ route('roles') }}">
-                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M19 5v14H5V5h14m0-2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm6 10H6v-1.53c0-2.5 3.97-3.58 6-3.58s6 1.08 6 3.58V18zm-9.69-2h7.38c-.69-.56-2.38-1.12-3.69-1.12s-3.01.56-3.69 1.12z"></path></svg>
-                    <span class="side-menu__label">@lang('Roles')</span> </a>
+                <a class="side-menu__item" href="{{ route('store-status') }}">
+                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><rect fill="none" height="24" width="24"></rect></g><g><g><rect height="7" width="3" x="4" y="10"></rect><rect height="7" width="3" x="10.5" y="10"></rect><rect height="3" width="20" x="2" y="19"></rect><rect height="7" width="3" x="17" y="10"></rect><polygon points="12,1 2,6 2,8 22,8 22,6"></polygon></g></g></svg>
+                    <span class="side-menu__label"> @lang('Store_Status')</span> </a>
             </li>
+            
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('request-status') }}">
                      
@@ -109,11 +113,7 @@
                     <span class="side-menu__label">@lang('Request_Status')</span> </a>
 
             </li>
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('store-status') }}">
-                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><rect fill="none" height="24" width="24"></rect></g><g><g><rect height="7" width="3" x="4" y="10"></rect><rect height="7" width="3" x="10.5" y="10"></rect><rect height="3" width="20" x="2" y="19"></rect><rect height="7" width="3" x="17" y="10"></rect><polygon points="12,1 2,6 2,8 22,8 22,6"></polygon></g></g></svg>
-                    <span class="side-menu__label"> @lang('Store_Status')</span> </a>
-            </li>
+           
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('schedule') }}">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path></svg>
@@ -128,6 +128,16 @@
         @endif
 
         @if (Auth::user()->role == '5')
+        <li class="slide">
+                <a class="side-menu__item" href="{{ route('tickerConsuption') }}">
+                    <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24"
+                        viewBox="0 0 24 24" width="24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
+                    </svg>
+                    <span class="side-menu__label">Consumption</span> </a>
+            </li>
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('schedules') }}">
                     <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24"
@@ -138,16 +148,7 @@
                     </svg>
                     <span class="side-menu__label">@lang('Schedule_Status')</span> </a>
             </li>
-            <li class="slide">
-                <a class="side-menu__item" href="{{ route('tickerConsuption') }}">
-                    <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24"
-                        viewBox="0 0 24 24" width="24">
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                        <path
-                            d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
-                    </svg>
-                    <span class="side-menu__label">Consumption</span> </a>
-            </li>
+            
         @endif
         @if (Auth::user()->role == '2')
             <li class="slide">

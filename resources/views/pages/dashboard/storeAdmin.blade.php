@@ -240,10 +240,7 @@
 <!-- End Row-3 -->
 
 <!--Row-->
-<div class="row">
-    <div class="col-xl-12"> @livewire('store-store')</div>
-   
-</div>
+ 
 <!--End row-->
 
 

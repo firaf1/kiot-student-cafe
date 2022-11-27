@@ -17,7 +17,7 @@
         <div class="col-md-12 col-lg-3">
             <div class="card text-white bg-primary">
                 <div class="card-header border-transparent">
-                    <h3 class="card-title "> @lang('pendingRequest') </h3>
+                    <h3 class="card-title "> @lang('approvedRequest') </h3>
                     <div class="card-options">
                         <a href="#" class="card-options-collapse mr-2" data-toggle="card-collapse"><i class="fe fe-chevron-up text-white"></i></a>
                         <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x text-white "></i></a>

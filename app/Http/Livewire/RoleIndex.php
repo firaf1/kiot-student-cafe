@@ -52,6 +52,7 @@ class RoleIndex extends Component
         $role = new Role();
        $role->name = $this->title;
        $role->save();
+       $this->title = null; 
             $this->mount();
               $this->emit('postAdded', "Role Successfully Added!", 'success', 'right');
       

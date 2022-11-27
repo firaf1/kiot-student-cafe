@@ -45,6 +45,7 @@ class User extends Authenticatable
     public function roleNameCheck()
     {
        $role = Role::find(Auth::user()->role_id);
+       if(!$role) return '';
        $roleCon = RoleConsumption::where('role_id', $role->id)->first();
        if($roleCon) return $role->name;
        return '';

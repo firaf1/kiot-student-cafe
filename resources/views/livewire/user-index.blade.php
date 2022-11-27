@@ -149,9 +149,7 @@
                                                             class="btn btn-sm btn-success" type="button"
                                                             data-toggle="modal"
                                                             data-target="#user-form-modal">Edit</button>
-                                                        <button wire:click="deleted_id({{ $user->id }})"
-                                                            class="btn btn-sm btn-success" type="button"><i
-                                                                class="fe fe-trash-2"></i></button>
+                                                        
                                                     </div>
                                                 @else
                                                     <div class="form-group "
@@ -171,9 +169,7 @@
                                                             class="btn btn-sm btn-success" type="button"
                                                             data-toggle="modal"
                                                             data-target="#user-form-modal">Edit</button>
-                                                        <button wire:click="deleted_id({{ $user->id }})"
-                                                            class="btn btn-sm btn-success" type="button"><i
-                                                                class="fe fe-trash-2"></i></button>
+                                                        
                                                     </div>
                                         @endif
                                         </td>

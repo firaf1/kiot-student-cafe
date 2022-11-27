@@ -4,13 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\Role;
 use App\Models\User;
-use App\Models\Input;
-use Livewire\Component;
 use Illuminate\Support\Facades\Hash;
+use Livewire\Component;
 
 class UserIndex extends Component
 {
-    public $firstName, $search,$multi, $inputs, $editFirstName, $inputUser, $editRole, $editGender, $editEmail, $userID, $editLastName, $editPhoneNumber, $lastName, $deleted_id, $password, $phoneNumber, $password_confirmation, $gender, $role;
+    public $firstName, $search, $multi, $inputs, $editFirstName, $inputUser, $editRole, $editGender, $editEmail, $userID, $editLastName, $editPhoneNumber, $lastName, $deleted_id, $password, $phoneNumber, $password_confirmation, $gender, $role;
 
     protected $rules = [
         'password' => 'min:6|required',
@@ -25,7 +24,7 @@ class UserIndex extends Component
     ];
     public function updatedSearch()
     {
-        
+
         $this->inputUser = User::where('fname', 'like', '%' . $this->search . '%')
             ->orWhere('fname', 'like', '%' . $this->search . '%')
             ->orWhere('lname', 'like', '%' . $this->search . '%')
@@ -33,12 +32,12 @@ class UserIndex extends Component
             ->orWhere('status', 'like', '%' . $this->search . '%')
             ->orWhere('role', 'like', '%' . $this->search . '%')
             ->get();
-             
+
         $this->render();
     }
     public function ApprovedUser($id)
     {
-    
+
         $user = User::findOrFail($id);
         $user->status = "Approved";
         $user->save();
@@ -47,24 +46,23 @@ class UserIndex extends Component
     }
     public function UnapprovedUser($id)
     {
-       
-        
+
         $user = User::findOrFail($id);
         $user->status = "Unapproved";
         $user->save();
         $this->emit('SweetAletSuccessNotification', "Successfully Unapproved", 'success', 'right');
 
     }
-  
+
     public function AddUser()
     {
-        
+
         $this->validate();
         $user = new User();
         $user->fname = $this->firstName;
         $user->lname = $this->lastName;
         $user->phone_number = $this->phoneNumber;
-        $user->old_password = Hash::make($this->password);
+        $user->password = Hash::make($this->password);
         $user->status = "Approved";
         $user->role = $this->role;
         $user->gender = $this->gender;
@@ -92,10 +90,10 @@ class UserIndex extends Component
         $this->validate([
 
             'password_confirmation' => 'required_with:password|same:password',
-            'editFirstName' => 'min:2|required',
-            'editLastName' => 'min:2|required',
+            'editFirstName' => 'min:2|alpha|required',
+            'editLastName' => 'min:2|alpha|required',
             // 'email' => 'min:6|required|unique:users,email,',
-            'editPhoneNumber' => 'min:10|required',
+            'editPhoneNumber' => 'min:10|required|numeric',
             'editGender' => 'required',
             'editRole' => 'required',
         ]);
@@ -115,6 +113,7 @@ class UserIndex extends Component
     }
     public function delete()
     {
+
         $user = User::find($this->deleted_id);
         $user->delete();
         $this->render();
@@ -127,17 +126,17 @@ class UserIndex extends Component
     }
     public function RoleAsign($userId, $inputId)
     {
-   
-         $user = User::findOrFail($userId); //
-         $user->role_id = $inputId;
-         $user->save();
-         $this->emit('SweetAletSuccessNotification', "Successfully Updated!", 'success', 'right');
+
+        $user = User::findOrFail($userId); //
+        $user->role_id = $inputId;
+        $user->save();
+        $this->emit('SweetAletSuccessNotification', "Successfully Updated!", 'success', 'right');
     }
     public function render()
     {
         $this->inputs = Role::where('status', 'Approved')->get();
         if ($this->inputUser != null) {
- 
+
             return view('livewire.user-index', ['users' => $this->inputUser]);
         }
 

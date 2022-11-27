@@ -61,10 +61,11 @@ public function incrementPostCount($qr)
             $this->status = 1;
             $this->emit('tickProblemEmit', "Schedule Successfully Deleted!");
                        $this->errorMessage = "ድጋሜ ነው ...";
-     
+                       $this->emit('dangerNotification111', "Schedule Successfully Deleted!");
 
            }
            else{
+            $this->emit('beepBeepsuccessSound', "Schedule Successfully Deleted!");
          $ticke = new Ticke();
          $ticke->student_id = $this->student->id;
          $ticke->schedule_id = $schedule->id;

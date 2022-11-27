@@ -77,7 +77,7 @@ class Input extends Model
     public function check_one_hour($id)
     {
         $store = Store::find($id);
-        $date = Carbon::parse($store->created_at);
+        $date = Carbon::parse($store->updated_at);
         $current_hour = Carbon::now()->format('Y-m-d H:i:s');
         dd($date, $current_hour);
         if ($date->isToday()) {
@@ -93,9 +93,9 @@ class Input extends Model
         $date->modify('-1 hours');
         $formatted_date = $date->format('Y-m-d H:i:s');
 
-        $inStore = Store::where('type', 'in')->where('status', 'Approved')->where('created_at', '<', $formatted_date)
+        $inStore = Store::where('type', 'in')->where('status', 'Approved')->where('updated_at', '<', $formatted_date)
             ->where('inputs_id', $id)->sum('amount');
-        $outStore = Store::where('type', 'out')->where('status', 'Approved')->where('created_at', '<', $formatted_date)
+        $outStore = Store::where('type', 'out')->where('status', 'Approved')->where('updated_at', '<', $formatted_date)
             ->where('inputs_id', $id)->sum('amount');
         return $inStore - $outStore;
     }
