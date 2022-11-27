@@ -34,8 +34,6 @@ class StudentController extends Controller
                 $barcode = Image::make(DNS1D::getBarcodePNG($qr_data, 'C39E+'))->resize(1100, 200);
                 $card->insert($barcode, '', 60,550);
 
-
-
                 $card->text($student->name, 350, 230, function ($font) {
                     $font->file(public_path('css/id.ttf'));
                     $font->size(40);

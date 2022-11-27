@@ -83,7 +83,6 @@ Route::middleware(['super-admin'])->group(function () {
     Route::get('Student-Report', [SuperAdminController::class, 'TickerStudentReport'])->name('tickerReport');
     Route::post('import-student', [StudentController::class, 'importStudent'])->name('import-student');
 
-
     
 });
 
@@ -194,3 +193,10 @@ Route::post('/add_users',[userController::class,'add_users'])->name('add_users')
 Route::get('/edit_user/{id}',[userController::class,'edit_users'])->name('edit_user');
 Route::post('/update_user/{id}',[userController::class,'update_users'])->name('update_user');
 Route::get('/delete_user/{id}',[userController::class,'delete_users'])->name('delete_user');
+
+
+//forget pasword
+Route::get('/forget-password',[userController::class,'forgetPassword'])->name('forgetPassword');
+Route::get('/update-forget-password',[userController::class,'updateForgottenPasswordView'])->name('updateForgottenPasswordView');
+Route::post('/update-forget-password',[userController::class,'updateForgetPassword'])->name('updateForgetPassword');
+Route::post('send-email-to-verify', [userController::class, 'sendEmailToVerify'])->name('send-email-to-verify');

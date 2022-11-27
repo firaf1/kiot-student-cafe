@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\VerifyMail;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class userController extends Controller
 {
@@ -77,5 +81,53 @@ class userController extends Controller
         $deleteUser=User::find($id);
         $deleteUser->delete();
         return redirect('/view_user');
+    }
+
+
+    public function forgetPassword()
+    {
+        return view('forget-password');
+    } 
+    public function sendEmailToVerify(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $confirmation = rand(1000, 9999);
+        $email = $request->email;
+        $user = User::where('email', $email)->first();
+        if(!$user){
+            return back()->with('message', 'invalid email ');
+        }
+        Session::put('forgetConfirmation', $confirmation);
+        Session::put('user', $user);
+        Mail::to($user->email)->send(new VerifyMail($user->name, $confirmation));
+        return redirect()->route('updateForgottenPasswordView');
+    }
+
+     public function updateForgottenPasswordView()
+    {
+        return view('update-forget-password');
+    }
+
+    public function updateForgetPassword(Request $request)
+    {
+        $request->validate([
+            'confirm' => 'required|numeric',
+            'password' => 'required|min:6|max:20|confirmed',
+            'password_confirmation' => 'required|min:6|max:20|',
+        ]);
+        $confirmation = session('forgetConfirmation');
+        $user = session('user');
+        if ($confirmation != $request->confirm) {
+            return back()->with('message', 'invalid confirmation number');
+        } else {
+            $user =  User::findOrFail($user->id);
+            $user->password =  Hash::make($request->password);
+            $user->save();
+            Session::flush();
+            return redirect('login')->with('success', 'you have  changed your password successfully');
+        }
     }
 }
