@@ -19,12 +19,7 @@ class FrontCheck extends Component
 
 public function incrementPostCount($qr)
     {
-        $schedule = Schedule::where('type', 'active')->first();
-        if($schedule == null){
-           $this->status = 0;
-            $this->emit('tickProblemEmit', "Schedule Successfully Deleted!");
-            return $this->errorMessage = "there is no active schedule";
-        }
+       
 
        $this->student = Student::where('qr', $qr)->first();
        
@@ -38,6 +33,10 @@ public function incrementPostCount($qr)
             $not->save();
              
             $this->emit('dangerNotification111', "Schedule Successfully Deleted!");
+        }
+        else{
+          
+            $this->emit('beepBeepsuccessSound', "Schedule Successfully Deleted!");
         }
     }
        else{

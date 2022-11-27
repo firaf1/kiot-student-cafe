@@ -3,15 +3,18 @@
 namespace App\Http\Livewire;
 
 use App\Models\Role;
+use App\Models\User;
+use App\Models\Store;
 use Livewire\Component;
+use App\Models\RoleConsumption;
  
 
 class RoleIndex extends Component
 {
-    public $title, $startingDate,$schedule,$scheduleErrorMessage, $editTitle, $editEndDate,$schedule_id, $editStartDate, $endingDate, $schedules;
+    public $title, $conId, $editConName, $editconMeas, $conName, $editConId, $conMeasur, $startingDate,$schedule,$scheduleErrorMessage, $editTitle, $editEndDate,$schedule_id, $editStartDate, $endingDate, $schedules;
     protected $rules = [
 
-        'title' => 'required|unique:roles,name',
+        'title' => ['regex:/^[a-zA-Z\s]*$/','required','unique:roles,name']
        
         
 
@@ -62,10 +65,62 @@ class RoleIndex extends Component
     }
     public function delete()
     {
+        $users = User::where('role_id',$this->delete_id)->count();
+        if($user > 0){
+            return $this->emit('postAdded', "You Cann't delete this role becouse it has user Role!", 'success', 'right');
+
+        }
+
+        $role = RoleConsumption::where('role_id', $this->delete_id)->count();
+        if($role > 0){
+            return $this->emit('postAdded', "You Cann't delete this role becouse it has Consumption!", 'success', 'right');
+
+        }
+      
         $sche = Role::where('id', $this->delete_id)->first();
         $sche->delete();
         $this->mount();
         $this->emit('dangerNotification', "Schedule Successfully Deleted!");
+
+    }
+    public function addConsuption($id)
+    {
+        $this->conId = $id;
+    }
+    public function submitCon()
+    {
+        $this->validate([
+            'conName' => 'alpha|required|unique:role_consumptions,name',
+            'conMeasur' => 'alpha|required'
+        ]);
+        $con = new RoleConsumption();
+        $con->name = $this->conName;
+        $con->measurement = $this->conMeasur;
+        $con->role_id = $this->conId;
+        $con->save();
+        $this->emit('postAdded', "Successfully Added!", 'success', 'center');
+
+    }
+    public function editCon($id)
+    {
+       $this->editConId = $id;
+       $mm = RoleConsumption::where('role_id', $id)->first();
+       $this->editConName = $mm->name;
+       $this->editconMeas = $mm->measurement;
+
+    }
+    public function updatCon()
+    {
+        
+        $mm = RoleConsumption::where('role_id', $this->editConId)->first();
+        $this->validate([
+           'editConName' => 'alpha|required|unique:role_consumptions,name,'.$mm->id,
+           'editconMeas' => 'required|alpha'
+       ]);
+        $mm->name = $this->editConName;
+        $mm->measurement = $this->editconMeas;
+        $mm->save();
+        $this->emit('postAdded', "Successfully Updated!", 'success', 'right');
 
     }
     public function editSchedule($id)

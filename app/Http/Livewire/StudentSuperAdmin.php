@@ -29,6 +29,10 @@ class StudentSuperAdmin extends Component
         $this->emit('sweet_alert_comfirmation', "Student Successfully Imported!", 'success', 'Success');
         
     }
+    public function myMount()
+    {
+         $this->render();
+    }
     public function GenerateAgain()
     {
         $id = $this->delete_id;

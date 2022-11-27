@@ -216,26 +216,7 @@
                 <img src="{{ asset('front/hom.png') }} " class="fa" alt="">
             </div>
         </div>
-        <div class="slider-hexagon-wrapper">
-
-            <ul>
-                <li>
-                    <div class="hexagon one color-four"></div>
-                </li>
-                <li>
-                    <div class="hexagon one color-five"></div>
-                </li>
-                <li>
-                    <div class="hexagon one color-one"></div>
-                </li>
-                <li>
-                    <div class="hexagon one color-two"></div>
-                </li>
-                <li>
-                    <div class="hexagon three color-three"></div>
-                </li>
-            </ul>
-        </div>
+        
         <div class="slider-text">
             <div class="container">
                 <div class="row">

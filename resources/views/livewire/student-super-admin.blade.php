@@ -1,10 +1,13 @@
 <div>
-    <div wire:target="qrGenerete, file, submitForm, generateForOneStudent" wire:loading class=""
+    <div wire:target="qrGenerete,myMount, file, submitForm, generateForOneStudent" wire:loading class=""
         style="width:100%; height:100%; background:#060220de; position:fixed; top:0px; left:0px;
          z-index:999999">
         <div class="card-body">
-            <img style="position:absolute; top:50%; left:40%" src="loader2.gif" alt="">
-            <h3>please wait......</h3>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; display: block;" width="284px" height="284px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+<path fill="none" stroke="#ffffff" stroke-width="8" stroke-dasharray="42.76482137044271 42.76482137044271" d="M24.3 30C11.4 30 5 43.3 5 50s6.4 20 19.3 20c19.3 0 32.1-40 51.4-40 C88.6 30 95 43.3 95 50s-6.4 20-19.3 20C56.4 70 43.6 30 24.3 30z" stroke-linecap="round" style="transform:scale(0.8);transform-origin:50px 50px">
+  <animate attributeName="stroke-dashoffset" repeatCount="indefinite" dur="0.6711409395973155s" keyTimes="0;1" values="0;256.58892822265625"></animate>
+</path>
+</svg>
         </div>
     </div>
     <div class="page-header">
@@ -32,13 +35,15 @@
                         <div class="card-body">
 
                             <div class="row">
-                                <div class="col-6 mb-4">
+                                <div class="col-3 mb-4">
 
                                     <a href="#" class="btn btn-primary" data-toggle="modal"
                                         data-target="#normalmodal">
                                         <i class="fe fe-plus"></i> Import Student
                                     </a>
+                                   
                                 </div>
+                                <div class="col-3"> <a href="#" wire:click="myMount()" class="text-primary text">  <i class="fa fa-refresh" data-toggle="tooltip" title="" data-original-title="refresh"></i> </a></div>
                                 <div class="col-6 col-auto">
                                     <div class="form-group">
                                         <div class="input-icon">
@@ -54,7 +59,7 @@
                             @if ($students->count() == 0)
                                 <div class="">
 
-                                    <img src="http://127.0.0.1:8000/myData/no_data.gif "
+                                    <img src="{{asset('myData/no_data.gif') }}"
                                         style="width:38%; height:20hv; margin-left:30%;  " alt="">
                                     <h2 class="text-warning text-center">@lang('notDataFound')</h2>
                                 </div>
@@ -207,7 +212,7 @@
                     <h4 class="text-warning">Warning: Are your sure want Regenare a card?</h4>
                     <p class="mg-b-20 mg-x-20"> This card cann't be used any more it generate new card </p>
                     <button wire:click="GenerateAgain()" aria-label="Close" class="btn btn-danger pd-x-25"
-                        data-dismiss="modal" type="button">Continue</button>
+                        data-dismiss="modal" type="button">@lang('Continue')</button>
                 </div>
             </div>
         </div>

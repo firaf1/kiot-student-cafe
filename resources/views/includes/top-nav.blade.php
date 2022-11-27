@@ -118,7 +118,7 @@
 
                             @if (Auth::user()->image == null)
                                 @if (Auth::user()->gender == 'Male')
-                                    <img src="{{ asset('male_user.jpg') }}" style="width:100%; height:100%; "
+                                    <img src="{{ asset('male_user.jpg') }}" 
                                         alt="user-img" class="avatar avatar-md brround">
                                 @elseif(Auth::user()->gender == 'Female')
                                     <img src="{{ asset('female_user.jpg') }}" alt="user-img"
@@ -142,7 +142,7 @@
                                 @elseif(Auth::user()->role == '3')
                                     Admin
                                     @elseif(Auth::user()->role == '4')
-                                    Admin
+                                    @lang('securtyAdmin')
                                     @elseif(Auth::user()->role == '0')
                                     @lang('registeralOffice')
                                     @elseif(Auth::user()->role == '5')

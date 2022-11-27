@@ -1,8 +1,8 @@
 <div>
- 
+
 
 <div class="row">
-							 
+
 							<div class="col-md-12 col-lg-12 col-xl-12">
 								<div class="card">
 									<div class="card-body p-6">
@@ -33,20 +33,20 @@
                                             <th></th>
                                             <th>Title</th>
                                             <th>Type</th>
-                                            
+
 											<th>For</th>
                                             <th>Status</th>
                                             <th>Actions</th>
-                                           
+
                                         </tr>
                                     </thead>
 													<tbody>
-													  
+
 													 @foreach ($schedules as $sche)
                                                      <tr class="">
-                                                          
+
                                                          <td class="inbox-small-cells w-4">
-                                                             
+
                                                          @if($sche->status=="Approved")
                                                           <i class="fa fa-star text-warning"></i>
                                                            @else <i class="fa fa-star"></i>
@@ -54,45 +54,45 @@
                                                         </td>
 
                                                          <td class="view-message dont-show font-weight-semibold">
-                                                             
+
                                                             {{ $sche->title }}
                                                          </td>
 
                                                          <td class="view-message">
 															@if($sche->type == "inactive")
 															<span class="badge badge-danger-light mt-2">{{ $sche->type }}</span>
-															@else 
+															@else
 															<span class="badge badge-success-light mt-2">{{ $sche->type }}</span>
 															@endif
 															</td>
-														 
+
 														 <td>
 																@if($sche->is_for_both == 'cafe')
 															<div class="btn-group mt-2 mb-2">
-													<button type="button" class="btn btn-primary dropdown-toggle" 
+													<button type="button" class="btn btn-primary dropdown-toggle"
 													data-toggle="dropdown" aria-expanded="false">
 														Cafe <span class="caret"></span>
 													</button>
 													<ul class="dropdown-menu" role="menu" style="">
-														 
+
 														<li><a wire:click="Tocafe({{$sche->id}})" href="#">Cafe</a></li>
-														 
+
 														<li><a wire:click="Toboth({{$sche->id}})" href="#">Both</a></li>
-														 
+
 													</ul>
 												</div>
-												@else 
+												@else
 												<div class="btn-group mt-2 mb-2">
-													<button type="button" class="btn btn-success dropdown-toggle" 
+													<button type="button" class="btn btn-success dropdown-toggle"
 													data-toggle="dropdown" aria-expanded="false">
 														Both <span class="caret"></span>
 													</button>
 													<ul class="dropdown-menu" role="menu" style="">
-														 
+
 														<li><a wire:click="Tocafe({{$sche->id}})" href="#">Cafe</a></li>
-														 
+
 														<li><a   wire:click="Toboth({{$sche->id}})" href="#">Both</a></li>
-														 
+
 													</ul>
 												</div>
 												@endif
@@ -125,15 +125,15 @@
                                                         </td>
                                                          <td  >
                                                          <div class="btn-group align-top">
-																			<button class="btn btn-sm btn-success" type="button" 
+																			<button class="btn btn-sm btn-success" type="button"
                                                                           wire:click="editSchedule({{ $sche->id}})">Edit</button>
 																			<button wire:click="deletedId({{ $sche->id }})" data-toggle class="btn btn-sm p-2 btn-danger" type="button"><i class="fe fe-trash-2"></i></button>
 																		</div>
                                                          </td>
                                                      </tr>
-                                                         
+
                                                      @endforeach
-													  
+
 													</tbody>
 												</table>
 
@@ -141,7 +141,7 @@
 										</div>
 									</div>
 								</div>
-								 
+
 							</div>
 						</div>
 
@@ -153,9 +153,9 @@
 					<div class="modal-body text-center p-4">
 						<button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 						<i class="fe fe-x-circle fs-100 text-danger lh-1 mb-5 d-inline-block"></i>
-						<h4 class="text-danger">Warning: Are your sure want to delete?</h4>
-						<p class="mg-b-20 mg-x-20">this schedule may not be available any more it deleted permanently  </p>
-                        <button wire:click="delete" aria-label="Close" class="btn btn-danger pd-x-25" data-dismiss="modal" type="button">Continue</button>
+						<h4 class="text-danger">@lang('warningAreyoursurewanttodelete')</h4>
+						<p class="mg-b-20 mg-x-20">@lang('warningMessage')  </p>
+                        <button wire:click="delete" aria-label="Close" class="btn btn-danger pd-x-25" data-dismiss="modal" type="button">@lang('Continue')</button>
 					</div>
 				</div>
 			</div>
@@ -173,20 +173,20 @@
 						</div>
 						<div class="modal-body">
                             @if ($scheduleErrorMessage)
-                                
+
 							<div class="alert alert-light-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><i class="fa fa-frown-o mr-2" aria-hidden="true"></i>Oh snap!  {{ $scheduleErrorMessage }}.</div>
                             @endif
- 
+
                                 <label class="mt-4 ">Title</label>
-								<input type="text"  wire:model.defer="title"placeholder=" Title " 
+								<input type="text"  wire:model.defer="title"placeholder=" Title "
                                 class="form-control @error('title')
                                     is-invalid
                                 @enderror">
                                @error('title')
-                                <p class="text-danger">{{ $message }}</p>   
+                                <p class="text-danger">{{ $message }}</p>
                                @enderror
-                                
- 						 
+
+
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -198,7 +198,7 @@
 
 
 <!-- Edit modal -->
- 
+
 
             <div class="modal fade show" id="EditSchedule" tabindex="-1" wire:ignore.self role="dialog" aria-labelledby="normalmodal"  aria-modal="true">
 				<div class="modal-dialog" role="document">
@@ -213,12 +213,12 @@
 							<form action="{{ route('import-student') }} " method="post" enctype="multipart/form-data">
 								@csrf
                                 <label class="mt-4 ">Title</label>
-								<input type="text"  wire:model="editTitle" placeholder=" Title " 
+								<input type="text"  wire:model="editTitle" placeholder=" Title "
                                 class="form-control @error('editTitle')
                                     is-invalid
                                 @enderror">
                                @error('title')
-                                <p class="text-danger">{{ $message }}</p>   
+                                <p class="text-danger">{{ $message }}</p>
                                @enderror
                                 <label class="mt-4 ">Starting Date</label>
                                 <div class="d-flex">
@@ -233,10 +233,10 @@
  											</div><!-- input-group -->
 										</div>
                                         @error('editStartDate')
-                                <p class="text-danger">{{ $message }}</p>   
+                                <p class="text-danger">{{ $message }}</p>
                                @enderror
                                 <label class="mt-4 ">Ending Date</label>
-                              
+
                                 <div class="d-flex">
 											<div class="input-group wd-150">
 												<div class="input-group-prepend">
@@ -250,7 +250,7 @@
  											</div><!-- input-group -->
 										</div>
                                         @error('editEndDate')
-                                <p class="text-danger">{{ $message }}</p>   
+                                <p class="text-danger">{{ $message }}</p>
                                @enderror
  							</form>
 						</div>
@@ -261,5 +261,5 @@
 					</div>
 				</div>
 			</div>
-            
+
 </div>

@@ -102,9 +102,15 @@
     "Request": "ጥያቄዎች",
     "approvedRequest": "የጸደቁ ጥያቄዎች",
     "unapprovedRequest": "ያልተፈቀዱ ጥያቄዎች",
+    "addNewInputs": "አዲስ ግብዓቶችን ያክሉ",
     "totalReport": "ጠቅላላ ሪፖርት",
+    "addNewMeasuremtn": "አዲስ መለኪያ ያክሉ",
+    "title": "ርዕስ",
+    "warningAreyoursurewanttodelete": "ማስጠንቀቂያ፡ እርግጠኛ ነዎት መሰረዝ ይፈልጋሉ?",
+    "warningMessage": "ይህ ከአሁን በኋላ ላይገኝ ይችላል ከስርዓቱ እስከመጨረሻው ተሰርዟል።",
     "pendingRequest": "በመጠባበቅ ላይ ያሉ ጥያቄዎች",
-
+    "updateMeasurment": "መለኪያን አዘምን",
+     
 
 
 

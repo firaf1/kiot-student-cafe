@@ -2,4 +2,5 @@
 @section('content')
 
 @livewire('request-status')
+
 @endsection

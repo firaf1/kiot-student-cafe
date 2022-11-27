@@ -19,7 +19,7 @@
                             <div class="col col-auto mb-4">
                                 <div class="btn-group hidden-phone">
                                     <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#normalmodal">
-                                        <i class="fe fe-plus"></i> Add New Input
+                                        <i class="fe fe-plus"></i> @lang('addNewInputs')
                                     </a>
                                 </div>
                             </div>
@@ -29,10 +29,10 @@
                                 <thead class="">
                                     <tr>
 
-                                        <th>Name</th>
-                                        <th>Measurements</th>
-                                        <th>roles</th>
-                                        <th>Actions</th>
+                                        <th>@lang('Name')</th>
+                                        <th>@lang('Measurements')</th>
+                                        <th>@lang('Roles')</th>
+                                        <th>@lang('action')</th>
 
                                     </tr>
                                 </thead>
@@ -44,15 +44,14 @@
                                             <td>{{ $sche->name }}</td>
                                             <td>{{ $sche->measurement->name }}</td>
                                             <td>
-                                                 
+
 
                                                 @foreach($sche->roles($sche->id) as $value)
                                                 <div class="tag tag-danger">
 		{{ $value->role($value->role_id) }}
 		<span wire:click="delete_role({{ $value->id}})" class="tag-addon btn"><i class="fe fe-x"></i></span>
 	</div>
-                                                    @endforeach 
-                                              
+                                                    @endforeach
 
 
 
@@ -61,19 +60,20 @@
 
 
 
-                                               
-                                               
+
+
+
                                             </td>
                                             <td>
                                                 <div class="btn-group align-top">
                                                     <button class="btn btn-sm btn-success" type="button"
-                                                        wire:click="editSchedule({{ $sche->id }})">Edit</button>
+                                                        wire:click="editSchedule({{ $sche->id }})">@lang('edit')</button>
                                                     <button wire:click="deletedId({{ $sche->id }})" data-toggle
                                                         class="btn btn-sm p-2 btn-danger" type="button"><i
                                                             class="fe fe-trash-2"></i></button>
                                                 </div>
                                             </td>
-                                           
+
                                         </tr>
 
                                     @endforeach
@@ -98,10 +98,10 @@
                     <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                             aria-hidden="true">×</span></button>
                     <i class="fe fe-x-circle fs-100 text-danger lh-1 mb-5 d-inline-block"></i>
-                    <h4 class="text-danger">Warning: Are your sure want to delete?</h4>
-                    <p class="mg-b-20 mg-x-20">this schedule may not be available any more it deleted permanently </p>
+                    <h4 class="text-danger">@lang('warningAreyoursurewanttodelete')</h4>
+                    <p class="mg-b-20 mg-x-20">@lang('warningMessage') </p>
                     <button wire:click="delete" aria-label="Close" class="btn btn-danger pd-x-25" data-dismiss="modal"
-                        type="button">Continue</button>
+                        type="button">@lang('Continue')</button>
                 </div>
             </div>
         </div>
@@ -113,7 +113,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="normalmodal1">Add Input</h5>
+                    <h5 class="modal-title" id="normalmodal1">@lang('addInput')</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -123,7 +123,7 @@
 
 
 
-                    <label class="mt-4 ">Name</label>
+                    <label class="mt-4 ">@lang('Name')</label>
                     <input type="text" wire:model.defer="title" placeholder=" Name... " class="form-control @error('title')
                                     is-invalid
 @enderror">
@@ -135,19 +135,19 @@
                         <select  multiple="multiple" wire:model.defer="multi"
                             class=" select2 select211" style="width:100%; " >
 @foreach ($roles as $role)
-    
+
 <option value="{{ $role->id }}">{{ $role->name }}</option>
 @endforeach
-													 
+
                                                       </select>
-                      
- 
+
+
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="form-label"> Measurements <span class="text-red">*</span></label>
+                            <label class="form-label"> @lang('Measurements') <span class="text-red">*</span></label>
                             <select style="width:100%; "  class="form-control  custom-select select2" wire:model.defer="measurement">
-                                <option value="0">--select measurement--</option>
+                                <option value="0">-- @lang('selectitems') --</option>
                                 @foreach($measurements as $schedule)
                                     <option value="{{ $schedule->id }}">{{ $schedule->name }}</option>
                                 @endforeach
@@ -164,8 +164,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" wire:click="AddSchedule" class="btn btn-primary">Add Input</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"> @lang('Cancel') </button>
+                    <button type="button" wire:click="AddSchedule" class="btn btn-primary"> @lang('addInput')  </button>
                 </div>
             </div>
         </div>
@@ -178,7 +178,7 @@
 
 
 
-    
+
     <div class="modal fade show" id="EditSchedule" tabindex="-1" wire:ignore.self role="dialog"
         aria-labelledby="normalmodal" aria-modal="true">
         <div class="modal-dialog" role="document">
@@ -192,7 +192,7 @@
                 <div class="modal-body">
 
 
-                    <label class="mt-4 ">Title</label>
+                    <label class="mt-4 ">@lang('title')</label>
                     <input type="text" wire:model="editTitle" placeholder=" Title " class="form-control @error('editTitle')
                                     is-invalid
 @enderror">
@@ -201,7 +201,7 @@
                     @enderror
 
                     <div class="col-md-12">
-                    
+
                     <div class="form-group" >
 
                         <label class="form-label">Select Roles</label>
@@ -209,10 +209,10 @@
                  <select  multiple="multiple" wire:model.defer="edited_multi"
                             class=" select2 select211222" style="width:100%; " >
 @foreach ($roles as $role)
-    
+
 <option value="{{ $role->id }}">{{ $role->name }}</option>
 @endforeach
-													 
+
         </select>
         </div>
     @if($edited_roles !=null)
@@ -224,16 +224,16 @@
                 @endforeach
             </div>
      @endif
- 
+
                     </div>
 
-     
+
 
 
                         <div class="form-group">
-                            <label class="form-label"> Measurements <span class="text-red">*</span></label>
+                            <label class="form-label"> @lang('Measurement') <span class="text-red">*</span></label>
                             <select class="form-control  custom-select select2" wire:model.defer="editMeasurement">
-                                <option value="0">--select items--</option>
+                                <option value="0">-- @lang('selectitems') --</option>
                                 @foreach($measurements as $schedule)
                                     <option value="{{ $schedule->id }}">{{ $schedule->name }}</option>
                                 @endforeach
@@ -251,7 +251,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"> @lang('Cancel') </button>
                     <button type="button" wire:click="update_Schedule" class="btn btn-primary">Update Input</button>
                 </div>
             </div>
@@ -260,9 +260,9 @@
     @push('js')
 <script>
 	$(function() {
-	 
+
 $('.select211').select2({
-  
+
 
 }).on('change', function() {
 	@this.set('multi', $(this).val());
@@ -270,7 +270,7 @@ $('.select211').select2({
 })
 
 $('.select211222').select2({
-  
+
 
 }).on('change', function() {
 	@this.set('edited_multi', $(this).val());

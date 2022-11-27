@@ -29,8 +29,12 @@ Toast.fire({
             position: position
         });
         $('#normalmodal').modal('hide');
+        $('#modaldemo8112').modal('hide');
+        
+        $('#signApproved').modal('hide');
         $('#delete_shedule_modal').modal('hide');
-         
+        $('#modaldemo811').modal('hide');
+        
         $('#EditSchedule').modal('hide');
       
     })
@@ -135,7 +139,7 @@ Livewire.on('sweet_alert_comfirmation', (message, type, title) => {
 		});
       })
  
-      Livewire.on('notificationSound', postId => {
+      Livewire.on('notificationSound', (postId) => {
        
        var audio = new Audio('danger-alarm.mp3');
 audio.play();
@@ -144,5 +148,6 @@ setTimeout(function() {
     Livewire.emit('stopeAlarm')
      }, 5000);
 })
+
 	 
 </script>

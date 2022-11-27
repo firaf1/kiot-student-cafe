@@ -14,14 +14,15 @@ class StudentsImport implements ToCollection, WithHeadingRow
     public function collection(Collection $rows)
     {
         Validator::make($rows->toArray(), [
-            '*.first_name' => 'required',
-            '*.last_name' => 'required',
-            '*.department' => 'required',
-            '*.id_number' => 'required',
+            '*.first_name' => 'required|alpha',
+            '*.last_name' => 'required|alpha',
+            '*.department' => ['regex:/^[a-zA-Z\s]*$/','required'],
+            '*.id_number' => 'required|unique:students,id_number',
             '*.cafteria' => 'required',
-            '*.phone_number' => 'required',
+            '*.phone_number' => 'min:9|max:9|required|unique:students,phone_number',
             '*.registratin_type' => 'required',
         ])->validate();
+       
 
         foreach ($rows as $row) {
             if(Student::where('id_number', $row['id_number'])->count() == 0){

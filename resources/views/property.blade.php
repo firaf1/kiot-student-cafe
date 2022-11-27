@@ -190,7 +190,12 @@
 audio.play();
 
 })
-
+Livewire.on('beepBeepsuccessSound', postId => {
+       
+       var audio = new Audio('coin.mp3');
+audio.play();
+ 
+})
 </script>
         <!-- Dependency Scripts -->
         <script src="{{ asset('front/dependencies/popper.js/popper.min.js') }}"></script>

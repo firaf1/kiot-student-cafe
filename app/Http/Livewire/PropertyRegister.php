@@ -16,6 +16,8 @@ class PropertyRegister extends Component
     public $id_number, $first, $user, $second,$preview_id_numer, $msg, $third, $serial_number;
     public function preview()
     {
+        $temp = substr($this->preview_id_numer, 0, 7);
+       
         $this->emit('dddd');
         $this->user = Student::where('id_number', $this->preview_id_numer)->first();
         if(!$this->user){

@@ -15,10 +15,10 @@ class UserIndex extends Component
     protected $rules = [
         'password' => 'min:6|required',
         'password_confirmation' => 'required_with:password|same:password|min:6',
-        'firstName' => 'min:2|required',
-        'lastName' => 'min:2|required',
+        'firstName' => 'min:2|alpha|required',
+        'lastName' => 'min:2|alpha|required',
         // 'email' => 'min:6|required|unique:users,email,',
-        'phoneNumber' => 'min:10|required',
+        'phoneNumber' => 'min:10|max:10|required|unique:users,phone_number',
         'gender' => 'required',
 
         'role' => 'required',

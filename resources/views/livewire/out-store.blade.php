@@ -34,7 +34,7 @@
                                 <h2 class="text-warning text-center">@lang('notDataFound')</h2>
                             </div>
                         @else
-                            <div class="table-responsive" wire:poll>
+                            <div class="table-responsive" >
                                 <table class="table table-inbox table-hover text-nowrap mb-0">
                                     <thead class="">
                                         <tr>
@@ -49,7 +49,7 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody >
+                                    <tbody  wire:poll>
 
                                         @foreach ($items as $sche)
                                             <tr class="">
@@ -142,10 +142,10 @@
                     <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
                             aria-hidden="true">×</span></button>
                     <i class="fe fe-x-circle fs-100 text-danger lh-1 mb-5 d-inline-block"></i>
-                    <h4 class="text-danger">Warning: Are your sure want to delete?</h4>
-                    <p class="mg-b-20 mg-x-20">this schedule may not be available any more it deleted permanently </p>
+                    <h4 class="text-danger">@lang('warningAreyoursurewanttodelete')</h4>
+                    <p class="mg-b-20 mg-x-20">@lang('warningMessage') </p>
                     <button wire:click="delete" aria-label="Close" class="btn btn-danger pd-x-25" data-dismiss="modal"
-                        type="button">Continue</button>
+                        type="button">@lang('Continue')</button>
                 </div>
             </div>
         </div>

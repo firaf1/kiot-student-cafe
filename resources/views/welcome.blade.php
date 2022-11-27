@@ -190,6 +190,12 @@
 audio.play();
 
 })
+Livewire.on('beepBeepsuccessSound', postId => {
+       
+       var audio = new Audio('beep-beep.mp3');
+audio.play();
+ 
+})
 
 </script>
         <!-- Dependency Scripts -->

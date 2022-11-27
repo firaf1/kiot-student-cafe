@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class SuperAdminController extends Controller
 {
+
+    public function tickerConsuption()
+    {
+        return view('pages.tickerConsuption');
+    }
     public function schedule()
     {
         return view('pages.schedule');
@@ -21,6 +26,10 @@ class SuperAdminController extends Controller
     public function roles()
     {
         return view('pages.roles');
+    }
+    public function consuption()
+    {
+        return view('pages.consuption');
     }
     public function storeIndex()
     {

@@ -94,15 +94,15 @@
                                                     @if ($user->role == '1')
                                                         <span class="badge badge-primary ">@lang('cafeAdmin')</span>
                                                     @elseif ($user->role == '2')
-                                                        <span class="badge badge-secondary ">@lang('StoreAdmin')</span>
+                                                        <span class="badge badge-secondary "> @lang('StoreAdmin') </span>
                                                     @elseif ($user->role == '3')
-                                                        <span class="badge badge-warning ">Admin</span>
+                                                        <span class="badge badge-warning ">@lang('subAdmin')</span>
                                                     @elseif ($user->role == '4')
-                                                        <span class="badge badge-primary ">Ticker</span>
+                                                        <span class="badge badge-primary ">@lang('ticker')</span>
                                                     @elseif ($user->role == '5')
-                                                        <span class="badge badge-primary ">Security</span>
+                                                        <span class="badge badge-primary ">@lang('securtyAdmin')</span>
                                                     @elseif ($user->role == '0')
-                                                        <span class="badge badge-primary ">Registral</span>
+                                                        <span class="badge badge-primary ">@lang('registeralOffice')</span>
                                                     @endif
                                                 </td>
                                                 <td>
@@ -246,7 +246,7 @@
                         @enderror
                         <input type="text" wire:model.defer="phoneNumber"
                             class="form-control @error('phoneNumber')  is-invalid @enderror"
-                            placeholder="Phone Number">
+                            placeholder="09.......">
                     </div>
                 </div>
                 <div class="form-row">
@@ -306,12 +306,12 @@
                             @enderror
                             <select wire:model="role" class="  custom-select select2" style="width:100%; ">
                                 <option>--Select--</option>
-                                <option value="1">Cafe Admin</option>
+                                <option value="1">@lang('cafeAdmin')</option>
                                 <option value="2">@lang('StoreAdmin')</option>
-                                <option value="3">Admin</option>
-                                <option value="4">Ticker</option>
-                                <option value="5">Securty</option>
-                                <option value="0">Registeral</option>
+                                <option value="3">@lang('subAdmin')</option>
+                                <option value="4">@lang('ticker')</option>
+                                <option value="5">@lang('securtyAdmin')</option>
+                                <option value="0">@lang('registeralOffice')</option>
 
                             </select>
                         </div>
@@ -466,10 +466,10 @@
                         aria-hidden="true">×</span></button>
                 <i class="fe fe-x-circle fs-100 text-danger lh-1 mb-5 d-inline-block"></i>
 
-                <h4 class="text-danger">Warning: Are your sure want to delete?</h4>
-                <p class="mg-b-20 mg-x-20">this schedule may not be available any more it deleted permanently </p>
+                <h4 class="text-danger">@lang('warningAreyoursurewanttodelete')</h4>
+                <p class="mg-b-20 mg-x-20">@lang('warningMessage') </p>
                 <button wire:click="delete" aria-label="Close" class="btn btn-danger pd-x-25" data-dismiss="modal"
-                    type="button">Continue</button>
+                    type="button">@lang('Continue')</button>
             </div>
         </div>
     </div>

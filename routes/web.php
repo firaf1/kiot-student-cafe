@@ -37,39 +37,7 @@ Route::get('/clear-cache', function () {
 
     return back();
 });
-Route::get('qr', function () {
-     $date_time = date("Y");
-    dd($date_time);
-
-    // Student::where('qr', '!=', null)->delete();
-    // dd('dd');
-
-
-
-
-    /* This sets the $time variable to the current hour in the 24 hour clock format */
-    $time = date("H");
-    /* Set the $timezone variable to become the current timezone */
-    $timezone = date("e");
-    /* If the time is less than 1200 hours, show good morning */
-    if ($time < "12") {
-        echo "Good morning";
-    } else
-    /* If the time is grater than or equal to 1200 hours, but less than 1700 hours, so good afternoon */
-    if ($time >= "12" && $time < "17") {
-        echo "Good afternoon";
-    } else
-    /* Should the time be between or equal to 1700 and 1900 hours, show good evening */
-    if ($time >= "17" && $time < "19") {
-        echo "Good evening";
-    } else
-    /* Finally, show good night if the time is greater than or equal to 1900 hours */
-    if ($time >= "19") {
-        echo "Good night";
-    }
-});
-
-
+ 
 Route::get('lockscreen', [LockScreenController::class, 'get'])->name('lock');
 
 Route::post('unlock', [LockScreenController::class, 'post'])->name('unlock');
@@ -91,7 +59,7 @@ Route::middleware(['isLocked'])->group(function () {
         Route::middleware(['ticker'])->group(function () {
 
     Route::get('schedules', [SuperAdminController::class, 'schedules'])->name('schedules');
-
+Route::get('ticker-consuption',[SuperAdminController::class, 'tickerConsuption'])->name('tickerConsuption');
     });
  Route::middleware(['registeral'])->group(function () {
 
@@ -139,7 +107,7 @@ Route::middleware(['store-admin'])->group(function () {
 Route::middleware(['admin'])->group(function () {
     Route::get('dashboard', [DashboardContorller::class, 'betDashboard'])->name('betDashboard');
     Route::get('out-store', [SuperAdminController::class, 'outstore'])->name('out-store');
-
+    Route::get('consuption', [SuperAdminController::class, 'consuption'])->name('consuption');
 
 });
 
@@ -163,6 +131,7 @@ return view('pages.profile');
 }); //auth end
 });
 });
+
 Route::get('/', function () {
     return view('welcome');
 });

@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use App\Models\Role;
+use App\Models\RoleConsumption;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -39,6 +41,22 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+
+    public function roleNameCheck()
+    {
+       $role = Role::find(Auth::user()->role_id);
+       $roleCon = RoleConsumption::where('role_id', $role->id)->first();
+       if($roleCon) return $role->name;
+       return '';
+    }
+
+     public function roleName()
+     {
+        $role = Role::find(Auth::user()->role_id);
+        if($role) return $role->name;
+        return '';
+     }
+
     public function role1()
     {
         return $this->belongsTo(Role::class, 'role_id');

@@ -13,7 +13,7 @@
 		<meta name="keywords" content="laravel admin dashboard, best laravel admin panel, laravel admin dashboard, php admin panel template, blade template in laravel, laravel dashboard template, laravel template bootstrap, laravel simple admin panel,laravel dashboard template,laravel bootstrap 4 template, best admin panel for laravel,laravel admin panel template, laravel admin dashboard template, laravel bootstrap admin template, laravel admin template bootstrap 4"/>
 
 		<!-- Title -->
-		<title>KIOT-STUDENT-CAFE</title>
+		<title>  @lang('wolloUniversity') </title>
 
 		<!--Favicon -->
 		<link rel="icon" href="{{ asset('back/assets/images/brand/favicon.png')}}" type="image/x-icon"/>

@@ -29,7 +29,27 @@ class LockScreenController extends Controller
 
         if(Hash::check($password,Auth::user()->password)){
             Session::forget('locked');
-            return redirect('/dashboard');
+          if (Auth::user()->role == '1') {
+           return redirect(route('superAdminDashboard'));
+        } elseif(Auth::user()->role == '2'){
+           return redirect(route('storeDashboard'));
+        }
+
+         elseif(Auth::user()->role == '3'){
+           return redirect(route('betDashboard'));
+        }
+        elseif(Auth::user()->role == '0'){
+           return redirect(route('add-user'));
+        }
+        elseif(Auth::user()->role == '4'){
+           return redirect(route('securtyDashboard'));
+        }
+        elseif(Auth::user()->role == '5'){
+           return redirect(route('schedules'));
+        }
+        }
+        else{
+            return back();
         }
     }
 }

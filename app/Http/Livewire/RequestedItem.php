@@ -2,14 +2,13 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\User;
 use App\Models\Input;
 use App\Models\Store;
-use Livewire\Component;
-use Livewire\WithPagination;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Livewire\Component;
+use Livewire\WithPagination;
 
 class RequestedItem extends Component
 {
@@ -26,40 +25,39 @@ class RequestedItem extends Component
     {
         if ($this->search != null) {
             $searchInput = Input::where('name', 'like', $this->search)->orWhere('name', 'like', '%' . $this->search . '%')->get();
- 
+
             if ($searchInput->count() > 0) {
-              
+
                 // dd($searchInput);
                 $i = 0;
                 $isF = false;
                 $this->searchItems = null;
                 foreach ($searchInput as $se) {
-                   
-                    
+
                     $store = Store::where('inputs_id', $se->id)->where('type', 'out')->where('status', 'Approved')->get();
-                    if($store->count() != 0) {
+                    if ($store->count() != 0) {
                         $isF = true;
 
                         $i = 0;
-                        foreach($store as $st){
+                        foreach ($store as $st) {
                             if ($this->searchItems == null) {
                                 $this->searchItems = $store;
                             } else {
                                 $this->searchItems->push($st);
-                                 
+
                             }
                             $i++;
                         }
                     }
-                   
+
                 }
-                if($isF){
+                if ($isF) {
                     $this->isNotFound = false;
-                } else{
+                } else {
                     $this->isNotFound = true;
                     $this->searchItems = null;
                 }
-                
+
             } else {
                 $this->searchItems = null;
                 $this->isNotFound = true;
@@ -73,7 +71,7 @@ class RequestedItem extends Component
             $this->resetPage();
 
         }
-        
+
     }
 
     public function approvedStore($id)
@@ -83,36 +81,36 @@ class RequestedItem extends Component
         $this->emit('signApproved', "Schedule Successfully Approved!", 'success', 'right');
         $this->resetPage();
     }
-     
+
     public function save()
     {
-       if($this->password == null){
-  
-        $this->emit('postAdded', "Password field is required!", 'error', 'center', 'Error');
-     
-       } else{
-        
-        $store = Store::findOrFail($this->editedId);
-   
-        $user = User::findOrFail($store->user_id);
-        
-        if (Hash::check($this->password, $user->password)) {
-$store->status = "Taken";
-$store->approved_by = Auth::user()->id;
-$store->save();
-$this->emit('postAdded', "Successfully Updated!", 'success', 'center' , 'Success');
-$this->reset();
-        }else{
-            $this->emit('postAdded', "Wrong Credential!", 'error', 'center' , 'Error');
-      
+        if ($this->password == null) {
+
+            $this->emit('postAdded', "Password field is required!", 'error', 'center', 'Error');
+
+        } else {
+
+            $store = Store::findOrFail($this->editedId);
+
+            $user = User::findOrFail($store->user_id);
+
+            if (Hash::check($this->password, $user->password)) {
+                $store->status = "Taken";
+                $store->approved_by = Auth::user()->id;
+                $store->save();
+                $this->emit('postAdded', "Successfully Updated!", 'success', 'center', 'Success');
+                $this->reset();
+            } else {
+                $this->emit('postAdded', "Wrong Credential!", 'error', 'center', 'Error');
+
+            }
+            //    dd($this->editedId);
         }
-        //    dd($this->editedId);
-       }
     }
     public function UnapprovedStore($id)
     {
         $store = Store::find($id);
-      
+
         $store->status = "Unapproved";
         $store->save();
         $this->emit('postAdded', "Items Successfully Unapproved!", 'success', 'right');
@@ -121,7 +119,7 @@ $this->reset();
     public function render()
     {
         if ($this->searchItems != null) {
-            
+
             return view('livewire.requested-item', ['items' => $this->searchItems]);
         } else {
             $this->totalItems = Store::where('type', 'out')->where('status', 'Approved')->count();

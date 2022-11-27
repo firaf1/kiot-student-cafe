@@ -1,16 +1,16 @@
 <div>
 <div class="row">
-							 
+
 							<div class="col-md-10 col-lg-10 col-xl-10">
 								<div class="card">
 									<div class="card-body p-6">
 										<div class="inbox-body">
 											<div class="row">
-												 
+
 												<div class="col col-auto mb-4">
 													<div class="btn-group hidden-phone">
                                                     <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#normalmodal">
-                                        <i class="fe fe-plus"></i> Add New Measurement
+                                        <i class="fe fe-plus"></i> @lang('addNewMeasuremtn')
                                     </a>
 												</div>
 												</div>
@@ -19,31 +19,31 @@
 												<table class="table table-inbox table-hover text-nowrap mb-0">
                                                 <thead class="">
                                         <tr>
-                                           
-                                            <th>Title</th>
-                                            
-                                            <th>Actions</th>
-                                           
+
+                                            <th>@lang('title')</th>
+
+                                            <th>@lang('action')</th>
+
                                         </tr>
                                     </thead>
 													<tbody>
-													  
+
 													 @foreach ($schedules as $sche)
                                                      <tr class="">
-                                                          
+
                                                         <td>{{ $sche->name}}</td>
-                                                          
+
                                                          <td  >
                                                          <div class="btn-group align-top">
-																			<button class="btn btn-sm btn-success" type="button" 
-                                                                          wire:click="editSchedule({{ $sche->id}})">Edit</button>
+																			<button class="btn btn-sm btn-success" type="button"
+                                                                          wire:click="editSchedule({{ $sche->id}})">@lang('edit')</button>
 																			<button wire:click="deletedId({{ $sche->id }})" data-toggle class="btn btn-sm p-2 btn-danger" type="button"><i class="fe fe-trash-2"></i></button>
 																		</div>
                                                          </td>
                                                      </tr>
-                                                         
+
                                                      @endforeach
-													  
+
 													</tbody>
 												</table>
 
@@ -51,7 +51,7 @@
 										</div>
 									</div>
 								</div>
-								 
+
 							</div>
 						</div>
 
@@ -63,9 +63,9 @@
 					<div class="modal-body text-center p-4">
 						<button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 						<i class="fe fe-x-circle fs-100 text-danger lh-1 mb-5 d-inline-block"></i>
-						<h4 class="text-danger">Warning: Are your sure want to delete?</h4>
-						<p class="mg-b-20 mg-x-20">this schedule may not be available any more it deleted permanently  </p>
-                        <button wire:click="delete" aria-label="Close" class="btn btn-danger pd-x-25" data-dismiss="modal" type="button">Continue</button>
+						<h4 class="text-danger">@lang('warningAreyoursurewanttodelete')</h4>
+						<p class="mg-b-20 mg-x-20">@lang('warningMessage')  </p>
+                        <button wire:click="delete" aria-label="Close" class="btn btn-danger pd-x-25" data-dismiss="modal" type="button">@lang('Continue')</button>
 					</div>
 				</div>
 			</div>
@@ -76,35 +76,35 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="normalmodal1">Add Measuremen</h5>
+							<h5 class="modal-title" id="normalmodal1">@lang('addNewMeasuremtn')</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">×</span>
 							</button>
 						</div>
 						<div class="modal-body">
                             @if ($scheduleErrorMessage)
-                                
+
 							<div class="alert alert-light-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><i class="fa fa-frown-o mr-2" aria-hidden="true"></i>Oh snap!  {{ $scheduleErrorMessage }}.</div>
                             @endif
 
 							<form>
 								@csrf
-                                <label class="mt-4 ">Name</label>
-								<input type="text"  wire:model.defer="title"placeholder=" Name... " 
+                                <label class="mt-4 ">@lang('Name')</label>
+								<input type="text"  wire:model.defer="title"placeholder="@lang('Name') ... "
                                 class="form-control @error('title')
                                     is-invalid
                                 @enderror">
                                @error('title')
-                                <p class="text-danger">{{ $message }}</p>   
+                                <p class="text-danger">{{ $message }}</p>
                                @enderror
-                                
-                                 
-                                  
+
+
+
  							</form>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" wire:click="AddSchedule" class="btn btn-primary">Add Measurement</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Cancel')</button>
+							<button type="button" wire:click="AddSchedule" class="btn btn-primary">@lang('addNewMeasuremtn')</button>
 						</div>
 					</div>
 				</div>
@@ -114,7 +114,7 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="normalmodal1">Update Schedule</h5>
+							<h5 class="modal-title" id="normalmodal1">@lang('updateMeasurment')</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">×</span>
 							</button>
@@ -122,24 +122,24 @@
 						<div class="modal-body">
 							<form>
 								@csrf
-                                <label class="mt-4 ">Title</label>
-								<input type="text"  wire:model="editTitle" placeholder=" Title " 
+                                <label class="mt-4 ">@lang('title')</label>
+								<input type="text"  wire:model="editTitle" placeholder=" @lang('title') "
                                 class="form-control @error('editTitle')
                                     is-invalid
                                 @enderror">
                                @error('title')
-                                <p class="text-danger">{{ $message }}</p>   
+                                <p class="text-danger">{{ $message }}</p>
                                @enderror
-                               
-                                
+
+
  							</form>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" wire:click="update_Schedule" class="btn btn-primary">Update Measurement</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Cancel')</button>
+							<button type="button" wire:click="update_Schedule" class="btn btn-primary">@lang('updateMeasurment')</button>
 						</div>
 					</div>
 				</div>
 			</div>
-            
+
 </div>

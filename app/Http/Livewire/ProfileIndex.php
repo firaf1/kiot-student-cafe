@@ -30,7 +30,13 @@ class ProfileIndex extends Component
     {
         if($this->email != null){
             $this->validate([
-                'email'=>'email|max:32|unique:users',
+                'email'=>'email|max:32|unique:users,email,'.Auth::user()->id,
+
+            ]);
+        }
+        if($this->phone_number != null){
+            $this->validate([
+                'phone_number'=>'max:10|unique:users,phone_number,'.Auth::user()->id,
 
             ]);
         }
