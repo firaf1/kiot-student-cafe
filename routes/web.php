@@ -79,7 +79,7 @@ Route::middleware(['super-admin'])->group(function () {
     Route::get('roles',[SuperAdminController::class, 'roles'])->name('roles');
     Route::get('Measurement', [SuperAdminController::class, 'measurement'])->name('measurement');
     Route::get('schedule', [SuperAdminController::class, 'schedule'])->name('schedule');
-   
+       Route::get('consumption-report', [SuperAdminController::class, 'consumptionReport'])->name('consumptionReport');
     Route::get('Student-Report', [SuperAdminController::class, 'TickerStudentReport'])->name('tickerReport');
     Route::post('import-student', [StudentController::class, 'importStudent'])->name('import-student');
 

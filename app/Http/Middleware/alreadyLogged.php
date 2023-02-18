@@ -19,7 +19,24 @@ class alreadyLogged
     public function handle(Request $request, Closure $next)
     {
        if(Auth::check()) {
-        return  Redirect::back();
+        if (Auth::user()->role == '1') {
+            return redirect(route('superAdminDashboard'));
+        } elseif(Auth::user()->role == '2'){
+            return redirect(route('storeDashboard'));
+        }
+
+         elseif(Auth::user()->role == '3'){
+            return redirect(route('betDashboard'));
+        }
+        elseif(Auth::user()->role == '0'){
+            return redirect(route('add-user'));
+        }
+        elseif(Auth::user()->role == '4'){
+            return redirect(route('securtyDashboard'));
+        }
+        elseif(Auth::user()->role == '5'){
+            return redirect(route('schedules'));
+        }
        }
        return $next($request);
     }

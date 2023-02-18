@@ -54,23 +54,23 @@ class UserIndex extends Component
 
     }
 
-    public function AddUser()
-    {
+        public function AddUser()
+        {
 
-        $this->validate();
-        $user = new User();
-        $user->fname = $this->firstName;
-        $user->lname = $this->lastName;
-        $user->phone_number = $this->phoneNumber;
-        $user->password = Hash::make($this->password);
-        $user->status = "Approved";
-        $user->role = $this->role;
-        $user->gender = $this->gender;
-        $user->save();
-        $this->render();
-        $this->emit('SweetAletSuccessNotification', "Successfully Registered", 'success', 'right');
+            $this->validate();
+            $user = new User();
+            $user->fname = $this->firstName;
+            $user->lname = $this->lastName;
+            $user->phone_number = $this->phoneNumber;
+            $user->password = Hash::make($this->password);
+            $user->status = "Approved";
+            $user->role = $this->role;
+            $user->gender = $this->gender;
+            $user->save();
+            $this->render();
+            $this->emit('SweetAletSuccessNotification', "Successfully Registered", 'success', 'right');
 
-    }
+        }
     public function editUser($id)
     {
         $this->reset();

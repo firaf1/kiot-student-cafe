@@ -11,6 +11,10 @@ class SuperAdminController extends Controller
     {
         return view('pages.tickerConsuption');
     }
+    public function consumptionReport()
+    {
+        return view('pages.consumptionReport');
+    }
     public function schedule()
     {
         return view('pages.schedule');

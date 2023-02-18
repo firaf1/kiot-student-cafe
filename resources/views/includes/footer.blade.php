@@ -80,6 +80,7 @@
 		<script src="{{ asset('back/assets/plugins/sweet-alert/jquery.sweet-modal.min.js') }}"></script>
 		<script src="{{ asset('back/assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
 		<script src="{{ asset('back/assets/js/sweetalert2.all.js') }}"></script>
+		
 		<script src="{{ asset('back/assets/plugins/multipleselect/multiple-select.js') }}"></script>
 		<script src="{{ asset('back/assets/plugins/multipleselect/multi-select.js') }}"></script>
 		<script src="{{ asset('back/assets/plugins/multi/multi.min.js') }}"></script>

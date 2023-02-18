@@ -51,7 +51,7 @@
                                                 <i class="fe fe-search"></i>
                                             </span>
                                             <input type="text" wire:model="search" class="form-control"
-                                                placeholder="Search User">
+                                                placeholder="Search Student">
                                         </div>
                                     </div>
                                 </div>

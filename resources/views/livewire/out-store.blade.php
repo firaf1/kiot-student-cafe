@@ -123,7 +123,9 @@
                                         <div class="p-2">{{ $items->links() }}</div>
                                     @endif
                                 </div>
+
                             </div>
+                           
                         @endif
 
                     </div>

@@ -125,6 +125,16 @@
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M18 9l-1.41-1.42L10 14.17l-2.59-2.58L6 13l4 4zm1-6h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-.14 0-.27.01-.4.04-.39.08-.74.28-1.01.55-.18.18-.33.4-.43.64-.1.23-.16.49-.16.77v14c0 .27.06.54.16.78s.25.45.43.64c.27.27.62.47 1.01.55.13.02.26.03.4.03h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-.25c.41 0 .75.34.75.75s-.34.75-.75.75-.75-.34-.75-.75.34-.75.75-.75zM19 19H5V5h14v14z"></path></svg>
                     <span class="side-menu__label">@lang('Report')</span> </a>
             </li>
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('consumptionReport') }}">
+                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24"
+                        viewBox="0 0 24 24" width="24">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
+                    </svg>
+                <span class="side-menu__label"> @lang('consumptionReport') </span> </a>
+            </li>
         @endif
 
         @if (Auth::user()->role == '5')
@@ -136,7 +146,7 @@
                         <path
                             d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
                     </svg>
-                    <span class="side-menu__label">Consumption</span> </a>
+                    <span class="side-menu__label">@lang('Consumption')</span> </a>
             </li>
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('schedules') }}">
@@ -237,7 +247,7 @@
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('consuption') }}">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0zm18.31 6l-2.76 5z" fill="none"></path><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z"></path></svg>
-                    <span class="side-menu__label">Consumption</span> </a>
+                    <span class="side-menu__label">@lang('Consumption')</span> </a>
             </li>
 
             @endif

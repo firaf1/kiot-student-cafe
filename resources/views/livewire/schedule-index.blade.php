@@ -127,8 +127,8 @@
                                                          <div class="btn-group align-top">
 																			<button class="btn btn-sm btn-success" type="button"
                                                                           wire:click="editSchedule({{ $sche->id}})">Edit</button>
-																			<button wire:click="deletedId({{ $sche->id }})" data-toggle class="btn btn-sm p-2 btn-danger" type="button"><i class="fe fe-trash-2"></i></button>
-																		</div>
+
+ 																		</div>
                                                          </td>
                                                      </tr>
 

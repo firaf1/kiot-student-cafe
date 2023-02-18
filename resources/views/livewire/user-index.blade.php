@@ -10,12 +10,11 @@
                             <span class="input-icon-addon">
                                 <i class="fe fe-search"></i>
                             </span>
-                            <input type="text" wire:model="search" class="form-control" placeholder="Search Users">
+                            <input type="text" wire:model="search" class="form-control" placeholder="@lang('searchUser')">
                         </div>
                     </div>
                     <div class="card-options">
-                        <button class="btn btn-primary mx-10" data-toggle="modal" data-target="#addUser">Add New
-                            User</button>
+                        <button class="btn btn-primary mx-10" data-toggle="modal" data-target="#addUser">@lang('addnewUser')</button>
 
                     </div>
                 </div>
@@ -32,12 +31,12 @@
                             <table class="table table-hover table-vcenter text-nowrap mb-0 table-striped   border-top">
                                 <thead class="">
                                     <tr>
-                                        <th>User info</th>
-                                        <th>gender</th>
-                                        <th>Role</th>
-                                        <th>Roles</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>@lang('userInfo')</th>
+                                        <th>@lang('gender')</th>
+                                        <th> @lang('adminRole') </th>
+                                        <th>@lang('Roles')</th>
+                                        <th>@lang('status')</th>
+                                        <th>@lang('action')</th>
                                     </tr>
                                 </thead>
                                 <tbody>

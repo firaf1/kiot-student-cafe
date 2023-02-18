@@ -111,10 +111,13 @@
     "pendingRequest": "በመጠባበቅ ላይ ያሉ ጥያቄዎች",
     "updateMeasurment": "መለኪያን አዘምን",
      
-
-
-
-
+    "addnewUser": "አዲስ ተጠቃሚ ያክሉ",
+    "userInfo": "የተጠቃሚ መረጃ",
+    "adminRole": "የአስተዳዳሪ ሚና",
+    "gender": "ጾታ",
+    "consumptionReport": "የፍጆታ ሪፖርት",
+    "Consumption": "ፍጆታ",
+    "searchUser": "ተማሪን ፈልግ",
 
 
 
